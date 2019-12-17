@@ -97,7 +97,7 @@ public class ArticleController {
 	}
 	
 	@RequestMapping("/practice")
-	public String index() {
+	public String index1() {
 		return "practice";
 	}
 }
