@@ -1,5 +1,8 @@
 package com.example.controller;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Article;
+import com.example.form.ArticleForm;
 import com.example.service.ArticleService;
 
 /**
@@ -40,5 +44,21 @@ public class ArticleController {
 		}
 		model.addAttribute("articleList", articleList);
 		return "article_list";
+	}
+	
+	@RequestMapping("/registerArticle")
+	public String RegisterArticle(ArticleForm articleForm,Model model) {
+		Article article = new Article();
+		article.setId(Integer.parseInt(articleForm.getId()));
+		article.setTitle(articleForm.getTitle());
+		article.setName(articleForm.getName());
+		article.setContent(articleForm.getContent());
+		LocalDate localDate = LocalDate.now();
+		Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+		article.setPostDate(date);
+		article.setImagePath(articleForm.getImagePath());
+	    service.registerArticle(article);
+	    
+	    return "article_List";
 	}
 }

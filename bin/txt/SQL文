@@ -1,0 +1,10 @@
+-- 記事
+
+create table articles (
+ id serial primary key
+ , name varchar(100) not null
+ , content text not null
+ , image_path text
+); 
+
+insert into articles values('京都に行きたくなる！世界的に有名な神社・寺を回ろう！','たのしい','kyoto.jpg');

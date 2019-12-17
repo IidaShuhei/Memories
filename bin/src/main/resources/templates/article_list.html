@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="row">
+		<div>
+			<div class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-10 col-xs-12" style="background-color: white;">
+				<table class="table table-striped">
+					<tbody>
+						<tr th:each="article : ${articleList}" class="col-lg-4" style="height: 320px;">
+							<th><a th:href="@{'/showArticleDetail?id='+${article.id}}"> 
+							<img th:src="${'/img/' + article.imagePath}" class="img-responsive img-rounded" width="200" height="600"></a><br> 
+							<a th:href="@{'/showArticleDetail?id='+${article.id}}"> 
+							<span th:text="${article.name}"></span></a><br> 
+							</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+</div>
+</body>
+</html>

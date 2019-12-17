@@ -1,66 +1,67 @@
 package com.example.domain;
 
+import java.util.Date;
+
 public class Article {
 
 	private Integer id;
+	private String title;
 	private String name;
 	private String content;
+	private Date postDate;
 	private String imagePath;
+	
+	
+	public String getTitle() {
+		return title;
+	}
 
-	/**
-	 * @return the id
-	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+	public Date getPostDate() {
+		return postDate;
+	}
+
+	public void setPostDate(Date postDate) {
+		this.postDate = postDate;
+	}
+
 	public Integer getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	/**
-	 * @return the name
-	 */
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * @param name the name to set
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/**
-	 * @return the content
-	 */
 	public String getContent() {
 		return content;
 	}
 
-	/**
-	 * @param content the content to set
-	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
 
-	/**
-	 * @return the imagePath
-	 */
 	public String getImagePath() {
 		return imagePath;
 	}
 
-	/**
-	 * @param imagePath the imagePath to set
-	 */
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
+
+
+
 
 }
