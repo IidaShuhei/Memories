@@ -1,10 +1,13 @@
 -- 記事
+drop table articles;
 
 create table articles (
  id serial primary key
- , name varchar(100) not null
+ , title varchar(100)
+ , name text not null
  , content text not null
- , image_path text
+ , post_date date 
+ , image_path text not null
 ); 
 
-insert into articles values('京都に行きたくなる！世界的に有名な神社・寺を回ろう！','たのしい','kyoto.jpg');
+insert into articles(title,name,content,post_date,image_path) values('京都旅行','京都に行きたくなる！世界的に有名な神社・寺を回ろう！','たのしい','2019-12-12','kyoto.jpg');

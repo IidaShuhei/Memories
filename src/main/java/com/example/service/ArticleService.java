@@ -34,4 +34,12 @@ public class ArticleService {
 	public List<Article> showArticleListFindByName(String name) {
 		return repository.findByName(name);
 	}
+	
+	/**
+	 *記事情報を登録する.
+	 * @param article
+	 */
+	public void registerArticle(Article article) {
+		 repository.insert(article);
+	}
 }
