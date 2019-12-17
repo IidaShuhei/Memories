@@ -26,6 +26,11 @@ public class ArticleController {
 
 	@Autowired
 	private ArticleService service;
+	
+	@RequestMapping("")
+	public String index() {
+		return "article_list";
+	}
 
 	/**
 	 * 記事を曖昧検索する.
@@ -34,7 +39,7 @@ public class ArticleController {
 	 * @param model モデル
 	 * @return 記事一覧
 	 */
-	@RequestMapping("")
+	@RequestMapping("/findByName")
 	public String findByName(String name, Model model) {
 		List<Article> articleList = service.showArticleListFindByName(name);
 		if (articleList.isEmpty()) {

@@ -12,7 +12,7 @@
 <font size="7" face="Comic Sans MS">TRAVEL AROUND</font>
 </div>
 
-<img src="../static/img/japanMap.png" width="750" class="japanMap">
+<img th:src="@{/img/japanMap.png}" width="750" class="japanMap">
 
 <!-- 北海道 -->
 <a href="https://www.shigoto-ryokou.com/detail/573" class="hokkaido" style="text-decoration:none;font-size:10pt;">北海道</a>
@@ -77,6 +77,18 @@
 <a href="https://www.shigoto-ryokou.com/detail/573" class="kagoshima" style="text-decoration:none;font-size:10pt;">鹿児島</a>
 <a href="https://www.shigoto-ryokou.com/detail/573" class="okinawa" style="text-decoration:none;font-size:10pt;">沖縄</a>
 
+<div class="text2">
+<form th:action="@{/registerArticle}" method="post" enctype="multipart/form-data">
+<button class="btn-square-so-pop" style="width:100px;height:50px">投稿</button>
+</form>
+</div>
+
+<div class="text3">
+<form th:action="@{/registerArticle}" method="post" enctype="multipart/form-data">
+<input type="text" name="title">
+<button class="circle_spread_btn" style="width:50px;height:50px">検索</button>
+</form>
+</div>
 
 <div class="row">
 		<div>
