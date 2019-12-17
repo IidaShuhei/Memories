@@ -218,3 +218,146 @@ a.wakayama:before{
   background-color: yellow;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
+a.tottori{
+	position: relative;
+	left:50px;
+	bottom:348px;
+}
+a.shimane{
+	position: relative;
+	left:65px;
+	bottom:348px;
+}
+a.okayama{
+	position: relative;
+	left:-13px;
+	bottom:318px;
+}
+a.hiroshima{
+	position: relative;
+	left:2px;
+	bottom:318px;
+}
+a.yamaguchi{
+	position: relative;
+	left:-77px;
+	bottom:288px;
+}
+a.yamaguchi:before{
+  content: '';
+  position: absolute;
+  left: -30%;
+  bottom: -10px;/*線の上下位置*/
+  display: inline-block;
+  width: 120px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-12%);/*位置調整*/
+  background-color: orange;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
+}
+a.tokushima{
+	position: relative;
+	left:-35px;
+	bottom:120px;
+}
+a.kagawa{
+	position: relative;
+	left:-25px;
+	bottom:120px;
+}
+a.ehime{
+	position: relative;
+	left:-99px;
+	bottom:93px;
+}
+a.kochi{
+	position: relative;
+	left:-88px;
+	bottom:93px;
+}
+a.kochi:before{
+  content: '';
+  position: absolute;
+  left: -30%;
+  bottom: -10px;/*線の上下位置*/
+  display: inline-block;
+  width: 120px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-47%);/*位置調整*/
+  background-color:pink;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
+}
+a.fukuoka{
+	position: relative;
+	right:440px;
+	bottom:150px;
+}
+a.saga{
+	position: relative;
+	right:420px;
+	bottom:150px;
+}
+a.nagasaki{
+	position: relative;
+	right:504px;
+	bottom:120px;
+}
+a.kumamoto{
+	position: relative;
+	right:483px;
+	bottom:120px;
+}
+a.oita{
+	position: relative;
+	right:568px;
+	bottom:90px;
+}
+a.miyazaki{
+	position: relative;
+	right:548px;
+	bottom:90px;
+}
+a.kagoshima{
+	position: relative;
+	right:632px;
+	bottom:60px;
+}
+a.kagoshima:before{
+  content: '';
+  position: absolute;
+  left: -30%;
+  bottom: -10px;/*線の上下位置*/
+  display: inline-block;
+  width: 120px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-10%);/*位置調整*/
+  background-color:red;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
+}
+a.okinawa{
+	position: relative;
+	left:52px;
+	bottom:90px;
+}
+a.okinawa:before{
+  content: '';
+  position: absolute;
+  left: -30%;
+  bottom: -10px;/*線の上下位置*/
+  display: inline-block;
+  width: 80px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-17%);/*位置調整*/
+  background-color:red;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
+}
+div.text1{
+	position: relative;
+	buttom:400px;
+	left:50px;
+	top:30px;
+}
