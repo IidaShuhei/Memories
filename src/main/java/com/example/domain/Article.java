@@ -62,6 +62,14 @@ public class Article {
 		this.imagePath = imagePath;
 	}
 
+	@Override
+	public String toString() {
+		return "Article [id=" + id + ", title=" + title + ", name=" + name + ", content=" + content + ", postDate="
+				+ postDate + ", imagePath=" + imagePath + "]";
+	}
+
+
+    
 
 
 
