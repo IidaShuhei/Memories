@@ -1,18 +1,21 @@
 package com.example.form;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ArticleForm {
 	private String id;
 	private String title;
 	private String name;
 	private String content;
 	private String postDate;
-	private String imagePath;
+	private MultipartFile imagePath;
 
-	public String getImagePath() {
+
+	public MultipartFile getImagePath() {
 		return imagePath;
 	}
 
-	public void setImagePath(String imagePath) {
+	public void setImagePath(MultipartFile imagePath) {
 		this.imagePath = imagePath;
 	}
 

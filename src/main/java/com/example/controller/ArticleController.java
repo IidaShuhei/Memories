@@ -68,7 +68,7 @@ public class ArticleController {
 	    return "article_List";
 	}
 	
-	@RequestMapping("/paractice")
+	@RequestMapping("/practice")
 	public String index() {
 		return "practice";
 	}

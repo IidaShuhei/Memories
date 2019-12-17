@@ -28,8 +28,10 @@ public class ArticleRepository {
 	
 		Article article = new Article();
 		article.setId(rs.getInt("id"));
+		article.setTitle(rs.getString("title"));
 		article.setName(rs.getString("name"));
 		article.setContent(rs.getString("content"));
+		article.setPostDate(rs.getDate("post_date"));
 		article.setImagePath(rs.getString("image_path"));
 		return article;
 	};
@@ -39,7 +41,7 @@ public class ArticleRepository {
 	 * @return 全記事
 	 */
 	public List<Article> findAll(){
-		String sql = "select id,name,content,image_path from articles order by id";
+		String sql = "select id,title,name,content,post_date,image_path from articles order by id";
 		return template.query(sql, ARTICLE_ROW_MAPPER);
 	}
 	/**
@@ -49,7 +51,7 @@ public class ArticleRepository {
 	 * @return 曖昧検索結果
 	 */
 	public List<Article> findByName(String name){
-		String sql = "select id,name,content,image_path from articles where name Ilike :name";
+		String sql = "select id,title,name,content,post_date,image_path from articles where name Ilike :name";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("name",'%' + name + '%');
 		return template.query(sql, param, ARTICLE_ROW_MAPPER);
 	}
@@ -60,7 +62,7 @@ public class ArticleRepository {
 	 * @return 記事詳細
 	 */
 	public Article load(Integer id) {
-		String sql = "select id,name,content,image_path from articles where id =:id";
+		String sql = "select id,name,content,image_path,post_date from articles where id =:id";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		return template.queryForObject(sql, param, ARTICLE_ROW_MAPPER);
 	}

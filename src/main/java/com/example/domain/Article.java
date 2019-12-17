@@ -2,6 +2,7 @@ package com.example.domain;
 
 import java.util.Date;
 
+
 public class Article {
 
 	private Integer id;
@@ -60,6 +61,8 @@ public class Article {
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
+
+
 
 
 

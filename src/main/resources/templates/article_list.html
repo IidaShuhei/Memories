@@ -13,9 +13,11 @@
 					<tbody>
 						<tr th:each="article : ${articleList}" class="col-lg-4" style="height: 320px;">
 							<th><a th:href="@{'/showArticleDetail?id='+${article.id}}"> 
-							<img th:src="${'/img/' + article.imagePath}" class="img-responsive img-rounded" width="200" height="600"></a><br> 
+							<img th:src="@{'/img/' + ${article.imagePath}}" class="img-responsive img-rounded" width="200" height="600"></a><br> 
 							<a th:href="@{'/showArticleDetail?id='+${article.id}}"> 
-							<span th:text="${article.name}"></span></a><br> 
+							タイトル：<span th:text="${article.title}"></span></a><br> 
+							投稿者名：<span th:text="${article.name}"></span><br>
+							投稿日時：<span th:text="${article.postDate}"></span>
 							</th>
 						</tr>
 					</tbody>
