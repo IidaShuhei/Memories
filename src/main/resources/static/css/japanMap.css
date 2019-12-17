@@ -1,0 +1,220 @@
+img.japanMap{
+	position: relative;
+	left:290px;
+}
+a.hokkaido{
+	position: relative;
+	right:60px;
+	bottom:650px;
+}
+a.hokkaido:before{
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;/*線の上下位置*/
+  display: inline-block;
+  width: 70px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-47%);/*位置調整*/
+  background-color: purple;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
+}
+
+a.aomori{
+	position: relative;
+	right:-60px;
+	bottom:490px;
+}
+a.iwate{
+	position: relative;
+	right:-70px;
+	bottom:490px;
+}
+a.miyagi{
+	position: relative;
+	right:3px;
+	bottom:460px;
+}
+a.akita{
+	position: relative;
+	right:-6px;
+	bottom:460px;
+}
+a.yamagata{
+	position: relative;
+	right:66px;
+	bottom:430px;
+}
+a.hukusima{
+	position: relative;
+	right:57px;
+	bottom:430px;
+}
+a.hukusima:before{
+  content: '';
+  position: absolute;
+  left: -30%;
+  bottom: -10px;/*線の上下位置*/
+  display: inline-block;
+  width: 120px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-47%);/*位置調整*/
+  background-color: blue;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
+}
+a.ibaraki{
+	position: relative;
+	right:180px;
+	bottom:290px;
+}
+a.tochigi{
+	position: relative;
+	right:170px;
+	bottom:290px;
+}
+a.gunma{
+	position: relative;
+	right:243px;
+	bottom:260px;
+}
+a.saitama{
+	position: relative;
+	right:233px;
+	bottom:260px;
+}
+a.chiba{
+	position: relative;
+	right:307px;
+	bottom:230px;
+}
+a.tokyo{
+	position: relative;
+	right:297px;
+	bottom:230px;
+}
+a.kanagawa{
+	position: relative;
+	right:370px;
+	bottom:200px;
+}
+a.kanagawa:before{
+  content: '';
+  position: absolute;
+  left: -30%;
+  bottom: -10px;/*線の上下位置*/
+  display: inline-block;
+  width: 120px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-15%);/*位置調整*/
+  background-color: green;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
+}
+a.nigata{
+	position: relative;
+	right:670px;
+	bottom:500px;
+}
+a.toyama{
+	position: relative;
+	right:655px;
+	bottom:500px;
+}
+a.ishikawa{
+	position: relative;
+	right:733px;
+	bottom:470px;
+}
+a.fukui{
+	position: relative;
+	right:718px;
+	bottom:470px;
+}
+a.yamanashi{
+	position: relative;
+	right:797px;
+	bottom:440px;
+}
+a.nagano{
+	position: relative;
+	right:782px;
+	bottom:440px;
+}
+a.gihu{
+	position: relative;
+	left:562px;
+	bottom:430px;
+}
+a.shizuoka{
+	position: relative;
+	left:577px;
+	bottom:430px;
+}
+a.aichi{
+	position: relative;
+	left:498px;
+	bottom:398px;
+}
+a.aichi:before{
+  content: '';
+  position: absolute;
+  left: -30%;
+  bottom: -10px;/*線の上下位置*/
+  display: inline-block;
+  width: 120px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-12%);/*位置調整*/
+  background-color: lime;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
+}
+a.mie{
+	position: relative;
+	left:498px;
+	bottom:155px;
+}
+a.shiga{
+	position: relative;
+	left:510px;
+	bottom:155px;
+}
+a.kyoto{
+	position: relative;
+	left:434px;
+	bottom:125px;
+}
+a.osaka{
+	position: relative;
+	left:447px;
+	bottom:125px;
+}
+a.hyogo{
+	position: relative;
+	left:370px;
+	bottom:95px;
+}
+a.nara{
+	position: relative;
+	left:383px;
+	bottom:95px;
+}
+a.wakayama{
+	position: relative;
+	left:307px;
+	bottom:68px;
+}
+a.wakayama:before{
+  content: '';
+  position: absolute;
+  left: -30%;
+  bottom: -10px;/*線の上下位置*/
+  display: inline-block;
+  width: 120px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-12%);/*位置調整*/
+  background-color: yellow;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
+}
