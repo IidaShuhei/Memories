@@ -46,6 +46,12 @@ public class ArticleController {
 		return "article_list";
 	}
 	
+	/**
+	 * 記事を投稿する.
+	 * @param articleForm
+	 * @param model
+	 * @return　記事一覧
+	 */
 	@RequestMapping("/registerArticle")
 	public String RegisterArticle(ArticleForm articleForm,Model model) {
 		Article article = new Article();
@@ -60,5 +66,10 @@ public class ArticleController {
 	    service.registerArticle(article);
 	    
 	    return "article_List";
+	}
+	
+	@RequestMapping("/paractice")
+	public String index() {
+		return "practice";
 	}
 }
