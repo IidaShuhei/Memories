@@ -29,6 +29,7 @@ public class UserRepository {
 		User user = new User();
 		user.setId(rs.getInt("id"));
 		user.setName(rs.getString("name"));
+		user.setEmail(rs.getString("email"));
 		user.setPassword(rs.getString("password"));
 		user.setZipcode(rs.getString("zipcode"));
 		user.setAddress(rs.getString("address"));
@@ -41,7 +42,7 @@ public class UserRepository {
 	 * @param user ユーザー
 	 */
 	public void insert(User user) {
-		String sql = "insert into users(name,password,zipcode,address,telephone)values(:name,:password,:zipcode,:address,:telephone)";
+		String sql = "insert into users(name,email,password,zipcode,address,telephone)values(:name,:email,:password,:zipcode,:address,:telephone)";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(user);
 		template.update(sql, param);
 	}
@@ -52,7 +53,7 @@ public class UserRepository {
 	 * @return ユーザー情報
 	 */
 	public User findByEmail(String email) {
-		String sql = "select id,name,password,zipcode,address,telephone from users where email =:email";
+		String sql = "select id,name,email,password,zipcode,address,telephone from users where email =:email";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("email", email);
 		List<User> userList =  template.query(sql, param, USER_ROW_MAPPER);
 		if(userList.isEmpty()) {

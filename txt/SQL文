@@ -11,8 +11,6 @@ create table articles (
  , image_path text not null
 ); 
 
-insert into articles(title,name,prefecture,content,post_date,image_path) values('京都旅行','京都に行きたくなる！世界的に有名な神社・寺を回ろう！','京都','たのしい','2019-12-12','kyoto.jpg');
-
 -- ユーザー
 drop table if exists users cascade;
 

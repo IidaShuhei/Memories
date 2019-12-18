@@ -10,6 +10,7 @@ public class User {
 
 	private Integer id;
 	private String name;
+	private String email;
 	private String password;
 	private String zipcode;
 	private String address;
@@ -41,6 +42,20 @@ public class User {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	/**
@@ -101,8 +116,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password=" + password + ", zipcode=" + zipcode + ", address="
-				+ address + ", telephone=" + telephone + "]";
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", zipcode="
+				+ zipcode + ", address=" + address + ", telephone=" + telephone + "]";
 	}
 
 }
