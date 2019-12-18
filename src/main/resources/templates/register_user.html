@@ -28,7 +28,7 @@
 
 
 <div th:errors="*{zipcode}" style="color:red"></div>
-郵便番号:<input type="text" name="zipcode" th:field="*{zipcode}"><br>
+郵便番号<input type="text" name="zipcode" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');"><br>
 
 
 <div th:errors="*{address}" style="color:red"></div>
@@ -44,6 +44,7 @@
 <button type="reset">クリア</button>
 
 </form>
-
+<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
