@@ -17,8 +17,13 @@ public class LoginRepository {
 
 	public final static RowMapper<User> LOGIN_ROW_MAPPER = (rs, i) -> {
 		User user = new User();
+		user.setId(rs.getInt("id"));
+		user.setName(rs.getString("name"));
+		user.setZipcode(rs.getString("zipcode"));
+		user.setAddress(rs.getString("address"));
+		user.setTelephone(rs.getString("telephone"));
 		user.setEmail(rs.getString("email"));
-		user.setEmail(rs.getString("password"));
+		user.setPassword(rs.getString("password"));
 		return user;
 	};
 	
@@ -31,8 +36,14 @@ public class LoginRepository {
 	public User findByemailAndPassword(String email,String password) {
 		String sql = "select id,name,email,password,zipcode,address,telephone from users where email=:email and password=:password";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("email", email).addValue("password", password);
-		User user = template.queryForObject(sql, param, LOGIN_ROW_MAPPER);
-		return user;
+		try {
+			
+			User user = template.queryForObject(sql, param, LOGIN_ROW_MAPPER);
+			return user;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

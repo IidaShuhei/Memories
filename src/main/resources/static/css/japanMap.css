@@ -455,3 +455,12 @@ div.box17 p {
     margin: 0; 
     padding: 0;
 }
+div.userName {
+	position: relative;
+	buttom:400px;
+	left:150px;
+	top:30px;
+} 
+
+
+

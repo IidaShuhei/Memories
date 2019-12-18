@@ -1,8 +1,15 @@
 package com.example.form;
 
-public class LoginForm {
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
+public class LoginForm {
+	
+	@Email(message="Eメールの形式が不正です")
+	@NotBlank(message="メールアドレスを入力してください")
 	private String email;
+	
+	@NotBlank(message="パスワードを入力してください")
 	private String password;
 
 	public String getEmail() {
@@ -20,10 +27,6 @@ public class LoginForm {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	@Override
-	public String toString() {
-		return "LoginForm [email=" + email + ", password=" + password + "]";
-	}
+	
 
 }
