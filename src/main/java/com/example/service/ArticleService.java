@@ -42,4 +42,8 @@ public class ArticleService {
 	public void registerArticle(Article article) {
 		 repository.insert(article);
 	}
+	
+	public Article showDetail(Integer id) {
+		return repository.load(id);
+	}
 }

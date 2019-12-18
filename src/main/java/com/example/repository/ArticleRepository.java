@@ -62,7 +62,7 @@ public class ArticleRepository {
 	 * @return 記事詳細
 	 */
 	public Article load(Integer id) {
-		String sql = "select id,name,content,image_path,post_date from articles where id =:id";
+		String sql = "select id,title, name,content,image_path,post_date from articles where id =:id";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		return template.queryForObject(sql, param, ARTICLE_ROW_MAPPER);
 	}

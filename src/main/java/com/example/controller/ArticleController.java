@@ -12,7 +12,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Article;
@@ -99,5 +98,11 @@ public class ArticleController {
 	@RequestMapping("/practice")
 	public String index1() {
 		return "practice";
+	}
+	
+	@RequestMapping("/testDetail")
+	public String testIndex(Integer id, Model model) {
+		model.addAttribute("article", service.showDetail(id));
+		return "testDetail";
 	}
 }
