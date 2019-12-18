@@ -1,5 +1,8 @@
 package com.example.form;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 /**
  * ユーザーフォーム.
  * 
@@ -8,12 +11,26 @@ package com.example.form;
  */
 public class UserForm {
 
+	@NotBlank(message="名前を入力してください")
 	private String name;
+	
+	@Email(message="Eメールの形式が不正です")
+	@NotBlank(message="メールアドレスを入力してください")
 	private String email;
+	
+	@NotBlank(message="パスワードを入力してください")
 	private String password;
+	
+	@NotBlank(message="確認用パスワードを入力してください")
 	private String confirmationPassword;
+	
+	@NotBlank(message="郵便番号を入力してください")
 	private String zipcode;
+	
+	@NotBlank(message="住所を入力してください")
 	private String address;
+	
+	@NotBlank(message="電話番号を入力してください")
 	private String telephone;
 
 	/**

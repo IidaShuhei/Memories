@@ -23,9 +23,9 @@ public class UserRepository {
 
 	@Autowired
 	private NamedParameterJdbcTemplate template;
-	
-	public static final RowMapper<User>USER_ROW_MAPPER = (rs,i) -> {
-	
+
+	public static final RowMapper<User> USER_ROW_MAPPER = (rs, i) -> {
+
 		User user = new User();
 		user.setId(rs.getInt("id"));
 		user.setName(rs.getString("name"));
@@ -36,6 +36,7 @@ public class UserRepository {
 		user.setTelephone(rs.getString("telephone"));
 		return user;
 	};
+
 	/**
 	 * ユーザーを登録する.
 	 * 
@@ -46,6 +47,7 @@ public class UserRepository {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(user);
 		template.update(sql, param);
 	}
+
 	/**
 	 * メールアドレスからユーザー情報をとってくる.
 	 * 
@@ -55,8 +57,8 @@ public class UserRepository {
 	public User findByEmail(String email) {
 		String sql = "select id,name,email,password,zipcode,address,telephone from users where email =:email";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("email", email);
-		List<User> userList =  template.query(sql, param, USER_ROW_MAPPER);
-		if(userList.isEmpty()) {
+		List<User> userList = template.query(sql, param, USER_ROW_MAPPER);
+		if (userList.isEmpty()) {
 			return null;
 		} else {
 			return userList.get(0);

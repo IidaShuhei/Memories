@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+
+<form th:action="@{/register/insert}" method="post" th:object="${userForm}">
+
+<h3>ユーザー登録</h3>
+
+<div th:errors="*{name}" style="color:red"></div>
+名前:<input type="text" name="name" th:field="*{name}"><br>
+
+
+<div th:errors="*{email}" style="color:red"></div>
+メールアドレス:<input type="email" name="email" th:field="*{email}"><br>
+
+
+<div th:errors="*{password}" style="color:red"></div>
+パスワード:<input type="password" name="password" th:field="*{password}"><br>
+
+
+<div th:errors="*{confirmationPassword}" style="color:red"></div>
+確認用パスワード:<input type="password" name="confirmationPassword" th:field="*{confirmationPassword}"><br>
+
+
+<div th:errors="*{zipcode}" style="color:red"></div>
+郵便番号:<input type="text" name="zipcode" th:field="*{zipcode}"><br>
+
+
+<div th:errors="*{address}" style="color:red"></div>
+住所:<input type="text" name="address" th:field="*{address}"><br>
+
+
+<div th:errors="*{telephone}" style="color:red"></div>
+電話番号:<input type="text" name="telephone" th:field="*{telephone}"><br>
+
+
+<button>登録</button>
+
+<button type="reset">クリア</button>
+
+</form>
+
+</body>
+</html>
