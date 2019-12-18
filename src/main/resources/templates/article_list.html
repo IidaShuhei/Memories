@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{/css/japanMap.css}" rel="stylesheet">
-<link href="../static/css/japanMap.css" rel="stylesheet">
 </head>
 <body>
 
@@ -78,13 +77,13 @@
 <a href="https://www.shigoto-ryokou.com/detail/573" class="okinawa" style="text-decoration:none;font-size:10pt;">沖縄</a>
 
 <div class="text2">
-<form th:action="@{/registerArticle}" method="post" enctype="multipart/form-data">
+<form th:action="@{/insert}" method="post" enctype="multipart/form-data">
 <button class="btn-square-so-pop" style="width:100px;height:50px">投稿</button>
 </form>
 </div>
 
 <div class="text3">
-<form th:action="@{/registerArticle}" method="post" enctype="multipart/form-data">
+<form th:action="@{/findByName}" method="post" enctype="multipart/form-data">
 <input type="text" name="title">
 <button class="circle_spread_btn" style="width:50px;height:50px">検索</button>
 </form>
