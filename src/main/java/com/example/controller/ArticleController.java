@@ -31,8 +31,16 @@ public class ArticleController {
 	@Autowired
 	private ArticleService service;
 
+	/**
+	 * 記事を全件検索する.
+	 * 
+	 * @param model モデル
+	 * @return 全件検索結果
+	 */
 	@RequestMapping("")
-	public String index() {
+	public String findAll(Model model) {
+		List<Article> articleList = service.findAll();
+		model.addAttribute("articleList", articleList);
 		return "article_list";
 	}
 
@@ -46,11 +54,6 @@ public class ArticleController {
 	@RequestMapping("/findByName")
 	public String findByName(String name, Model model) {
 		List<Article> articleList = service.showArticleListFindByName(name);
-		if (articleList.isEmpty()) {
-			articleList = service.findAll();
-		} else {
-			articleList = service.showArticleListFindByName(name);
-		}
 		model.addAttribute("articleList", articleList);
 		return "article_list";
 	}
@@ -96,6 +99,6 @@ public class ArticleController {
 		article.setImagePath(base64image.toString());
 	    service.registerArticle(article);
 	    
-	    return "forward:/findByName";
+	    return "forward:/";
 	}
 }
