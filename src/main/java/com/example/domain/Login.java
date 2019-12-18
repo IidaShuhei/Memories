@@ -1,6 +1,6 @@
-package com.example.form;
+package com.example.domain;
 
-public class LoginForm {
+public class Login {
 
 	private String email;
 	private String password;
@@ -23,7 +23,7 @@ public class LoginForm {
 
 	@Override
 	public String toString() {
-		return "LoginForm [email=" + email + ", password=" + password + "]";
+		return "Login [email=" + email + ", password=" + password + "]";
 	}
 
 }
