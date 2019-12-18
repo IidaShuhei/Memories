@@ -62,7 +62,7 @@ public class ArticleRepository {
 	 * @return 記事詳細
 	 */
 	public Article load(Integer id) {
-		String sql = "select id,name,content,image_path,post_date from articles where id =:id";
+		String sql = "select id,title,name,content,image_path,post_date from articles where id =:id";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		return template.queryForObject(sql, param, ARTICLE_ROW_MAPPER);
 	}
@@ -72,9 +72,8 @@ public class ArticleRepository {
 	 * @param article　
 	 */
 	public void insert(Article article) {
-		String sql = "insert into articles(title,name,content,post_date,image_path) values(:title,:name,:content,:postDate,:imagePath)";
+		String sql = "insert into articles(title,name,content,post_date,image_path)values(:title,:name,:content,:postDate,:imagePath)";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(article);
-		
 		template.update(sql, param);
 				
 	}
