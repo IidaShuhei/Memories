@@ -8,6 +8,7 @@ public class Article {
 	private Integer id;
 	private String title;
 	private String name;
+	private String preefecture;
 	private String content;
 	private Date postDate;
 	private String imagePath;
@@ -45,6 +46,13 @@ public class Article {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getPreefecture() {
+		return preefecture;
+	}
+	
+	public void setPreefecture(String preefecture) {
+		this.preefecture = preefecture;
+	}
 
 	public String getContent() {
 		return content;
@@ -64,9 +72,10 @@ public class Article {
 
 	@Override
 	public String toString() {
-		return "Article [id=" + id + ", title=" + title + ", name=" + name + ", content=" + content + ", postDate="
-				+ postDate + ", imagePath=" + imagePath + "]";
+		return "Article [id=" + id + ", title=" + title + ", name=" + name + ", preefecture=" + preefecture
+				+ ", content=" + content + ", postDate=" + postDate + ", imagePath=" + imagePath + "]";
 	}
+
 
 
     

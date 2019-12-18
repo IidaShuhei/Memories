@@ -6,6 +6,7 @@ public class ArticleForm {
 	private String id;
 	private String title;
 	private String name;
+	private String prefecture;
 	private String content;
 	private String postDate;
 	private MultipartFile imagePath;
@@ -41,6 +42,13 @@ public class ArticleForm {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getPrefecture() {
+		return prefecture;
+	}
+	
+	public void setPrefecture(String prefecture) {
+		this.prefecture = prefecture;
 	}
 
 	public String getContent() {

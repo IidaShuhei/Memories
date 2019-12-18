@@ -5,9 +5,10 @@ create table articles (
  id serial primary key
  , title varchar(100)
  , name text not null
+ , prefecture text not null
  , content text not null
  , post_date date 
  , image_path text not null
 ); 
 
-insert into articles(title,name,content,post_date,image_path) values('京都旅行','京都に行きたくなる！世界的に有名な神社・寺を回ろう！','たのしい','2019-12-12','kyoto.jpg');
+insert into articles(title,name,prefecture,content,post_date,image_path) values('京都旅行','京都に行きたくなる！世界的に有名な神社・寺を回ろう！','京都','たのしい','2019-12-12','kyoto.jpg');
