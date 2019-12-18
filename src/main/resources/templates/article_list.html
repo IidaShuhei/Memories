@@ -5,8 +5,18 @@
 <title>Insert title here</title>
 <link th:href="@{/css/japanMap.css}" rel="stylesheet">
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<!-- iconj.com favicon code -->
+<link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
+<link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
+<!-- end of iconj.com favicon code -->
+
 </head>
 <body>
+
+<div class="userName">
+   <font size="4" face="Times New Roman" color="blue" th:if="${session.userName}" th:text="${session.userName}" ></font><font size="4" face="Times New Roman" color="blue" th:text="さんようこそ！！"></font>
+</div>
+
 
 <div class="text1">
 <font size="7" face="Comic Sans MS">TRAVEL AROUND</font>
@@ -163,6 +173,6 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script></div>
 </body>
 </html>

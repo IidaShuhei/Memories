@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
+<link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
 </head>
 <body>
-
+<div class="userName">
+   <font size="4" face="Times New Roman" color="blue" th:if="${session.userName}" th:text="${session.userName}" ></font><font size="4" face="Times New Roman" color="blue" th:text="さんようこそ！！"></font>
+</div>
 投稿日:<span th:text="${article.postDate}"></span><br>
 タイトル:<span th:text="${article.title}"></span><br>
 <img th:src="${article.imagePath}" class="img-responsive img-rounded" width="250" height="250"><br> 

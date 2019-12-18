@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
+<link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
+</head>
+<body>
+
+<h1>ログイン画面</h1>
+<div th:if="${fail}" th:text="${fail}" style="color:red"></div>
+<form th:action="@{/login}" method="post" th:object="${loginForm}">
+<div th:errors="*{email}" style="color:red"></div>
+メールアドレス：<input type="text" name="email" th:field="*{email}"><br>
+<div th:errors="*{password}" style="color:red"></div>
+　パスワード　：<input type="text" name="password" th:field="*{password}">
+
+<input type="submit" value="ログイン">
+
+</form>
+</body>
+</html>
