@@ -78,6 +78,7 @@ public class ArticleController {
 		Article article = new Article();
 		article.setTitle(articleForm.getTitle());
 		article.setName(articleForm.getName());
+		article.setPrefecture(articleForm.getPrefecture());
 		article.setContent(articleForm.getContent());
 		LocalDate localDate = LocalDate.now();
 		Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());

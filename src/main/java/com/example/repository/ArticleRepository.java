@@ -30,7 +30,7 @@ public class ArticleRepository {
 		article.setId(rs.getInt("id"));
 		article.setTitle(rs.getString("title"));
 		article.setName(rs.getString("name"));
-		article.setPreefecture("prefecture");
+		article.setPrefecture(rs.getString("prefecture"));
 		article.setContent(rs.getString("content"));
 		article.setPostDate(rs.getDate("post_date"));
 		article.setImagePath(rs.getString("image_path"));
