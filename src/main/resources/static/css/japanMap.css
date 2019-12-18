@@ -1,61 +1,42 @@
+/* 画像 */
 img.japanMap{
 	position: relative;
 	left:290px;
 }
-a.hokkaido{
+
+/* 北海道 */
+div.hokkaido1{
 	position: relative;
-	right:60px;
+	left:588px;
 	bottom:650px;
 }
-a.hokkaido:before{
+
+div.hokkaido1:before{
   content: '';
-  position: absolute;
-  left: 50%;
+  position: relative;
+  left: 30px;
   bottom: -10px;/*線の上下位置*/
   display: inline-block;
   width: 70px;/*線の長さ*/
   height: 3px;/*線の太さ*/
   -webkit-transform: translateX(-50%);
-  transform: translateX(-47%);/*位置調整*/
+  transform: translateX(40%);/*位置調整*/
   background-color: purple;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
 
-a.aomori{
+/* 東北 */
+div.tofoku{
 	position: relative;
-	right:-60px;
-	bottom:490px;
+	left:860px;
+	bottom:500px;
 }
-a.iwate{
-	position: relative;
-	right:-70px;
-	bottom:490px;
-}
-a.miyagi{
-	position: relative;
-	right:3px;
-	bottom:460px;
-}
-a.akita{
-	position: relative;
-	right:-6px;
-	bottom:460px;
-}
-a.yamagata{
-	position: relative;
-	right:66px;
-	bottom:430px;
-}
-a.hukusima{
-	position: relative;
-	right:57px;
-	bottom:430px;
-}
-a.hukusima:before{
+
+div.sen1:before{
   content: '';
-  position: absolute;
-  left: -30%;
-  bottom: -10px;/*線の上下位置*/
+  position: relative;
+  left: 33px;
+  bottom: -1px;/*線の上下位置*/
   display: inline-block;
   width: 120px;/*線の長さ*/
   height: 3px;/*線の太さ*/
@@ -64,46 +45,19 @@ a.hukusima:before{
   background-color: blue;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
-a.ibaraki{
+
+/* 関東 */
+div.kanto{
 	position: relative;
-	right:180px;
-	bottom:290px;
+	left:808px;
+	bottom:359px;
 }
-a.tochigi{
-	position: relative;
-	right:170px;
-	bottom:290px;
-}
-a.gunma{
-	position: relative;
-	right:243px;
-	bottom:260px;
-}
-a.saitama{
-	position: relative;
-	right:233px;
-	bottom:260px;
-}
-a.chiba{
-	position: relative;
-	right:307px;
-	bottom:230px;
-}
-a.tokyo{
-	position: relative;
-	right:297px;
-	bottom:230px;
-}
-a.kanagawa{
-	position: relative;
-	right:370px;
-	bottom:200px;
-}
-a.kanagawa:before{
+
+div.sen2:before{
   content: '';
-  position: absolute;
-  left: -30%;
-  bottom: -10px;/*線の上下位置*/
+  position: relative;
+  left: -8px;
+  bottom: -1px;/*線の上下位置*/
   display: inline-block;
   width: 120px;/*線の長さ*/
   height: 3px;/*線の太さ*/
@@ -112,55 +66,18 @@ a.kanagawa:before{
   background-color: green;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
-a.nigata{
+
+/* 中部 */
+div.tyubu{
 	position: relative;
-	right:670px;
-	bottom:500px;
+	left:579px;
+	bottom:670px;
 }
-a.toyama{
-	position: relative;
-	right:655px;
-	bottom:500px;
-}
-a.ishikawa{
-	position: relative;
-	right:733px;
-	bottom:470px;
-}
-a.fukui{
-	position: relative;
-	right:718px;
-	bottom:470px;
-}
-a.yamanashi{
-	position: relative;
-	right:797px;
-	bottom:440px;
-}
-a.nagano{
-	position: relative;
-	right:782px;
-	bottom:440px;
-}
-a.gihu{
-	position: relative;
-	left:562px;
-	bottom:430px;
-}
-a.shizuoka{
-	position: relative;
-	left:577px;
-	bottom:430px;
-}
-a.aichi{
-	position: relative;
-	left:498px;
-	bottom:398px;
-}
-a.aichi:before{
+
+div.sen3:before{
   content: '';
   position: absolute;
-  left: -30%;
+  left: -12px;
   bottom: -10px;/*線の上下位置*/
   display: inline-block;
   width: 120px;/*線の長さ*/
@@ -170,45 +87,17 @@ a.aichi:before{
   background-color: lime;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
-a.mie{
+
+/* 近畿 */
+div.kinki{
 	position: relative;
-	left:498px;
-	bottom:155px;
+	left:610px;
+	bottom:455px;
 }
-a.shiga{
-	position: relative;
-	left:510px;
-	bottom:155px;
-}
-a.kyoto{
-	position: relative;
-	left:434px;
-	bottom:125px;
-}
-a.osaka{
-	position: relative;
-	left:447px;
-	bottom:125px;
-}
-a.hyogo{
-	position: relative;
-	left:370px;
-	bottom:95px;
-}
-a.nara{
-	position: relative;
-	left:383px;
-	bottom:95px;
-}
-a.wakayama{
-	position: relative;
-	left:307px;
-	bottom:68px;
-}
-a.wakayama:before{
+div.sen4:before{
   content: '';
   position: absolute;
-  left: -30%;
+  left: -15px;
   bottom: -10px;/*線の上下位置*/
   display: inline-block;
   width: 120px;/*線の長さ*/
@@ -218,35 +107,17 @@ a.wakayama:before{
   background-color: yellow;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
-a.tottori{
+
+/* 中国 */
+div.chugoku{
 	position: relative;
-	left:50px;
-	bottom:348px;
+	left: 400px;
+	bottom:708px;
 }
-a.shimane{
-	position: relative;
-	left:65px;
-	bottom:348px;
-}
-a.okayama{
-	position: relative;
-	left:-13px;
-	bottom:318px;
-}
-a.hiroshima{
-	position: relative;
-	left:2px;
-	bottom:318px;
-}
-a.yamaguchi{
-	position: relative;
-	left:-77px;
-	bottom:288px;
-}
-a.yamaguchi:before{
+div.sen5:before{
   content: '';
   position: absolute;
-  left: -30%;
+  left: -13px;
   bottom: -10px;/*線の上下位置*/
   display: inline-block;
   width: 120px;/*線の長さ*/
@@ -256,30 +127,17 @@ a.yamaguchi:before{
   background-color: orange;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
-a.tokushima{
+
+/* 四国 */
+div.shikoku{
 	position: relative;
-	left:-35px;
-	bottom:120px;
+	left:478px;
+	bottom:548px;
 }
-a.kagawa{
-	position: relative;
-	left:-25px;
-	bottom:120px;
-}
-a.ehime{
-	position: relative;
-	left:-99px;
-	bottom:93px;
-}
-a.kochi{
-	position: relative;
-	left:-88px;
-	bottom:93px;
-}
-a.kochi:before{
+div.sen6:before{
   content: '';
   position: absolute;
-  left: -30%;
+  left: 31px;
   bottom: -10px;/*線の上下位置*/
   display: inline-block;
   width: 120px;/*線の長さ*/
@@ -289,45 +147,17 @@ a.kochi:before{
   background-color:pink;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
-a.fukuoka{
+
+/* 九州 */
+div.kyushu{
 	position: relative;
-	right:440px;
-	bottom:150px;
+	left:214px;
+	bottom:620px;
 }
-a.saga{
-	position: relative;
-	right:420px;
-	bottom:150px;
-}
-a.nagasaki{
-	position: relative;
-	right:504px;
-	bottom:120px;
-}
-a.kumamoto{
-	position: relative;
-	right:483px;
-	bottom:120px;
-}
-a.oita{
-	position: relative;
-	right:568px;
-	bottom:90px;
-}
-a.miyazaki{
-	position: relative;
-	right:548px;
-	bottom:90px;
-}
-a.kagoshima{
-	position: relative;
-	right:632px;
-	bottom:60px;
-}
-a.kagoshima:before{
+div.sen7:before{
   content: '';
   position: absolute;
-  left: -30%;
+  left: -20px;
   bottom: -10px;/*線の上下位置*/
   display: inline-block;
   width: 120px;/*線の長さ*/
@@ -337,15 +167,17 @@ a.kagoshima:before{
   background-color:red;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
-a.okinawa{
+
+/* 沖縄 */
+div.okinawa{
 	position: relative;
-	left:52px;
-	bottom:90px;
+	left:880px;
+	bottom:630px;
 }
-a.okinawa:before{
+div.sen8:before{
   content: '';
   position: absolute;
-  left: -30%;
+  left: -13px;
   bottom: -10px;/*線の上下位置*/
   display: inline-block;
   width: 80px;/*線の長さ*/
@@ -355,6 +187,8 @@ a.okinawa:before{
   background-color:red;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
+
+/* タイトル */
 div.text1{
 	position: relative;
 	buttom:400px;
@@ -422,15 +256,78 @@ button.btn-square-so-pop:active {
   /*押したとき*/
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
+
+/* 投稿ボタン */
 div.text2{
 	position: relative;
 	left:1100px;
-	bottom:700px;
+	bottom:1200px;
 }
+
+/* 検索ボタン */
 div.text3{
 	position: relative;
-	left:1100px;
-	bottom:700px;
+	left:1200px;
+	bottom:1250px;
+}
+div.box17{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    text-align:center;
+}
+div.box17:before, .box17:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+}
+div.box17:before {left: 10px;}
+div.box17:after {right: 10px;}
+div.box17 p {
+    margin: 0; 
+    padding: 0;
+}
+
+/* ログインボタン */
+div.text4{
+	position: relative;
+	left:1160px;
+	bottom:1450px;
+}
+div.box17{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    text-align:center;
+}
+div.box17:before, .box17:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+}
+div.box17:before {left: 10px;}
+div.box17:after {right: 10px;}
+div.box17 p {
+    margin: 0; 
+    padding: 0;
+}
+/* ログアウトボタン */
+div.text5{
+	position: relative;
+	left:1300px;
+	bottom:1500px;
 }
 div.box17{
     margin:2em 0;
