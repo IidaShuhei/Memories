@@ -4,6 +4,13 @@ img.japanMap{
 	left:290px;
 }
 
+/* ‹LŽ–ˆê——•\Ž¦ */
+div.row{
+	position: relative;
+	bottom:700px;
+	left:20px;
+}
+
 /* –kŠC“¹ */
 div.hokkaido1{
 	position: relative;
@@ -298,7 +305,7 @@ div.box17 p {
 div.text4{
 	position: relative;
 	left:1160px;
-	bottom:1450px;
+	bottom:1550px;
 }
 div.box17{
     margin:2em 0;
@@ -327,7 +334,7 @@ div.box17 p {
 div.text5{
 	position: relative;
 	left:1300px;
-	bottom:1500px;
+	bottom:1550px;
 }
 div.box17{
     margin:2em 0;

@@ -117,28 +117,52 @@
 </div>
 
 
-<!-- 検索ボタン -->
+<!-- タイトルから検索するボタン -->
 <div class="text3">
-<form th:action="@{/findByName}" method="post" enctype="multipart/form-data">
+<form th:action="@{/findByTitle}" method="post" enctype="multipart/form-data">
+タイトルから<br>
 <input type="text" name="title">
 <button class="circle_spread_btn" style="width:50px;height:50px">検索</button>
 </form>
 </div>
 
-<!-- ログイン画面へ遷移するボタン -->
+
+<!-- 投稿者名から検索するボタン -->
+<div class="text3">
+<form th:action="@{/findByName}" method="post" enctype="multipart/form-data">
+投稿者から<br>
+<input type="text" name="name">
+<button class="circle_spread_btn" style="width:50px;height:50px">検索</button>
+</form>
+</div>
+
+
+<!-- 内容から検索するボタン -->
+<div class="text3">
+<form th:action="@{/findByContent}" method="post" enctype="multipart/form-data">
+内容から<br>
+<input type="text" name="content">
+<button class="circle_spread_btn" style="width:50px;height:50px">検索</button>
+</form>
+</div>
+
+
+<!-- ログインボタン -->
 <div class="text4">
 <form th:action="@{/register}" method="post">
 <button class="btn-square-so-pop" style="width:100px;height:50px">ログイン</button>
 </form>
 </div>
 
-<!-- ログアウトするボタン -->
+<!-- ログアウトボタン -->
 <div class="text5">
 <form th:action="@{/}" method="post">
 <button class="btn-square-so-pop" style="width:100px;height:50px">ログアウト</button>
 </form>
 </div>
 
+
+<!-- 記事一覧表示 -->
 <div class="row">
 		<div>
 			<div class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-10 col-xs-12" style="background-color: white;">
@@ -158,8 +182,6 @@
 				</table>
 			</div>
 		</div>
-</div>
-
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

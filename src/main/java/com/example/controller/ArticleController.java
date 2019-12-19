@@ -45,7 +45,20 @@ public class ArticleController {
 	}
 
 	/**
-	 * 記事を曖昧検索する.
+	 * 記事をタイトルから曖昧検索する.
+	 * 
+	 * @param title タイトル
+	 * @param model モデル
+	 * @return 記事一覧
+	 */
+	@RequestMapping("/findByTitle")
+	public String findByTitle(String title, Model model) {
+		List<Article> articleList = service.showArticleListFindByTitle(title);
+		model.addAttribute("articleList", articleList);
+		return "article_list";
+	}
+	/**
+	 * 記事を投稿者名から曖昧検索する.
 	 * 
 	 * @param name  名前
 	 * @param model モデル
@@ -54,6 +67,19 @@ public class ArticleController {
 	@RequestMapping("/findByName")
 	public String findByName(String name, Model model) {
 		List<Article> articleList = service.showArticleListFindByName(name);
+		model.addAttribute("articleList", articleList);
+		return "article_list";
+	}
+	/**
+	 * 記事を内容から曖昧検索する.
+	 * 
+	 * @param name  名前
+	 * @param model モデル
+	 * @return 記事一覧
+	 */
+	@RequestMapping("/findByContent")
+	public String findByContent(String content, Model model) {
+		List<Article> articleList = service.showArticleListFindByContent(content);
 		model.addAttribute("articleList", articleList);
 		return "article_list";
 	}
