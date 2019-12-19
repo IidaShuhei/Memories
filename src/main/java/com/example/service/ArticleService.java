@@ -26,13 +26,31 @@ public class ArticleService {
 	}
 
 	/**
-	 * 記事を曖昧検索する.
+	 * 記事をタイトルから曖昧検索する.
+	 * 
+	 * @param title タイトル
+	 * @return 全件検索結果、曖昧検索結果
+	 */
+	public List<Article> showArticleListFindByTitle(String title) {
+		return repository.findByTitle(title);
+	}
+	/**
+	 * 記事を投稿者名から曖昧検索する.
 	 * 
 	 * @param name 名前
 	 * @return 全件検索結果、曖昧検索結果
 	 */
 	public List<Article> showArticleListFindByName(String name) {
 		return repository.findByName(name);
+	}
+	/**
+	 * 記事を内容から曖昧検索する.
+	 *
+	 * @param content 内容
+	 * @return 全件検索結果、曖昧検索結果
+	 */
+	public List<Article> showArticleListFindByContent(String content) {
+		return repository.findByContent(content);
 	}
 	
 	/**
