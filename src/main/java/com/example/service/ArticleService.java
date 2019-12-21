@@ -61,7 +61,22 @@ public class ArticleService {
 		 repository.insert(article);
 	}
 	
+	/**
+	 * 記事詳細を表示する.
+	 * 
+	 * @param id　ID
+	 * @return 記事ID
+	 */
 	public Article showDetail(Integer id) {
 		return repository.load(id);
+	}
+	
+	/**
+	 * 記事を更新する.
+	 * 
+	 * @param article 記事
+	 */
+	public void update(Article article) {
+		repository.update(article);
 	}
 }

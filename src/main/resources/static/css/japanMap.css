@@ -1,15 +1,68 @@
-/* 画像 */
+/* 日本地図＋都道府県 */
+div.map{
+	position:relative;
+	left:10px;
+	top:-140px;
+}
+
+
+/* 日本地図 */
 img.japanMap{
 	position: relative;
 	left:290px;
 }
 
+
+/* タイトル */
+div.text1{
+	position: relative;
+	left:420px;
+	top:30px;
+}
+
+
+/* タイトルのデザイン */
+div.h1 {
+  position: relative;
+  color: #158b2b;
+  font-size: 20px;
+  padding: 10px 0;
+  text-align: center;
+  margin: 1.5em 0;
+}
+div.h1:before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  width: 150px;
+  height: 108px;
+  border-radius: 50%;
+  border: 5px solid #a6ddb0;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+
+/* タイトル横の画像 */
+img.people{
+	position: relative;
+	top:-100px;
+	left:30px;
+	width:350px;
+}
+
+
 /* 記事一覧表示 */
 div.row{
 	position: relative;
-	bottom:700px;
-	left:20px;
+	bottom:900px;
+	left:-30px;
+	
 }
+
 
 /* 北海道 */
 div.hokkaido1{
@@ -17,7 +70,6 @@ div.hokkaido1{
 	left:588px;
 	bottom:650px;
 }
-
 div.hokkaido1:before{
   content: '';
   position: relative;
@@ -32,13 +84,13 @@ div.hokkaido1:before{
   border-radius: 2px;/*線の丸み*/
 }
 
+
 /* 東北 */
 div.tofoku{
 	position: relative;
 	left:860px;
 	bottom:500px;
 }
-
 div.sen1:before{
   content: '';
   position: relative;
@@ -53,13 +105,13 @@ div.sen1:before{
   border-radius: 2px;/*線の丸み*/
 }
 
+
 /* 関東 */
 div.kanto{
 	position: relative;
 	left:808px;
 	bottom:359px;
 }
-
 div.sen2:before{
   content: '';
   position: relative;
@@ -74,13 +126,13 @@ div.sen2:before{
   border-radius: 2px;/*線の丸み*/
 }
 
+
 /* 中部 */
 div.tyubu{
 	position: relative;
 	left:579px;
 	bottom:670px;
 }
-
 div.sen3:before{
   content: '';
   position: absolute;
@@ -94,6 +146,7 @@ div.sen3:before{
   background-color: lime;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
+
 
 /* 近畿 */
 div.kinki{
@@ -115,6 +168,7 @@ div.sen4:before{
   border-radius: 2px;/*線の丸み*/
 }
 
+
 /* 中国 */
 div.chugoku{
 	position: relative;
@@ -134,6 +188,7 @@ div.sen5:before{
   background-color: orange;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
+
 
 /* 四国 */
 div.shikoku{
@@ -155,6 +210,7 @@ div.sen6:before{
   border-radius: 2px;/*線の丸み*/
 }
 
+
 /* 九州 */
 div.kyushu{
 	position: relative;
@@ -174,6 +230,7 @@ div.sen7:before{
   background-color:red;/*線の色*/
   border-radius: 2px;/*線の丸み*/
 }
+
 
 /* 沖縄 */
 div.okinawa{
@@ -195,13 +252,8 @@ div.sen8:before{
   border-radius: 2px;/*線の丸み*/
 }
 
-/* タイトル */
-div.text1{
-	position: relative;
-	buttom:400px;
-	left:50px;
-	top:30px;
-}
+
+/* 各種ボタン類のデザイン */
 button.circle_spread_btn {
 	display: inline-block;
 	position: relative;
@@ -248,34 +300,35 @@ button.circle_spread_btn:hover::after {
 }
 button.btn-square-so-pop {
   position: relative;
-  display: inline-block;
   padding: 0.25em 0.5em;
   text-decoration: none;
+  display:block;
   color: #FFF;
-  background: #fd9535;/*色*/
-  border-radius: 4px;/*角の丸み*/
+  background: #fd9535;色
+  border-radius: 4px;角の丸み
   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
   font-weight: bold;
-  border: solid 2px #d27d00;/*線色*/
+  border: solid 2px #d27d00;線色
 }
-
 button.btn-square-so-pop:active {
-  /*押したとき*/
+  押したとき
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
 
+
 /* 投稿ボタン */
-div.text2{
+div.post{
 	position: relative;
-	left:1100px;
-	bottom:1200px;
+	left:100px;
+	bottom:670px;
 }
 
-/* 検索ボタン */
-div.text3{
+
+/* タイトルから検索するボタン */
+div.titleSearch{
 	position: relative;
-	left:1200px;
-	bottom:1250px;
+	left:230px;
+	bottom:740px;
 }
 div.box17{
     margin:2em 0;
@@ -300,12 +353,71 @@ div.box17 p {
     margin: 0; 
     padding: 0;
 }
+/* 投稿者名から検索するボタン */
+div.nameSearch{
+	position: relative;
+	left:476px;
+	bottom:810px;
+}
+div.box17{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    text-align:center;
+}
+div.box17:before, .box17:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+}
+div.box17:before {left: 10px;}
+div.box17:after {right: 10px;}
+div.box17 p {
+    margin: 0; 
+    padding: 0;
+}
+/* 内容から検索するボタン */
+div.contentSearch{
+	position: relative;
+	left:733px;
+	bottom:880px;
+}
+div.box17{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    text-align:center;
+}
+div.box17:before, .box17:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+}
+div.box17:before {left: 10px;}
+div.box17:after {right: 10px;}
+div.box17 p {
+    margin: 0; 
+    padding: 0;
+}
+
 
 /* ログインボタン */
-div.text4{
+div.login{
 	position: relative;
-	left:1160px;
-	bottom:1550px;
+	left:1100px;
+	top:-1830px;
 }
 div.box17{
     margin:2em 0;
@@ -330,11 +442,13 @@ div.box17 p {
     margin: 0; 
     padding: 0;
 }
+
+
 /* ログアウトボタン */
-div.text5{
+div.logout{
 	position: relative;
-	left:1300px;
-	bottom:1550px;
+	left:1250px;
+	bottom:1880px;
 }
 div.box17{
     margin:2em 0;
@@ -359,12 +473,19 @@ div.box17 p {
     margin: 0; 
     padding: 0;
 }
+
+/* 投稿・検索ボタン全体 */
+div.buttons{
+	position: relative;
+	left:80px;
+	top:-20px;
+}
+
+
+/* ユーザーの名前 */
 div.userName {
 	position: relative;
-	buttom:400px;
 	left:150px;
 	top:30px;
-} 
-
-
-
+	min-width:500px;
+}

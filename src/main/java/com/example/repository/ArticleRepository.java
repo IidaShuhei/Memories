@@ -99,8 +99,17 @@ public class ArticleRepository {
 		String sql = "insert into articles(title,name,prefecture,content,post_date,image_path)values(:title,:name,:prefecture,:content,:postDate,:imagePath)";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(article);
 		template.update(sql, param);
-				
+	
 	}
 	
-	
+	/**
+	 * 記事を更新する.
+	 * 
+	 * @param article　記事
+	 */
+	public void update(Article article) {
+		String sql = "update articles set title=:title,name=:name,prefecture=:prefecture,content=:content,post_date=:postDate,image_path=:imagePath where id=:id";
+		SqlParameterSource param = new BeanPropertySqlParameterSource(article);
+		template.update(sql, param);
+	}
 }

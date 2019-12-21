@@ -9,13 +9,16 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Article;
 import com.example.form.ArticleForm;
+import com.example.service.ArticleDetailService;
 import com.example.service.ArticleService;
 
 /**
@@ -30,6 +33,14 @@ public class ArticleController {
 
 	@Autowired
 	private ArticleService service;
+	
+	@Autowired
+	private ArticleDetailService detailService;
+	
+	@ModelAttribute
+	private ArticleForm setUpForm() {
+		return new ArticleForm();
+	}
 
 	/**
 	 * 記事を全件検索する.
@@ -94,8 +105,9 @@ public class ArticleController {
 	}
 	/**
 	 * 記事を投稿する.
-	 * @param articleForm
-	 * @param model
+	 * 
+	 * @param articleForm 記事フォーム
+	 * @param model モデル
 	 * @return　記事一覧
 	 * @throws IOException 
 	 */
@@ -128,5 +140,43 @@ public class ArticleController {
 	    
 	    return "forward:/";
 	}
-}
 	
+	/**
+	 * 編集画面へ遷移.
+	 * 
+	 * @return　編集画面
+	 */
+	@RequestMapping("/updateScreen")
+	public String updateScreen(Integer id,Model model) {
+		Article article = detailService.showArticleDetail(id);
+		model.addAttribute("article", article);
+		return "updateArticle";
+	}
+	
+	/**
+	 * 記事を更新する.
+	 * 
+	 * @param articleForm 記事フォーム
+	 * @param model　モデル
+	 * @return　編集画面
+	 */
+	@RequestMapping("/update")
+	public String update(ArticleForm articleForm,Model model) {
+		
+		System.err.println(articleForm.getContent());
+		
+		Article article = new Article();
+		BeanUtils.copyProperties(articleForm, article);
+		
+		
+		System.err.println(article);
+	
+		
+		service.update(article);
+		//Date型をString型へ変換
+//		String day = articleForm.getPostDate();
+//		Date date = Date.valueOf(day);
+//		article.setPostDate(date);
+		return "forward:/";
+	}
+}

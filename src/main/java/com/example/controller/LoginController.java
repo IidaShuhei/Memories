@@ -15,7 +15,7 @@ import com.example.form.LoginForm;
 import com.example.service.LoginService;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("/login")
 public class LoginController {
 	
 	@ModelAttribute
@@ -29,7 +29,7 @@ public class LoginController {
 	@Autowired
 	private LoginService service;
 
-	@RequestMapping("/log")
+	@RequestMapping("")
 	public String index() {
 		return "login";
 	}
@@ -42,19 +42,17 @@ public class LoginController {
 	 * @param result
 	 * @return
 	 */
-	@RequestMapping("/login")
+	@RequestMapping("/Tologin")
 	public String Login(@Validated LoginForm form, BindingResult result,Model model) {
 		if (result.hasErrors()) {
 			return index();
 		}
 		User user = service.login(form.getEmail(), form.getPassword());
-		System.err.println("userの中身"+user);
 		if (user == null) {
 			model.addAttribute("fail", "メール又はパスワードが不正です");
 			return index();
 		}
 		session.setAttribute("userName", user.getName());
-		System.err.println(user.getName());
 		return "article_list";
 
 	}

@@ -13,21 +13,33 @@
 </head>
 <body>
 
+
+<!-- ユーザーの名前を表示 -->
 <div class="userName">
-   <font size="4" face="Times New Roman" color="blue" th:if="${session.userName}" th:text="${session.userName}" ></font><font size="4" face="Times New Roman" color="blue" th:text="さんようこそ！！"></font>
+<font size="4" face="Times New Roman" color="blue"style="width:100px">
+<span th:if="${session.userName}" th:text="${session.userName}"></span>
+</font>さんようこそ
 </div>
 
 
-<div class="text1">
+<!-- タイトル -->
+<div class="text1" style="width:500px"><div class="h1">
 <font size="7" face="Comic Sans MS">TRAVEL AROUND</font>
-</div>
-<div>
+</div></div>
+
+
+<!-- タイトル横の写真 -->
+<img th:src="@{/img/people.jpg}" class="people">
+
+
+<!-- 日本地図 -->
+<div class="map" style="width:10%">
 	<img th:src="@{/img/japanMap.png}" width="750" class="japanMap">
 	
 	
 	<!-- 北海道 -->
 	<div class="hokkaido1">
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="hokkaido" style="text-decoration:none;font-size:10pt;">北海道</a>
+	<a th:href="@{hokkaido/Tohokkaido}" class="hokkaido" style="text-decoration:none;font-size:10pt;">北海道</a>
 	</div>
 	
 	
@@ -120,53 +132,55 @@
 
 
 <!-- 投稿ボタン -->
-<div class="text2">
-<form th:action="@{/insert}" method="post" enctype="multipart/form-data">
-<button class="btn-square-so-pop" style="width:50px;height:50px">投稿</button>
+<div class="buttons">
+<div class="post" style="width:200px">
+<form th:action="@{/insert}" method="post">
+<button class="btn-square-so-pop" style="width:100px;height:50px">記事を投稿</button>
 </form>
 </div>
 
 
 <!-- タイトルから検索するボタン -->
-<div class="text3">
+<div class="titleSearch" style="width:500px">
 <form th:action="@{/findByTitle}" method="post" enctype="multipart/form-data">
-タイトルから<br>
-<input type="text" name="title">
-<button class="circle_spread_btn" style="width:50px;height:50px">検索</button>
+<br>
+<input type="text" name="title" placeholder="タイトルから検索">
+<button class="circle_spread_btn">検索</button>
 </form>
 </div>
 
 
 <!-- 投稿者名から検索するボタン -->
-<div class="text3">
+<div class="nameSearch" style="width:500px">
 <form th:action="@{/findByName}" method="post" enctype="multipart/form-data">
-投稿者から<br>
-<input type="text" name="name">
+<br>
+<input type="text" name="name" placeholder="投稿者名から検索">
 <button class="circle_spread_btn" style="width:50px;height:50px">検索</button>
 </form>
 </div>
 
 
 <!-- 内容から検索するボタン -->
-<div class="text3">
+<div class="contentSearch" style="width:500px">
 <form th:action="@{/findByContent}" method="post" enctype="multipart/form-data">
-内容から<br>
-<input type="text" name="content">
-<button class="circle_spread_btn" style="width:50px;height:50px">検索</button>
+<br>
+<input type="text" name="content" placeholder="内容から検索">
+<button class="circle_spread_btn" style="width:50px;height:50px" value="内容から">検索</button>
 </form>
+</div>
 </div>
 
 
 <!-- ログインボタン -->
-<div class="text4">
-<form th:action="@{/register}" method="post">
+<div class="login" style="width:200px">
+<form th:action="@{/login}" method="post">
 <button class="btn-square-so-pop" style="width:100px;height:50px">ログイン</button>
 </form>
 </div>
 
 <!-- ログアウトボタン -->
-<div class="text5">
-<form th:action="@{/}" method="post">
+<div class="logout" style="width:200px" th:if="${session.userName}">
+<form th:action="@{/logout}" method="post">
 <button class="btn-square-so-pop" style="width:100px;height:50px">ログアウト</button>
 </form>
 </div>
@@ -195,6 +209,6 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script></div>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

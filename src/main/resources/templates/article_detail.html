@@ -7,14 +7,20 @@
 <link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
 </head>
 <body>
-<div class="userName">
-   <font size="4" face="Times New Roman" color="blue" th:if="${session.userName}" th:text="${session.userName}" ></font><font size="4" face="Times New Roman" color="blue" th:text="さんようこそ！！"></font>
-</div>
+
+<form th:action="@{/updateScreen}" method="post">
+id:<span th:text="${article.id}"></span><br>
 投稿日:<span th:text="${article.postDate}"></span><br>
 タイトル:<span th:text="${article.title}"></span><br>
 <img th:src="${article.imagePath}" class="img-responsive img-rounded" width="250" height="250"><br> 
 投稿者名:<span th:text="${article.name}"></span><br>
 都道府県：<span th:text="${article.prefecture}"></span><br>
 内容:<div th:text="${article.content}"></div>
+
+<input type="hidden" name="id" th:value="${article.id}">
+<button>編集</button>
+
+</form>
+
 </body>
 </html>
