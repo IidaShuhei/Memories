@@ -15,7 +15,16 @@ div.loginDesign{
 }
 img.peopleLogin{
 	position:relative;
-	top:28px;
+	top:79px;
+	right:559px;
+	width:80%;
+}
+
+
+/* ユーザー登録画面の左上の画像 */
+img.peopleRegister{
+	position:relative;
+	top:91px;
 	right:559px;
 	width:80%;
 }
@@ -42,39 +51,70 @@ a.cp_btn:hover {
 }
 div.newButton{
 	position: relative;
-	top:-69px;
+	top:-90px;
 	left:157px;
 }
 div.newButtonLetter{
 	position: relative;
-	top:-34px;
+	top:-58px;
 }
 
 
 /* ログインボタン */
-a.cd_btn {
-	position: relative;
-	display: block;
-	width: 160px;
-	padding: 0.8em;
-	text-align: center;
-	font-weight: bold;
-	text-decoration: none;
-	color: #FFF;
-	text-shadow: 0 0 5px rgba(255, 255, 255, 0.0);
-	background: red;
-	transition: .4s;
-	border-radius: 4px;
+.loginButton {
+  position:relative;
+  left:-69px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-a.cd_btn:hover {
-	text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83), 6px 0px 15px rgba(255, 255, 240, 0.83);
-	transition: .4s;
-}
-div.loginButton{
-	position: relative;
-	left:70px;
+.cd_btn {
+  width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+.cd_btn:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }
 
+
+/* ユーザー登録のデザイン */
+div.registerDesign{
+	position:relative;
+	left:64px;
+	top:-151px;
+}
+
+
+/* ユーザー登録ボタン */
+div.registerButton{
+	position:relative;
+	left:8px;
+	top:-16px;
+}
+
+/* ユーザー登録クリアボタン */
+div.clearButton{
+	position:relative;
+	left:8px;
+	top:-10px;
+}
 
 =======
 >>>>>>> sub

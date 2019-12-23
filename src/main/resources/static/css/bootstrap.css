@@ -5283,8 +5283,9 @@ a.list-group-item-danger.active:focus {
   position:relative;
   left:512px;
   width:30%;
-  top:120px;
-  height:600px;
+  top:60px;
+  height:652px;
+  opacity: 0.9;
 }
 .panel-default > .panel-heading {
   color: #333;

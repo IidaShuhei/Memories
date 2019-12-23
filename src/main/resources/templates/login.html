@@ -8,32 +8,35 @@
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
 <link th:href="@{/css/japanMap.css}" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url('/img/tc02.jpg'); background-size: cover">
 
 	<div class="panel panel-default">
 		<div class="loginDesign">
+		
 		<form th:action="@{/login/Tologin}" method="post" th:object="${loginForm}">
 		
 		<!-- タイトル横の写真 -->
-		<img th:src="@{/img/people.jpg}" class="peopleLogin">
+		<img th:src="@{/img/people.png}" class="peopleLogin">
 	
 			<br>
 			<h2>ログイン</h2>
-			<div><br>
-			<div th:if="${fail}" th:text="${fail}" style="color: red"></div>
-			<div th:errors="*{email}" style="color: red"></div><br>
+			<br>
 			
+			<div th:if="${fail}" th:text="${fail}" style="color: red"></div>
+			
+			<div th:errors="*{email}" style="color: red"></div>
 			<div>メールアドレス：</div>
-			<input type="text" name="email" th:field="*{email}" style="width:70%"><br><br>
+			<input type="text" name="email" th:field="*{email}" style="width:70%;border-radius: 6px"><br><br>
 			
 			<div th:errors="*{password}" style="color: red"></div>
 			パスワード ：<br>
-			<input type="password" name="password" th:field="*{password}" style="width:70%"><br><br><br>
+			<input type="password" name="password" th:field="*{password}" style="width:70%;border-radius: 6px"><br><br><br>
 
 			<div class="loginButton">
-			<a th:href="@{/login}" class="cd_btn">ログイン</a>
+			<button class="cd_btn"><h5>ログイン</h5></button>
 			</div>
 			
+		</form>
 			
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			
@@ -42,11 +45,7 @@
 			<a th:href="@{/register}" class="cp_btn">新規登録はこちら</a>
 			</div>
 			
-			
 			</div>
-		</form>
 			</div>
-	</div>
-	
 </body>
 </html>
