@@ -14,5 +14,26 @@
 
 <img th:src="@{/Hokkaido/clark.jpg}" class="faceicon">
 
+<div class="row">
+		<div>
+			<div class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-10 col-xs-12" style="background-color: white;">
+				<table class="table table-striped">
+					<tbody>
+						<tr th:each="hokkaido : ${hokkaidoList}" class="col-md-4" style="height: 320px;">
+							<th><a th:href="@{'/showArticleDetail?id='+${hokkaido.id}}"> 
+							<img th:src="${hokkaido.imagePath}" class="img-responsive img-rounded" width="200" height="230"></a><br> 
+							<a th:href="@{'/showArticleDetail?id='+${hokkaido.id}}"> 
+							<span th:text="${hokkaido.title}"></span></a><br> 
+							投稿者名：<span th:text="${hokkaido.name}"></span><br>
+							投稿日時：<span th:text="${hokkaido.postDate}"></span><br>
+							都道府県：<span th:text="${hokkaido.prefecture}"></span>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+</div>
+
 </body>
 </html>

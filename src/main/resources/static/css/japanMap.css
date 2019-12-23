@@ -20,6 +20,22 @@ div.text1{
 	top:30px;
 }
 
+/* 記事投稿のタイトル */
+input#input_text{
+	width:300px;
+}
+
+.count_num {
+	font-weight: bold;
+	display: block;
+	margin:0 0 5px 0;
+}
+.count_alert {
+	color:#ff0000;
+	font-weight: bold;
+	display: block;
+}
+
 
 /* タイトルのデザイン */
 div.h1 {
@@ -60,7 +76,10 @@ div.row{
 	position: relative;
 	bottom:900px;
 	left:-30px;
-	
+}
+
+div:row:nth-child(3n-1){
+	margin: 0 2%;
 }
 
 

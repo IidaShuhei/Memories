@@ -92,7 +92,8 @@ public class ArticleRepository {
 	}
 	
 	/**
-	 * 記事情報を登録する
+	 * 記事情報を登録する.
+	 * 
 	 * @param article　
 	 */
 	public void insert(Article article) {
@@ -110,6 +111,17 @@ public class ArticleRepository {
 	public void update(Article article) {
 		String sql = "update articles set title=:title,name=:name,prefecture=:prefecture,content=:content,post_date=:postDate,image_path=:imagePath where id=:id";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(article);
+		template.update(sql, param);
+	}
+	
+	/**
+	 * 記事を削除する.
+	 * 
+	 * @param id ID
+	 */
+	public void delete(Integer id) {
+		String sql = "delete from articles where id=:id";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		template.update(sql, param);
 	}
 }

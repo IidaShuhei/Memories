@@ -79,4 +79,13 @@ public class ArticleService {
 	public void update(Article article) {
 		repository.update(article);
 	}
+	
+	/**
+	 * 記事を削除する.
+	 * 
+	 * @param id ID
+	 */
+	public void delete(Integer id) {
+		repository.delete(id);
+	}
 }

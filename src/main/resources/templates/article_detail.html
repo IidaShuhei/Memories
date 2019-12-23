@@ -5,21 +5,27 @@
 <title>Insert title here</title>
 <link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
 <link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body>
 
 <form th:action="@{/updateScreen}" method="post">
-id:<span th:text="${article.id}"></span><br>
 投稿日:<span th:text="${article.postDate}"></span><br>
 タイトル:<span th:text="${article.title}"></span><br>
-<img th:src="${article.imagePath}" class="img-responsive img-rounded" width="250" height="250"><br> 
+<img th:src="${article.imagePath}" class="img-responsive img-rounded" width="50%" height="50%"><br> 
 投稿者名:<span th:text="${article.name}"></span><br>
 都道府県：<span th:text="${article.prefecture}"></span><br>
 内容:<div th:text="${article.content}"></div>
 
+<!-- 編集ボタン -->
 <input type="hidden" name="id" th:value="${article.id}">
-<button>編集</button>
+<button><i class="far fa-edit fa-lg"></i></button>
+</form>
 
+<!-- 削除ボタン -->
+<form th:action="@{/delete}" method="post">
+<input type="hidden" name="id" th:value="${article.id}">
+<button><i class="fa fa-trash fa-lg" aria-hidden="true"></i></button>
 </form>
 
 </body>

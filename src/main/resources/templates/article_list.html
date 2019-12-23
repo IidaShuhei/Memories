@@ -17,8 +17,8 @@
 <!-- ユーザーの名前を表示 -->
 <div class="userName">
 <font size="4" face="Times New Roman" color="blue"style="width:100px">
-<span th:if="${session.userName}" th:text="${session.userName}"></span>
-</font>さんようこそ
+<span th:if="${session.userName}" th:text="${session.userName}">さんようこそ</span>
+</font>
 </div>
 
 
@@ -39,93 +39,94 @@
 	
 	<!-- 北海道 -->
 	<div class="hokkaido1">
-	<a th:href="@{hokkaido/Tohokkaido}" class="hokkaido" style="text-decoration:none;font-size:10pt;">北海道</a>
+	<a th:href="@{/prefecture/hokkaido}" class="hokkaido" style="text-decoration:none;font-size:10pt;">北海道</a>
 	</div>
 	
 	
 	<!-- 東北地方 -->
 	<div class="tofoku">
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="aomori" style="text-decoration:none;font-size:10pt;">青森&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="iwate" style="text-decoration:none;font-size:10pt;">岩手</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="miyagi" style="text-decoration:none;font-size:10pt;">宮城&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="akita" style="text-decoration:none;font-size:10pt;">秋田</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="yamagata" style="text-decoration:none;font-size:10pt;">山形&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="hukusima" style="text-decoration:none;font-size:10pt;">福島</a>
+	<a th:href="@{/prefecture/aomori}" class="aomori" style="text-decoration:none;font-size:10pt;">青森&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/iwate}" class="iwate" style="text-decoration:none;font-size:10pt;">岩手</a><br>
+	<a th:href="@{/prefecture/miyagi}" class="miyagi" style="text-decoration:none;font-size:10pt;">宮城&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/akita}" class="akita" style="text-decoration:none;font-size:10pt;">秋田</a><br>
+	<a th:href="@{/prefecture/yamagata}" class="yamagata" style="text-decoration:none;font-size:10pt;">山形&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/fukushima}" class="fukusima" style="text-decoration:none;font-size:10pt;">福島</a>
 	<div class="sen1"></div>
 	</div>
 	
 	<!-- 関東地方 -->
 	<div class="kanto">
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="ibaraki" style="text-decoration:none;font-size:10pt;">茨城&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="tochigi" style="text-decoration:none;font-size:10pt;">栃木</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="gunma" style="text-decoration:none;font-size:10pt;">群馬&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="saitama" style="text-decoration:none;font-size:10pt;">埼玉</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="chiba" style="text-decoration:none;font-size:10pt;">千葉&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="tokyo" style="text-decoration:none;font-size:10pt;">東京</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="kanagawa" style="text-decoration:none;font-size:10pt;">神奈川</a>
+	<a th:href="@{/prefecture/ibaraki}" class="ibaraki" style="text-decoration:none;font-size:10pt;">茨城&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/tochigi}" class="tochigi" style="text-decoration:none;font-size:10pt;">栃木</a><br>
+	<a th:href="@{/prefecture/gunma}" class="gunma" style="text-decoration:none;font-size:10pt;">群馬&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/saitama}" class="saitama" style="text-decoration:none;font-size:10pt;">埼玉</a><br>
+	<a th:href="@{/prefecture/chiba}" class="chiba" style="text-decoration:none;font-size:10pt;">千葉&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/tokyo}" class="tokyo" style="text-decoration:none;font-size:10pt;">東京</a><br>
+	<a th:href="@{/prefecture/kanagawa}" class="kanagawa" style="text-decoration:none;font-size:10pt;">神奈川</a>
 	<div class="sen2"></div>
 	</div>
 	
 	<!-- 中部地方 -->
 	<div class="tyubu">
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="nigata" style="text-decoration:none;font-size:10pt;">新潟&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="toyama" style="text-decoration:none;font-size:10pt;">富山</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="ishikawa" style="text-decoration:none;font-size:10pt;">石川&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="fukui" style="text-decoration:none;font-size:10pt;">福井</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="yamanashi" style="text-decoration:none;font-size:10pt;">山梨&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="nagano" style="text-decoration:none;font-size:10pt;">長野</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="gihu" style="text-decoration:none;font-size:10pt;">岐阜&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="shizuoka" style="text-decoration:none;font-size:10pt;">静岡</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="aichi" style="text-decoration:none;font-size:10pt;">愛知</a>
+	<a th:href="@{/prefecture/nigata}" class="nigata" style="text-decoration:none;font-size:10pt;">新潟&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/toyama}" class="toyama" style="text-decoration:none;font-size:10pt;">富山</a><br>
+	<a th:href="@{/prefecture/ishikawa}" class="ishikawa" style="text-decoration:none;font-size:10pt;">石川&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/fukui}" class="fukui" style="text-decoration:none;font-size:10pt;">福井</a><br>
+	<a th:href="@{/prefecture/yamanashi}" class="yamanashi" style="text-decoration:none;font-size:10pt;">山梨&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/nagano}" class="nagano" style="text-decoration:none;font-size:10pt;">長野</a><br>
+	<a th:href="@{/prefecture/gihu}" class="gihu" style="text-decoration:none;font-size:10pt;">岐阜&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/shizuoka}" class="shizuoka" style="text-decoration:none;font-size:10pt;">静岡</a><br>
+	<a th:href="@{/prefecture/aichi}" class="aichi" style="text-decoration:none;font-size:10pt;">愛知</a>
 	<div class="sen3"></div>
 	</div>
 	
 	<!-- 近畿地方 -->
 	<div class="kinki">
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="mie" style="text-decoration:none;font-size:10pt;">三重&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="shiga" style="text-decoration:none;font-size:10pt;">滋賀</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="kyoto" style="text-decoration:none;font-size:10pt;">京都&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="osaka" style="text-decoration:none;font-size:10pt;">大阪</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="hyogo" style="text-decoration:none;font-size:10pt;">兵庫&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="nara" style="text-decoration:none;font-size:10pt;">奈良</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="wakayama" style="text-decoration:none;font-size:10pt;">和歌山</a>
+	<a th:href="@{/prefecture/mie}" class="mie" style="text-decoration:none;font-size:10pt;">三重&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/shiga}" class="shiga" style="text-decoration:none;font-size:10pt;">滋賀</a><br>
+	<a th:href="@{/prefecture/kyoto}" class="kyoto" style="text-decoration:none;font-size:10pt;">京都&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/osaka}" class="osaka" style="text-decoration:none;font-size:10pt;">大阪</a><br>
+	<a th:href="@{/prefecture/hyogo}" class="hyogo" style="text-decoration:none;font-size:10pt;">兵庫&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/nara}" class="nara" style="text-decoration:none;font-size:10pt;">奈良</a><br>
+	<a th:href="@{/prefecture/wakayama}" class="wakayama" style="text-decoration:none;font-size:10pt;">和歌山</a>
 	<div class="sen4"></div>
 	</div>
 	
 	<!-- 中国地方 -->
 	<div class="chugoku">
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="tottori" style="text-decoration:none;font-size:10pt;">鳥取&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="shimane" style="text-decoration:none;font-size:10pt;">島根</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="okayama" style="text-decoration:none;font-size:10pt;">岡山&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="hiroshima" style="text-decoration:none;font-size:10pt;">広島</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="yamaguchi" style="text-decoration:none;font-size:10pt;">山口</a>
+	<a th:href="@{/prefecture/tottori}" class="tottori" style="text-decoration:none;font-size:10pt;">鳥取&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/shimane}" class="shimane" style="text-decoration:none;font-size:10pt;">島根</a><br>
+	<a th:href="@{/prefecture/okayama}" class="okayama" style="text-decoration:none;font-size:10pt;">岡山&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/hiroshima}" class="hiroshima" style="text-decoration:none;font-size:10pt;">広島</a><br>
+	<a th:href="@{/prefecture/yamaguchi}" class="yamaguchi" style="text-decoration:none;font-size:10pt;">山口</a>
 	<div class="sen5"></div>
 	</div>
 	
 	<!-- 四国地方 -->
 	<div class="shikoku">
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="tokushima" style="text-decoration:none;font-size:10pt;">徳島&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="kagawa" style="text-decoration:none;font-size:10pt;">香川</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="ehime" style="text-decoration:none;font-size:10pt;">愛媛&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="kochi" style="text-decoration:none;font-size:10pt;">高知</a>
+	<a th:href="@{/prefecture/tokushima}" class="tokushima" style="text-decoration:none;font-size:10pt;">徳島&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/kagawa}" class="kagawa" style="text-decoration:none;font-size:10pt;">香川</a><br>
+	<a th:href="@{/prefecture/ehime}" class="ehime" style="text-decoration:none;font-size:10pt;">愛媛&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/kochi}" class="kochi" style="text-decoration:none;font-size:10pt;">高知</a>
 	<div class="sen6"></div>
 	</div>
 	
 	<!-- 九州地方 -->
 	<div class="kyushu">
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="fukuoka" style="text-decoration:none;font-size:10pt;">福岡&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="saga" style="text-decoration:none;font-size:10pt;">佐賀</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="nagasaki" style="text-decoration:none;font-size:10pt;">長崎&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="kumamoto" style="text-decoration:none;font-size:10pt;">熊本</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="oita" style="text-decoration:none;font-size:10pt;">大分&nbsp;&nbsp;&nbsp;</a>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="miyazaki" style="text-decoration:none;font-size:10pt;">宮崎</a><br>
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="kagoshima" style="text-decoration:none;font-size:10pt;">鹿児島</a>
+	<a th:href="@{/prefecture/fukuoka}" class="fukuoka" style="text-decoration:none;font-size:10pt;">福岡&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/saga}" class="saga" style="text-decoration:none;font-size:10pt;">佐賀</a><br>
+	<a th:href="@{/prefecture/nagasaki}" class="nagasaki" style="text-decoration:none;font-size:10pt;">長崎&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/kumamoto}" class="kumamoto" style="text-decoration:none;font-size:10pt;">熊本</a><br>
+	<a th:href="@{/prefecture/oita}" class="oita" style="text-decoration:none;font-size:10pt;">大分&nbsp;&nbsp;&nbsp;</a>
+	<a th:href="@{/prefecture/miyazaki}" class="miyazaki" style="text-decoration:none;font-size:10pt;">宮崎</a><br>
+	<a th:href="@{/prefecture/kagoshima}" class="kagoshima" style="text-decoration:none;font-size:10pt;">鹿児島</a>
 	<div class="sen7"></div>
 	</div>
 	
+	
 	<!-- 沖縄地方 -->
 	<div class="okinawa">
-	<a href="https://www.shigoto-ryokou.com/detail/573" class="okinawa" style="text-decoration:none;font-size:10pt;">沖縄</a>
+	<a th:href="@{/prefecture/okinawa}" class="okinawa" style="text-decoration:none;font-size:10pt;">沖縄</a>
 	<div class="sen8"></div>
 	</div>
 </div>
@@ -172,7 +173,7 @@
 
 
 <!-- ログインボタン -->
-<div class="login" style="width:200px">
+<div class="login" style="width:200px" th:unless="${session.userName}">
 <form th:action="@{/login}" method="post">
 <button class="btn-square-so-pop" style="width:100px;height:50px">ログイン</button>
 </form>

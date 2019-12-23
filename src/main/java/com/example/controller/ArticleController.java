@@ -3,16 +3,21 @@ package com.example.controller;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -112,7 +117,12 @@ public class ArticleController {
 	 * @throws IOException 
 	 */
 	@RequestMapping("/registerArticle")
-	public String RegisterArticle(ArticleForm articleForm,Model model) throws IOException {
+	public String RegisterArticle(@Validated ArticleForm articleForm,BindingResult result,Model model) throws IOException {
+		
+		if(result.hasErrors()) {
+			return insert();
+		}
+		
 		Article article = new Article();
 		article.setTitle(articleForm.getTitle());
 		article.setName(articleForm.getName());
@@ -136,19 +146,21 @@ public class ArticleController {
 		}
 		base64image.append(base64);
 		article.setImagePath(base64image.toString());
+		
 	    service.registerArticle(article);
 	    
 	    return "forward:/";
 	}
 	
 	/**
-	 * 編集画面へ遷移.
+	 * 更新画面へ遷移.
 	 * 
-	 * @return　編集画面
+	 * @return　更新画面
 	 */
 	@RequestMapping("/updateScreen")
-	public String updateScreen(Integer id,Model model) {
+	public String updateScreen(Integer id,Model model, ArticleForm articleForm) {
 		Article article = detailService.showArticleDetail(id);
+		BeanUtils.copyProperties(article, articleForm);
 		model.addAttribute("article", article);
 		return "updateArticle";
 	}
@@ -159,24 +171,35 @@ public class ArticleController {
 	 * @param articleForm 記事フォーム
 	 * @param model　モデル
 	 * @return　編集画面
+	 * @throws ParseException 
 	 */
 	@RequestMapping("/update")
-	public String update(ArticleForm articleForm,Model model) {
-		
-		System.err.println(articleForm.getContent());
-		
+	public String update(ArticleForm articleForm,Model model) throws ParseException {
 		Article article = new Article();
 		BeanUtils.copyProperties(articleForm, article);
+		article.setId(Integer.parseInt(articleForm.getId()));
 		
-		
+		//FormでDateを取ってこれてない
+		String str = articleForm.getPostDate();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		Date date = sdf.parse(str);
+		article.setPostDate(date);
 		System.err.println(article);
-	
 		
 		service.update(article);
-		//Date型をString型へ変換
-//		String day = articleForm.getPostDate();
-//		Date date = Date.valueOf(day);
-//		article.setPostDate(date);
+		
 		return "forward:/";
+	}
+	
+	/**
+	 * 記事を削除する.
+	 * 
+	 * @param id ID
+	 * @return 記事表示
+	 */
+	@RequestMapping("/delete")
+	public String delete(Integer id) {
+		service.delete(id);
+		return "redirect:/";
 	}
 }
