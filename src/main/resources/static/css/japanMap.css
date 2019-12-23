@@ -6,6 +6,7 @@ div.map{
 }
 
 
+
 /* 日本地図 */
 img.japanMap{
 	position: relative;
@@ -339,16 +340,16 @@ button.btn-square-so-pop:active {
 /* 投稿ボタン */
 div.post{
 	position: relative;
-	left:100px;
-	bottom:670px;
+	left:589px;
+	bottom:705px;
 }
 
 
 /* タイトルから検索するボタン */
 div.titleSearch{
 	position: relative;
-	left:230px;
-	bottom:740px;
+	left:170px;
+	bottom:696px;
 }
 div.box17{
     margin:2em 0;
@@ -378,8 +379,8 @@ div.box17 p {
 /* 投稿者名から検索するボタン */
 div.nameSearch{
 	position: relative;
-	left:476px;
-	bottom:810px;
+	left:169px;
+	bottom:696px;
 }
 div.box17{
     margin:2em 0;
@@ -409,8 +410,8 @@ div.box17 p {
 /* 内容から検索するボタン */
 div.contentSearch{
 	position: relative;
-	left:733px;
-	bottom:880px;
+	left:168px;
+	bottom:697px;
 }
 div.box17{
     margin:2em 0;
@@ -501,8 +502,15 @@ div.box17 p {
 /* 投稿・検索ボタン全体 */
 div.buttons{
 	position: relative;
-	left:-62px;
-	top:-20px;
+	left:268px;
+	top:-379px;
+}
+
+div.search{
+	position: relative;
+	left:182px;
+	top:209px
+	
 }
 
 

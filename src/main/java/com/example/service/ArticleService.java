@@ -24,6 +24,18 @@ public class ArticleService {
 	public List<Article> findAll(){
 		return repository.findAll();
 	}
+	
+	/**
+	 * タイトル、投稿者名、内容のいずれかで記事を曖昧検索する
+	 * @param title
+	 * @param name
+	 * @param content
+	 * @return
+	 */
+	public List<Article> showArticleByArticleInfo(String title,String name,String content){
+		List<Article> articleList = repository.findByArticleInfo(title, name, content);
+		return articleList;
+	}
 
 	/**
 	 * 記事をタイトルから曖昧検索する.
@@ -52,6 +64,8 @@ public class ArticleService {
 	public List<Article> showArticleListFindByContent(String content) {
 		return repository.findByContent(content);
 	}
+	
+	
 	
 	/**
 	 *記事情報を登録する.
