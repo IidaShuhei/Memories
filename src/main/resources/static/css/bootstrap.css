@@ -5280,6 +5280,11 @@ a.list-group-item-danger.active:focus {
 }
 .panel-default {
   border-color: #ddd;
+  position:relative;
+  left:512px;
+  width:30%;
+  top:120px;
+  height:600px;
 }
 .panel-default > .panel-heading {
   color: #333;

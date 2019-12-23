@@ -8,14 +8,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ArticleForm {
 	private String id;
-	@NotBlank(message="タイトルは必須です")
-	@Length(min=1,max=25,message="タイトルは1文字以上25文字以内で記載してください")
+	@NotBlank(message = "タイトルは必須です")
+	@Length(min = 1, max = 25, message = "タイトルは1文字以上25文字以内で記載してください")
 	private String title;
-	@NotBlank(message="名前は必須です")
+	@NotBlank(message = "名前は必須です")
 	private String name;
-	@NotBlank(message="県名は必須です")
+	@NotBlank(message = "県名は必須です")
 	private String prefecture;
-	@NotBlank(message="内容は必須です")
+	@NotBlank(message = "内容は必須です")
 	private String content;
 	private String postDate;
 	private MultipartFile imagePath;

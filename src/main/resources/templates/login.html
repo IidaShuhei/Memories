@@ -4,24 +4,49 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
-<link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
+<link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" />
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<link th:href="@{/css/japanMap.css}" rel="stylesheet">
 </head>
 <body>
 
-<form th:action="@{/login/Tologin}" method="post" th:object="${loginForm}">
+	<div class="panel panel-default">
+		<div class="loginDesign">
+		<form th:action="@{/login/Tologin}" method="post" th:object="${loginForm}">
+		
+		<!-- タイトル横の写真 -->
+		<img th:src="@{/img/people.jpg}" class="peopleLogin">
+	
+			<br>
+			<h2>ログイン</h2>
+			<div><br>
+			<div th:if="${fail}" th:text="${fail}" style="color: red"></div>
+			<div th:errors="*{email}" style="color: red"></div><br>
+			
+			<div>メールアドレス：</div>
+			<input type="text" name="email" th:field="*{email}" style="width:70%"><br><br>
+			
+			<div th:errors="*{password}" style="color: red"></div>
+			パスワード ：<br>
+			<input type="password" name="password" th:field="*{password}" style="width:70%"><br><br><br>
 
-<h1>ログイン画面</h1>
-<div th:if="${fail}" th:text="${fail}" style="color:red"></div>
-<div th:errors="*{email}" style="color:red"></div>
-メールアドレス：<input type="text" name="email" th:field="*{email}"><br>
-<div th:errors="*{password}" style="color:red"></div>
-　パスワード　：<input type="password" name="password" th:field="*{password}">
-
-<input type="submit" value="ログイン">
-
-</form>
-
-<a th:href=@{/register}>ユーザー登録画面</a>
-
+			<div class="loginButton">
+			<a th:href="@{/login}" class="cd_btn">ログイン</a>
+			</div>
+			
+			
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			
+			<div class="newButtonLetter">初めてご利用ですか？</div>
+			<div class="newButton">
+			<a th:href="@{/register}" class="cp_btn">新規登録はこちら</a>
+			</div>
+			
+			
+			</div>
+		</form>
+			</div>
+	</div>
+	
 </body>
 </html>

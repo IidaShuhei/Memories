@@ -11,7 +11,6 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -180,10 +179,8 @@ public class ArticleController {
 		article.setId(Integer.parseInt(articleForm.getId()));
 		
 		//FormでDateを取ってこれてない
-		String str = articleForm.getPostDate();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		Date date = sdf.parse(str);
-		article.setPostDate(date);
+		String str = new SimpleDateFormat("yyyy-MM-dd").format(article.getPostDate());
+		articleForm.setPostDate(str);
 		System.err.println(article);
 		
 		service.update(article);

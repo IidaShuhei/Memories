@@ -1,9 +1,79 @@
 /* 日本地図＋都道府県 */
 div.map{
 	position:relative;
-	left:-165px;
+	left:-130px;
 	top:-140px;
 }
+
+
+/* ログイン画面のデザイン */
+div.loginDesign{
+	position:relative;
+	left:64px;
+	top:-143px;
+}
+img.peopleLogin{
+	position:relative;
+	top:28px;
+	right:559px;
+	width:80%;
+}
+
+
+/* 新規登録のボタン */
+a.cp_btn {
+	position: relative;
+	display: block;
+	width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFF;
+	text-shadow: 0 0 5px rgba(255, 255, 255, 0.0);
+	background: #1A237E;
+	transition: .4s;
+	border-radius: 4px;
+}
+a.cp_btn:hover {
+	text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83), 6px 0px 15px rgba(255, 255, 240, 0.83);
+	transition: .4s;
+}
+div.newButton{
+	position: relative;
+	top:-69px;
+	left:157px;
+}
+div.newButtonLetter{
+	position: relative;
+	top:-34px;
+}
+
+
+/* ログインボタン */
+a.cd_btn {
+	position: relative;
+	display: block;
+	width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFF;
+	text-shadow: 0 0 5px rgba(255, 255, 255, 0.0);
+	background: red;
+	transition: .4s;
+	border-radius: 4px;
+}
+a.cd_btn:hover {
+	text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83), 6px 0px 15px rgba(255, 255, 240, 0.83);
+	transition: .4s;
+}
+div.loginButton{
+	position: relative;
+	left:70px;
+}
+
 
 
 /* 日本地図 */
@@ -25,8 +95,6 @@ div.text1{
 input#input_text{
 	width:300px;
 }
-
-
 .count_num {
 	font-weight: bold;
 	display: block;
@@ -501,7 +569,7 @@ div.box17 p {
 /* 投稿・検索ボタン全体 */
 div.buttons{
 	position: relative;
-	left:-62px;
+	left:-4px;
 	top:-20px;
 }
 

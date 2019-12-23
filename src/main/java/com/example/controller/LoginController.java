@@ -53,7 +53,7 @@ public class LoginController {
 			return index();
 		}
 		session.setAttribute("userName", user.getName());
-		return "article_list";
+		return "forward:/";
 
 	}
 
