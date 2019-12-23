@@ -178,16 +178,10 @@ public class ArticleController {
 		Article article = new Article();
 		BeanUtils.copyProperties(articleForm, article);
 		article.setId(Integer.parseInt(articleForm.getId()));
-		
-		//FormでDateを取ってこれてない
-		String str = articleForm.getPostDate();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		Date date = sdf.parse(str);
+		LocalDate localDate = LocalDate.now();
+		Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 		article.setPostDate(date);
-		System.err.println(article);
-		
 		service.update(article);
-		
 		return "forward:/";
 	}
 	
