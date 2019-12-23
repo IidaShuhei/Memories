@@ -8,6 +8,8 @@
 <!-- iconj.com favicon code -->
 <link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
 <link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/js/search.js"></script>
 <!-- end of iconj.com favicon code -->
 
 </head>
@@ -131,18 +133,26 @@
 	</div>
 </div>
 
+<div class="buttons">
+<select name="search" id="find">
+    <option value="title" >タイトル</option>
+    <option value="name">投稿者名</option>
+    <option value="content">内容</option>
+</select>
+</div>
 
 <!-- 投稿ボタン -->
-<div class="buttons">
+
 <div class="post" style="width:200px">
 <form th:action="@{/insert}" method="post">
 <button class="btn-square-so-pop" style="width:100px;height:50px">記事を投稿</button>
 </form>
 </div>
 
+<div class="search">
 
 <!-- タイトルから検索するボタン -->
-<div class="titleSearch" style="width:500px">
+<div class="titleSearch" style="width:500px" id="title">
 <form th:action="@{/findByTitle}" method="post" enctype="multipart/form-data">
 <br>
 <input type="text" name="title" placeholder="タイトルから検索">
@@ -152,17 +162,17 @@
 
 
 <!-- 投稿者名から検索するボタン -->
-<div class="nameSearch" style="width:500px">
+<div class="nameSearch" style="width:500px" id="name">
 <form th:action="@{/findByName}" method="post" enctype="multipart/form-data">
 <br>
-<input type="text" name="name" placeholder="投稿者名から検索">
+<input type="text" name="name" placeholder="投稿者名から検索" >
 <button class="circle_spread_btn" style="width:50px;height:50px">検索</button>
 </form>
 </div>
 
 
 <!-- 内容から検索するボタン -->
-<div class="contentSearch" style="width:500px">
+<div class="contentSearch" style="width:500px" id="content">
 <form th:action="@{/findByContent}" method="post" enctype="multipart/form-data">
 <br>
 <input type="text" name="content" placeholder="内容から検索">

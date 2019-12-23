@@ -57,6 +57,23 @@ public class ArticleController {
 		model.addAttribute("articleList", articleList);
 		return "article_list";
 	}
+	
+	
+	/**
+	 * 記事をタイトル、投稿者名、内容のいずれかで曖昧検索する
+	 * @param title
+	 * @param name
+	 * @param content
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/findByInfo")
+	public String findByTitleOrNameOrContent(String title,String name,String content,Model model) {
+		List<Article> articleList = service.showArticleByArticleInfo(title, name, content);
+		model.addAttribute("articleList",articleList);
+		return "article_list";
+		
+	}
 
 	/**
 	 * 記事をタイトルから曖昧検索する.
