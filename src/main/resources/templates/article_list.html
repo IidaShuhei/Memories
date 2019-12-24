@@ -133,6 +133,10 @@
 	</div>
 </div>
 
+
+<div class="allButtons">
+
+<!-- プルダウンボタン -->
 <div class="buttons">
 <select name="search" id="find">
     <option value="title" >タイトル</option>
@@ -141,17 +145,17 @@
 </select>
 </div>
 
-<!-- 投稿ボタン -->
 
+<!-- 投稿ボタン -->
 <div class="post" style="width:200px">
 <form th:action="@{/insert}" method="post">
 <button class="btn-square-so-pop" style="width:100px;height:50px">記事を投稿</button>
 </form>
 </div>
 
-<div class="search">
 
 <!-- タイトルから検索するボタン -->
+<div class="search">
 <div class="titleSearch" style="width:500px" id="title">
 <form th:action="@{/findByTitle}" method="post" enctype="multipart/form-data">
 <br>
@@ -179,6 +183,8 @@
 <button class="circle_spread_btn" style="width:50px;height:50px" value="内容から">検索</button>
 </form>
 </div>
+</div>
+
 </div>
 
 
