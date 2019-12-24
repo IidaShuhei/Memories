@@ -622,11 +622,15 @@ div.search{
 	top:-82px
 }
 
-
+/* プルダウン・投稿・検索ボタン */
 div.allButtons{
 	position: relative;
 	left:-7px;
 	top:0px
+}
+
+img.baka{
+	width:30%;
 }
 
 

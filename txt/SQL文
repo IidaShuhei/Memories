@@ -24,6 +24,19 @@ create table users (
  , telephone varchar(15) not null
 ) ;
 
+-- コメント
+drop table if exists comments cascade;
+
+CREATE TABLE comments
+(
+id serial NOT NULL, --コメントID
+name text NOT NULL, --名前
+content text NOT NULL, --コンテント
+article_id integer NOT NULL, --投稿ID
+CONSTRAINT comments_pkey PRIMARY KEY (id),
+FOREIGN KEY (article_id) REFERENCES articles (id)
+);
+
 
 --ユーザー登録(pass:morimori)
 insert into users(name, email, password, zipcode, address, telephone) values('テストユーザ', 'test@test.co.jp', '6f','1111111', 'テスト住所', 'テスト電話番号');

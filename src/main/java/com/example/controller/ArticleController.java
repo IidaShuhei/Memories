@@ -20,9 +20,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Article;
+import com.example.domain.Comment;
 import com.example.form.ArticleForm;
+import com.example.form.CommentForm;
 import com.example.service.ArticleDetailService;
 import com.example.service.ArticleService;
+import com.example.service.CommentService;
 
 /**
  * 記事を表示するコントローラー.
@@ -35,7 +38,10 @@ import com.example.service.ArticleService;
 public class ArticleController {
 
 	@Autowired
-	private ArticleService service;
+	private ArticleService articleService;
+	
+	@Autowired
+	private CommentService commentService;
 	
 	@Autowired
 	private ArticleDetailService detailService;
@@ -53,9 +59,13 @@ public class ArticleController {
 	 */
 	@RequestMapping("")
 	public String findAll(Model model) {
-		List<Article> articleList = service.findAll();
+		List<Article> articleList = articleService.findAll();
+		for(Article article : articleList) {
+			List<Comment> commentList = commentService.findByArticleId(article.getId());
+			article.setCommentList(commentList);
+		}
 		model.addAttribute("articleList", articleList);
-		return "article_list";
+		return "forward:/";
 	}
 	
 	
@@ -69,7 +79,7 @@ public class ArticleController {
 	 */
 	@RequestMapping("/findByInfo")
 	public String findByTitleOrNameOrContent(String title,String name,String content,Model model) {
-		List<Article> articleList = service.showArticleByArticleInfo(title, name, content);
+		List<Article> articleList = articleService.showArticleByArticleInfo(title, name, content);
 		model.addAttribute("articleList",articleList);
 		return "article_list";
 		
@@ -84,7 +94,7 @@ public class ArticleController {
 	 */
 	@RequestMapping("/findByTitle")
 	public String findByTitle(String title, Model model) {
-		List<Article> articleList = service.showArticleListFindByTitle(title);
+		List<Article> articleList = articleService.showArticleListFindByTitle(title);
 		model.addAttribute("articleList", articleList);
 		return "article_list";
 	}
@@ -97,7 +107,7 @@ public class ArticleController {
 	 */
 	@RequestMapping("/findByName")
 	public String findByName(String name, Model model) {
-		List<Article> articleList = service.showArticleListFindByName(name);
+		List<Article> articleList = articleService.showArticleListFindByName(name);
 		model.addAttribute("articleList", articleList);
 		return "article_list";
 	}
@@ -110,7 +120,7 @@ public class ArticleController {
 	 */
 	@RequestMapping("/findByContent")
 	public String findByContent(String content, Model model) {
-		List<Article> articleList = service.showArticleListFindByContent(content);
+		List<Article> articleList = articleService.showArticleListFindByContent(content);
 		model.addAttribute("articleList", articleList);
 		return "article_list";
 	}
@@ -162,9 +172,24 @@ public class ArticleController {
 		base64image.append(base64);
 		article.setImagePath(base64image.toString());
 		
-	    service.registerArticle(article);
+		articleService.registerArticle(article);
 	    
 	    return "forward:/";
+	}
+	
+	/**
+	 * コメントを挿入する.
+	 * 
+	 * @param commentForm コメントフォーム
+	 * @return 記事一覧表示画面
+	 */
+	@RequestMapping("/insertComment")
+	public String insertComment(CommentForm commentForm) {
+		Comment comment = new Comment();
+		BeanUtils.copyProperties(commentForm, comment);
+		comment.setArticleId(Integer.parseInt(commentForm.getArticleId()));
+		commentService.insert(comment);
+		return "redirect:/";
 	}
 	
 	/**
@@ -196,7 +221,7 @@ public class ArticleController {
 		LocalDate localDate = LocalDate.now();
 		Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 		article.setPostDate(date);
-		service.update(article);
+		articleService.update(article);
 		return "forward:/";
 	}
 	
@@ -208,7 +233,7 @@ public class ArticleController {
 	 */
 	@RequestMapping("/delete")
 	public String delete(Integer id) {
-		service.delete(id);
+		articleService.delete(id);
 		return "redirect:/";
 	}
 }
