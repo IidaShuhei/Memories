@@ -57,16 +57,32 @@ public class ArticleController {
 	 * @param model モデル
 	 * @return 全件検索結果
 	 */
+//	@RequestMapping("")
+//	public String findAll(Model model) {
+//		List<Article> articleList = articleService.findAll();
+//		for(Article article : articleList) {
+//			List<Comment> commentList = commentService.findByArticleId(article.getId());
+//			article.setCommentList(commentList);
+//		}
+//		model.addAttribute("articleList", articleList);
+//		return "forward:/";
+//	}
+	
+	
+	
+	/**
+	 * 記事を全件検索する.
+	 * 
+	 * @param model モデル
+	 * @return 全件検索結果
+	 */
 	@RequestMapping("")
 	public String findAll(Model model) {
 		List<Article> articleList = articleService.findAll();
-		for(Article article : articleList) {
-			List<Comment> commentList = commentService.findByArticleId(article.getId());
-			article.setCommentList(commentList);
-		}
 		model.addAttribute("articleList", articleList);
-		return "forward:/";
+		return "article_list";
 	}
+	
 	
 	
 	/**

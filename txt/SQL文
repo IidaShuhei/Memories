@@ -1,5 +1,5 @@
 -- 記事
-drop table articles;
+drop table if exists articles cascade;
 
 create table articles (
  id serial primary key

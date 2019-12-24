@@ -29,19 +29,19 @@
 <button><i class="fa fa-trash fa-lg" aria-hidden="true"></i></button>
 </form>
 
-<!-- コメント機能 -->
-<div th:each="comment:${article.commentList}">
-コメント者名:<span th:text="${comment.name}"></span><br> 
-コメント内容:<span th:text="${comment.content}"></span><br>
-</div>
+<!-- <!-- コメント機能 --> -->
+<!-- <div th:each="comment:${article.commentList}"> -->
+<!-- コメント者名:<span th:text="${comment.name}"></span><br>  -->
+<!-- コメント内容:<span th:text="${comment.content}"></span><br> -->
+<!-- </div> -->
 
-<!-- コメント投稿 -->
-<form th:action="@{/insertComment}" th:method="post">
-<input type="hidden" name="articleId" th:value="${article.id}">
-名前:<input type="text" name="name"><br> 
-コメント:<textarea name="content" rows="2" cols="23"></textarea><br>
-<button>コメント投稿</button>
-</form>
+<!-- <!-- コメント投稿 --> -->
+<!-- <form th:action="@{/insertComment}" th:method="post"> -->
+<!-- <input type="hidden" name="articleId" th:value="${article.id}"> -->
+<!-- 名前:<input type="text" name="name"><br>  -->
+<!-- コメント:<textarea name="content" rows="2" cols="23"></textarea><br> -->
+<!-- <button>コメント投稿</button> -->
+<!-- </form> -->
 
 </body>
 </html>

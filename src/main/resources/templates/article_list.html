@@ -137,7 +137,7 @@
 <div class="allButtons">
 
 <!-- プルダウンボタン -->
-<div class="buttons">
+<div class="pullButtons">
 <select name="search" id="find">
     <option value="title" >タイトル</option>
     <option value="name">投稿者名</option>
@@ -159,7 +159,7 @@
 <div class="titleSearch" style="width:500px" id="title">
 <form th:action="@{/findByTitle}" method="post" enctype="multipart/form-data">
 <br>
-<input type="text" name="title" placeholder="タイトルから検索">
+<input type="text" name="title" placeholder="タイトルから検索" style="width:200px;height:38px;border-radius: 6px">
 <button class="circle_spread_btn">検索</button>
 </form>
 </div>
@@ -169,7 +169,7 @@
 <div class="nameSearch" style="width:500px" id="name">
 <form th:action="@{/findByName}" method="post" enctype="multipart/form-data">
 <br>
-<input type="text" name="name" placeholder="投稿者名から検索" >
+<input type="text" name="name" placeholder="投稿者名から検索" style="width:200px;height:38px;border-radius: 6px">
 <button class="circle_spread_btn" style="width:50px;height:50px">検索</button>
 </form>
 </div>
@@ -179,7 +179,7 @@
 <div class="contentSearch" style="width:500px" id="content">
 <form th:action="@{/findByContent}" method="post" enctype="multipart/form-data">
 <br>
-<input type="text" name="content" placeholder="内容から検索">
+<input type="text" name="content" placeholder="内容から検索" style="width:200px;height:38px;border-radius: 6px">
 <button class="circle_spread_btn" style="width:50px;height:50px" value="内容から">検索</button>
 </form>
 </div>
