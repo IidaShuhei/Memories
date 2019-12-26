@@ -5,6 +5,12 @@
 <title>Insert title here</title>
 <link th:href="@{/css/hokkaido.css}" rel="stylesheet">
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<link rel="shortcut icon" href="http://www.iconj.com/ico/b/j/bji8kp0hzh.ico" type="image/x-icon" />
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" th:src="@{/js/count.js}"></script>
+
+
 </head>
 <body>
 
@@ -13,6 +19,35 @@
 <span class="boysBe">少年よ大志を抱け…</span>
 
 <img th:src="@{/Hokkaido/clark.jpg}" class="faceicon">
+
+<br><br>
+
+
+<div class="box26">
+    <span class="box-title">POINT!</span>
+    <p>北海道は日本の主要四島の中で最北端にある島で、</p>
+    <p>火山、天然温泉、スキー場で知られています。</p>
+<p>起伏の激しい大雪山国立公園には蒸気を上げる火山の<p>旭岳があり、支笏洞爺国立公園にはカルデラ湖、</p>
+<p>地熱温泉、富士山に似た羊蹄山があります。人気の</p>
+<p>スキーリゾートにはルスツ、富良野、ニセコなどがあります。</p>
+</div>
+
+<div class="snow">
+<p class="textS">さっぽろ</p>
+<p class="textS">雪まつり</p>
+<p>雪と氷の祭典</p>
+- - - - - - - - - - - - - - - - - - - - - <br><br>
+<p> &lt;雪まつり開催期間&gt; </p>
+2020/1.31〜2020/2.11
+</div>
+
+<img th:src="@{/Hokkaido/snow.png}" class="snowman">
+<img th:src="@{/Hokkaido/reindeer.png}" class="reindeer">
+
+<h2>さっぽろ雪まつりまで</h2>
+		<p class =“timer”>あと<span id=“day”></span>日<span id=“hour”></span>時間
+			<span id=“min”></span>分<span id=“sec”></span>秒</p>
+
 
 <div class="row">
 		<div>
