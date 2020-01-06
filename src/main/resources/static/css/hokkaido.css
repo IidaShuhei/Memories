@@ -85,3 +85,30 @@ img.reindeer{
 	top:-420px;
 	width:8%;
 }
+img.yuki{
+	position: relative;
+	left:694px;
+	top:-515px;
+	width:15%;
+}
+
+/* カウントダウン */
+div.count{
+	position: relative;
+	left:1018px;
+	top:-610px;
+	font-size: 25px;
+}
+div#yukimatsuri{
+	position: relative;
+	left:1000px;
+	top:-661px;
+	font-size: 44px;
+}
+div#yukimatsuriDate{
+	position: relative;
+	left:960px;
+	top:-652px;
+	font-size: 15px;
+}
+

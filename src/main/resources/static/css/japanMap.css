@@ -2,7 +2,7 @@
 div.map{
 	position:relative;
 	left:-135px;
-	top:-63px;
+	top:-44px;
 }
 
 
@@ -10,11 +10,11 @@ div.map{
 div.loginDesign{
 	position:relative;
 	left:64px;
-	top:-107px;
+	top:-17px;
 }
 img.peopleLogin{
 	position:relative;
-	top:80px;
+	top:-29px;
 	right:559px;
 	width:50%;
 }
@@ -23,7 +23,7 @@ img.peopleLogin{
 /* ユーザー登録画面の左上の画像 */
 img.peopleRegister{
 	position:relative;
-	top:91px;
+	top:-2px;
 	right:559px;
 	width:50%;
 }
@@ -67,6 +67,7 @@ div.newButtonLetter{
   display: flex;
   align-items: center;
   justify-content: center;
+  top:12px;
 }
 .cd_btn {
   width: 140px;
@@ -97,7 +98,7 @@ div.newButtonLetter{
 div.registerDesign{
 	position:relative;
 	left:64px;
-	top:-115px;
+	top:-58px;
 }
 
 
@@ -550,7 +551,7 @@ div.box17 p {
 div.login{
 	position: relative;
 	left:945px;
-	top:-1631px;
+	top:-1600px;
 }
 div.box17{
     margin:2em 0;
@@ -581,7 +582,7 @@ div.box17 p {
 div.logout{
 	position: relative;
 	left:950px;
-	bottom:1700px;
+	bottom:1630px;
 }
 div.box17{
     margin:2em 0;
@@ -675,6 +676,7 @@ div.search{
 	top:-83px
 }
 
+
 /* プルダウン・投稿・検索ボタン */
 div.allButtons{
 	position: relative;
@@ -683,9 +685,17 @@ div.allButtons{
 	width:50%;
 }
 
+
 /* エラー画像 */
 img.baka{
 	width:30%;
+}
+
+
+/* いいねボタン */
+img.good{
+	position: relative;
+	width:25px;
 }
 
 
