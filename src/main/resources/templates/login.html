@@ -24,11 +24,11 @@
 			
 			<div th:if="${fail}" th:text="${fail}" style="color: red"></div>
 			
-			<div th:errors="*{email}" style="color: red"></div>
+			<div th:errors="*{email}" style="color:red"></div>
 			<div>メールアドレス：</div>
-			<input type="text" name="email" th:field="*{email}" style="width:70%;border-radius: 6px"><br><br>
+			<input type="email" name="email" th:field="*{email}" style="width:70%;border-radius: 6px"><br><br>
 			
-			<div th:errors="*{password}" style="color: red"></div>
+			<div th:errors="*{password}" style="color:red"></div>
 			パスワード ：<br>
 			<input type="password" name="password" th:field="*{password}" style="width:70%;border-radius: 6px"><br><br><br>
 

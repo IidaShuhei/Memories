@@ -30,7 +30,7 @@ public class LoginController {
 	private LoginService service;
 
 	@RequestMapping("")
-	public String index() {
+	public String index1() {
 		return "login";
 	}
 
@@ -45,12 +45,12 @@ public class LoginController {
 	@RequestMapping("/Tologin")
 	public String Login(@Validated LoginForm form, BindingResult result,Model model) {
 		if (result.hasErrors()) {
-			return index();
+			return index1();
 		}
 		User user = service.login(form.getEmail(), form.getPassword());
 		if (user == null) {
 			model.addAttribute("fail", "メール又はパスワードが不正です");
-			return index();
+			return index1();
 		}
 		session.setAttribute("userName", user.getName());
 		return "forward:/";
