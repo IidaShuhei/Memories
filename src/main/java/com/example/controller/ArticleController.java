@@ -243,15 +243,32 @@ public class ArticleController {
 	 * @param model　モデル
 	 * @return　編集画面
 	 * @throws ParseException 
+	 * @throws IOException 
 	 */
 	@RequestMapping("/update")
-	public String update(ArticleForm articleForm,Model model) throws ParseException {
+	public String update(ArticleForm articleForm,Model model) throws ParseException, IOException {
 		Article article = new Article();
 		BeanUtils.copyProperties(articleForm, article);
 		article.setId(Integer.parseInt(articleForm.getId()));
 		LocalDate localDate = LocalDate.now();
 		Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 		article.setPostDate(date);
+		
+		byte[] encoded = Base64.getEncoder().encode(articleForm.getImagePath().getBytes());
+		Charset charset = StandardCharsets.UTF_8;
+		
+		String base64 = new String(encoded, charset);
+		String fileExtension = articleForm.getImagePath().getOriginalFilename().substring(articleForm.getImagePath().getOriginalFilename().length() - 3);
+		StringBuilder base64image = new StringBuilder();
+		if("jpg".equals(fileExtension)) {
+			base64image.append("data:image/jpeg;base64,");
+		}
+		if("png".equals(fileExtension)) {
+			base64image.append("data:image/png;base64,");
+		}
+		base64image.append(base64);
+		article.setImagePath(base64image.toString());
+		
 		articleService.update(article);
 		return "forward:/";
 	}
