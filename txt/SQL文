@@ -9,6 +9,8 @@ create table articles (
  , content text not null
  , post_date date 
  , image_path text not null
+ , trip_start_date text not null 
+ ,trip_end_date text not null
 ); 
 
 -- ユーザー

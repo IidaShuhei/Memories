@@ -13,6 +13,9 @@ public class Article {
 	private Date postDate;
 	private String imagePath;
 	private List<Comment> commentList;
+	private Date tripStartDate;
+	private Date tripEndDate;
+
 
 	/**
 	 * @return the id
@@ -124,6 +127,24 @@ public class Article {
 	 */
 	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
+	}
+    
+	
+	
+	public Date getTripStartDate() {
+		return tripStartDate;
+	}
+
+	public void setTripStartDate(Date tripStartDate) {
+		this.tripStartDate = tripStartDate;
+	}
+
+	public Date getTripEndDate() {
+		return tripEndDate;
+	}
+
+	public void setTripEndDate(Date tripEndDate) {
+		this.tripEndDate = tripEndDate;
 	}
 
 	@Override

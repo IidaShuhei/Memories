@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Base64;
@@ -156,9 +157,10 @@ public class ArticleController {
 	 * @param model モデル
 	 * @return　記事一覧
 	 * @throws IOException 
+	 * @throws ParseException 
 	 */
 	@RequestMapping("/registerArticle")
-	public String RegisterArticle(@Validated ArticleForm articleForm,BindingResult result,Model model) throws IOException {
+	public String RegisterArticle(@Validated ArticleForm articleForm,BindingResult result,Model model) throws IOException, ParseException{
 		
 		if(result.hasErrors()) {
 			return insert();
@@ -171,7 +173,20 @@ public class ArticleController {
 		article.setContent(articleForm.getContent());
 		LocalDate localDate = LocalDate.now();
 		Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+		System.err.println(date);
 		article.setPostDate(date);
+		System.out.println("あいうえお" + articleForm);
+	System.err.println(articleForm.getTripStartDate());
+	System.err.println(articleForm.getTripEndDate());
+//	article.setTripStartDate(java.sql.Date.valueOf(articleForm.getTripStartDate()));
+//    article.setTripEndDate(java.sql.Date.valueOf(articleForm.getTripEndDate()));
+	System.err.println(articleForm.getTripStartDate());
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
+	Date startDate = sdf.parse(articleForm.getTripStartDate());
+	article.setTripStartDate(startDate);
+	
+	Date endDate = sdf.parse(articleForm.getTripEndDate());
+	article.setTripEndDate(endDate);
 		
 		byte[] encoded = Base64.getEncoder().encode(articleForm.getImagePath().getBytes());
 		Charset charset = StandardCharsets.UTF_8;

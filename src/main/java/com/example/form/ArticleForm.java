@@ -19,6 +19,19 @@ public class ArticleForm {
 	private String content;
 	private String postDate;
 	private MultipartFile imagePath;
+//	@NotBlank(message="旅行開始日は必須です")
+	private String tripStartDate;
+	
+	private String tripEndDate;
+
+
+
+	@Override
+	public String toString() {
+		return "ArticleForm [id=" + id + ", title=" + title + ", name=" + name + ", prefecture=" + prefecture
+				+ ", content=" + content + ", postDate=" + postDate + ", imagePath=" + imagePath + ", tripStartDate="
+				+ tripStartDate + ", tripEndDate=" + tripEndDate + "]";
+	}
 
 	/**
 	 * @return the id
@@ -116,6 +129,22 @@ public class ArticleForm {
 	 */
 	public void setImagePath(MultipartFile imagePath) {
 		this.imagePath = imagePath;
+	}
+
+	public String getTripStartDate() {
+		return tripStartDate;
+	}
+
+	public void setTripStartDate(String tripStartDate) {
+		this.tripStartDate = tripStartDate;
+	}
+
+	public String getTripEndDate() {
+		return tripEndDate;
+	}
+
+	public void setTripEndDate(String tripEndDate) {
+		this.tripEndDate = tripEndDate;
 	}
 
 }
