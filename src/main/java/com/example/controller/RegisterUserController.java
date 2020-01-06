@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.User;
+import com.example.form.LoginForm;
 import com.example.form.UserForm;
 import com.example.service.RegisterUserService;
 
@@ -32,6 +33,11 @@ public class RegisterUserController {
 	@ModelAttribute
 	private UserForm setUpForm() {
 		return new UserForm();
+	}
+	
+	@ModelAttribute
+	public LoginForm setUpForm1() {
+		return new LoginForm();
 	}
 
 	@Autowired
