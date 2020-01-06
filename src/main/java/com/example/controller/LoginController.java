@@ -37,6 +37,7 @@ public class LoginController {
 	/**
 	 * メールアドレスとパスワードが一致したらログイン成功させ記事一覧にとぶ.
 	 * それ以外はログイン失敗させ、ログイン画面に戻す.
+	 * 
 	 * @param form
 	 * @param model
 	 * @param result
@@ -44,10 +45,10 @@ public class LoginController {
 	 */
 	@RequestMapping("/Tologin")
 	public String Login(@Validated LoginForm form, BindingResult result,Model model) {
+		User user = service.login(form.getEmail(), form.getPassword());
 		if (result.hasErrors()) {
 			return index();
 		}
-		User user = service.login(form.getEmail(), form.getPassword());
 		if (user == null) {
 			model.addAttribute("fail", "メール又はパスワードが不正です");
 			return index();

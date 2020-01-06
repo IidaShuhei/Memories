@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link th:href="@{/css/japanMap.css}" rel="stylesheet">
 <link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
 <link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -27,6 +28,12 @@
 <form th:action="@{/delete}" method="post">
 <input type="hidden" name="id" th:value="${article.id}">
 <button><i class="fa fa-trash fa-lg" aria-hidden="true"></i></button>
+</form>
+
+<!-- いいねボタン -->
+<form action="#" method="post">
+<input type="hidden" name="good">
+<button><img th:src="@{/img/good.png}" class="good"></button>
 </form>
 
 <!-- <!-- コメント機能 -->

@@ -213,7 +213,7 @@ public class ArticleRepository {
 		}
 		
 		//sqlを発行
-		String sql = "select id,title,name,prefecture,content,post_date,image_path from articles" + whereTitleSql + whereNameSql + whereContentSql;
+		String sql = "select id,title,name,prefecture,content,post_date,image_path,good from articles" + whereTitleSql + whereNameSql + whereContentSql;
 		SqlParameterSource param = new MapSqlParameterSource().addValue("title", "%"+whereTitleSql+"%").addValue("name", "%"+whereNameSql+"%").addValue("content", "%"+whereContentSql+"%");
 		List<Article> articleList = template.query(sql, param,ARTICLE_ROW_MAPPER);
 		return articleList;

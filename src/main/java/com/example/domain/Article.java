@@ -115,6 +115,7 @@ public class Article {
 		this.imagePath = imagePath;
 	}
 
+
 	/**
 	 * @return the commentList
 	 */
@@ -150,7 +151,7 @@ public class Article {
 	@Override
 	public String toString() {
 		return "Article [id=" + id + ", title=" + title + ", name=" + name + ", prefecture=" + prefecture + ", content="
-				+ content + ", postDate=" + postDate + ", imagePath=" + imagePath + "]";
+				+ content + ", postDate=" + postDate + ", imagePath=" + imagePath + ", commentList=" + commentList + "]";
 	}
 
 }

@@ -16,7 +16,7 @@
 		<form th:action="@{/login/Tologin}" method="post" th:object="${loginForm}">
 		
 		<!-- タイトル横の写真 -->
-		<img th:src="@{/img/logo.png}" class="peopleLogin">
+		<a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/logo.png}" class="peopleLogin"></a>
 	
 			<br>
 			<h2>ログイン</h2>
