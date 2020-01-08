@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{/css/japanMap.css}" rel="stylesheet">
+<link th:href="@{/css/background.css}" rel="stylesheet">
 <link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
 <link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
 
@@ -30,32 +31,41 @@
 </head>
 <body>
 
-<div class="box17">
-<h2>思い出を残そう</h2>
+<img src="../img/travel.png" class="trip">
+<div class="travel"></div>
+
+<div class="fashionable-box2">
+<h2>旅の思い出を記録しよう！</h2>
 </div>
 
+<div class="img"></div>
+<div class="box">
+<div class="box14">
+<div class="form-style-10">
 <form th:action="@{/registerArticle}" method="post" enctype="multipart/form-data" th:object="${articleForm}">
 
 <div class="panel-body">
 
-<h3>タイトル</h3>
+
 <div th:errors="*{title}" style="color:red"></div>
-<input id="input_text" name="title" th:field="*{title}" ></input>
+<input type="text" id="input_text" name="title" th:field="*{title}" placeholder="タイトルを入力してください"></input>
+<div class="count">
 <span class="count_num"></span>
 <span class="count_alert"></span>
+</div>
 </div>
 
 
 <div class="form-group">
-<h3>投稿者名</h3>
+
 <div th:errors="*{name}" style="color:red"></div>
-<input type="text" name="name" th:field="*{name}"><br>
+<input type="text" name="name" th:field="*{name}" style="width:180px" placeholder="投稿者名を入力してください"><br>
 </div>
 
-<h3>都道府県</h3>
+
 <div th:errors="*{prefecture}" style="color:red"></div>
-<select name="prefecture" th:field="*{prefecture}">
-<option value="">-----</option>
+<select name="prefecture" th:field="*{prefecture}" style="width:230px" >
+<option value="">都道府県を選択してください</option>
 <option value="北海道">北海道</option>
 <option value="青森">青森</option>
 <option value="岩手">岩手</option>
@@ -106,21 +116,24 @@
 </select>
 
 <h3>画像</h3>
-<input type="file" name="imagePath"><br>
+<input type="file" name="imagePath" style="width:250px"><br>
 <br>
 
-<h3>旅行期間</h3>
-旅行開始日：<input type="text" id="datepicker" name="tripStartDate">　
-旅行終了日：<input type="text" id="datepicker2" name="tripEndDate">
+
+<input type="text" class="start" id="datepicker" name="tripStartDate" style="width:180px" placeholder="旅行開始日を選択してください">
+<input type="text" class="end" id="datepicker2" name="tripEndDate" style="width:180px" placeholder="旅行終了日を選択してください">
 <br>
 
-<h3>内容</h3>
+
 <div th:errors="*{content}" style="color:red"></div>
-<textarea name="content" rows="30" cols="100" th:field="*{content}"></textarea><br>
+<textarea name="content" rows="20" cols="30" th:field="*{content}" style="width:400px" placeholder="投稿内容を入力してください"></textarea><br>
 <br>
 
 <input type="submit" value="この内容で投稿する">
 
 </form>
+</div>
+</div>
+</div>
 </body>
 </html>
