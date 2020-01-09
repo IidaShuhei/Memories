@@ -31,11 +31,11 @@
 </head>
 <body>
 
-<img src="../img/travel.png" class="trip">
+<!-- <img src="../img/travel.png" class="trip"> -->
 <div class="travel"></div>
 
-<div class="fashionable-box2">
-<h2>旅の思い出を記録しよう！</h2>
+<div class="box17">
+<h2 style="color:#E6FFE9">旅の思い出を記録しよう！</h2>
 </div>
 
 <div class="img"></div>
@@ -59,7 +59,7 @@
 <div class="form-group">
 
 <div th:errors="*{name}" style="color:red"></div>
-<input type="text" name="name" th:field="*{name}" style="width:180px" placeholder="投稿者名を入力してください"><br>
+<input type="text" name="name" th:field="*{name}"  placeholder="投稿者名を入力してください"><br>
 </div>
 
 
@@ -115,21 +115,29 @@
 <option value="沖縄">沖縄</option>
 </select>
 
-<h3>画像</h3>
-<input type="file" name="imagePath" style="width:250px"><br>
+<h3 id="gazou">画像アップロード</h3>
+<div class="orange">
+<label >
+<span class="filelabel" title="ファイルを選択">
+   <img src="../img/camera-orange-rev.png" width="32" height="26" alt="＋画像">
+   選択
+</span>
+<input type="file"  id="filesend" name="imagePath" ><br>
+</label>
+</div>
 <br>
 
 
-<input type="text" class="start" id="datepicker" name="tripStartDate" style="width:180px" placeholder="旅行開始日を選択してください">
-<input type="text" class="end" id="datepicker2" name="tripEndDate" style="width:180px" placeholder="旅行終了日を選択してください">
+<input type="text" class="start" id="datepicker" name="tripStartDate"  placeholder="旅行開始日を選択してください"><h2 id="mark">~</h2>
+<input type="text" class="end" id="datepicker2" name="tripEndDate"  placeholder="旅行終了日を選択してください">
 <br>
 
 
 <div th:errors="*{content}" style="color:red"></div>
-<textarea name="content" rows="20" cols="30" th:field="*{content}" style="width:400px" placeholder="投稿内容を入力してください"></textarea><br>
+<textarea name="content" rows="20" cols="30" th:field="*{content}" placeholder="投稿内容を入力してください"></textarea><br>
 <br>
 
-<input type="submit" value="この内容で投稿する">
+<input type="submit" value="この内容で投稿する" id="button">
 
 </form>
 </div>

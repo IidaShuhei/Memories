@@ -135,7 +135,7 @@ div.text1{
 
 /* 記事投稿のタイトル */
 input#input_text{
-	width:300px;
+	width:537px;
 }
 .count_num {
 	font-weight: bold;
@@ -460,29 +460,6 @@ div.titleSearch{
 	left:167px;
 	bottom:696px;
 }
-div.box17{
-    margin:2em 0;
-    position: relative;
-    padding: 0.5em 1.5em;
-    border-top: solid 2px black;
-    border-bottom: solid 2px black;
-    text-align:center;
-}
-div.box17:before, .box17:after{
-    content: '';
-    position: absolute;
-    top: -10px;
-    width: 2px;
-    height: -webkit-calc(100% + 20px);
-    height: calc(100% + 20px);
-    background-color: black;
-}
-div.box17:before {left: 10px;}
-div.box17:after {right: 10px;}
-div.box17 p {
-    margin: 0; 
-    padding: 0;
-}
 
 
 /* 投稿者名から検索するボタン */
@@ -490,29 +467,6 @@ div.nameSearch{
 	position: relative;
 	left:167px;
 	bottom:696px;
-}
-div.box17{
-    margin:2em 0;
-    position: relative;
-    padding: 0.5em 1.5em;
-    border-top: solid 2px black;
-    border-bottom: solid 2px black;
-    text-align:center;
-}
-div.box17:before, .box17:after{
-    content: '';
-    position: absolute;
-    top: -10px;
-    width: 2px;
-    height: -webkit-calc(100% + 20px);
-    height: calc(100% + 20px);
-    background-color: black;
-}
-div.box17:before {left: 10px;}
-div.box17:after {right: 10px;}
-div.box17 p {
-    margin: 0; 
-    padding: 0;
 }
 
 
@@ -522,29 +476,6 @@ div.contentSearch{
 	left:167px;
 	bottom:696px;
 }
-div.box17{
-    margin:2em 0;
-    position: relative;
-    padding: 0.5em 1.5em;
-    border-top: solid 2px black;
-    border-bottom: solid 2px black;
-    text-align:center;
-}
-div.box17:before, .box17:after{
-    content: '';
-    position: absolute;
-    top: -10px;
-    width: 2px;
-    height: -webkit-calc(100% + 20px);
-    height: calc(100% + 20px);
-    background-color: black;
-}
-div.box17:before {left: 10px;}
-div.box17:after {right: 10px;}
-div.box17 p {
-    margin: 0; 
-    padding: 0;
-}
 
 
 /* ログインボタン */
@@ -553,29 +484,6 @@ div.login{
 	left:945px;
 	top:-1600px;
 }
-div.box17{
-    margin:2em 0;
-    position: relative;
-    padding: 0.5em 1.5em;
-    border-top: solid 2px black;
-    border-bottom: solid 2px black;
-    text-align:center;
-}
-div.box17:before, .box17:after{
-    content: '';
-    position: absolute;
-    top: -10px;
-    width: 2px;
-    height: -webkit-calc(100% + 20px);
-    height: calc(100% + 20px);
-    background-color: black;
-}
-div.box17:before {left: 10px;}
-div.box17:after {right: 10px;}
-div.box17 p {
-    margin: 0; 
-    padding: 0;
-}
 
 
 /* ログアウトボタン */
@@ -583,29 +491,6 @@ div.logout{
 	position: relative;
 	left:950px;
 	bottom:1630px;
-}
-div.box17{
-    margin:2em 0;
-    position: relative;
-    padding: 0.5em 1.5em;
-    border-top: solid 2px black;
-    border-bottom: solid 2px black;
-    text-align:center;
-}
-div.box17:before, .box17:after{
-    content: '';
-    position: absolute;
-    top: -10px;
-    width: 2px;
-    height: -webkit-calc(100% + 20px);
-    height: calc(100% + 20px);
-    background-color: black;
-}
-div.box17:before {left: 10px;}
-div.box17:after {right: 10px;}
-div.box17 p {
-    margin: 0; 
-    padding: 0;
 }
 
 
@@ -713,29 +598,25 @@ div.box{
 
 
 div.box14{
-    padding: 0.2em 0.5em;
-    margin: 2em 0;
-    background: #d6ebff;
-    box-shadow: 0px 0px 0px 10px #d6ebff;
-    border: dashed 2px white;
-    width: 400px;
-    height:764px;
+	 background-color: rgba( 255, 255, 255, 0.4 );
+    width: 1420px;
+    height:622px;
     display: inline-block;
-    text-align: left;
+    text-align: center;
     position: relative;
-    top:-246px;
+    top:-12px;
     
 }
-div.box14 p {
+/* div.box14 p {
     margin: 0; 
     padding: 0;
-}
+} */
 div.count{
 	width:80px;
 	right:500px;
-	left:315px;
+	left:1237px;
 	position:relative;
-	bottom:26px;
+	bottom:35px;
 }
 	
 input.start{
@@ -755,38 +636,164 @@ input.end{
 	bottom:-4px;
 	
 }
-.fashionable-box2{
-  margin: 2em 25px;
-  padding: 1em;
-  background-color: #f1f8e9;
-  border: dashed 3px #aed581;
-  position:relative;
-  bottom:228px;
-  box-shadow: 0 0 0 10px #f1f8e9, 0 0 0 25px #aed581;
-  border-radius: 3px;
-  text-align:center;
+
+.box17{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px #DDFFFF;
+    border-bottom: solid 2px #DDFFFF;
+    text-align: center;
+}
+.box17:before, .box17:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: #DDFFFF;
+}
+.box17:before {left: 10px;}
+.box17:after {right: 10px;}
+.box17 p {
+    margin: 0; 
+    padding: 0;
 }
 
-.fashionable-box2 p{
-  margin: 0;
-  padding: 0;
-}	
-
-.travel{
-	width:100%;
-    hight:200px; 
-	background-image: url("../img/travel.png");
-}
 img.trip{
 	width:30%;
     height:250px;
     position:relative;
-    bottom:20px;
+    bottom:2px;
     left:50px;
     right:60px;
     z-index:10;
 	
 }
+input{
 
-
+	margin:0 auto;
+	font-size: 15px;
+	
+	
 }
+textarea{
+	margin:0 auto;
+	font-size:15px;
+}
+select{
+	text-align: center;
+	margin:0 auto;
+	
+}
+#input_text{
+	width:500px;
+	height:50px;
+	position:relative;
+	left:251px;
+}
+#name{
+	position:relative;
+	width:231px;
+	height:50px;
+	bottom:78px;
+	left:-147px;
+}
+#prefecture{
+	position:relative;
+	width:250px;
+	height:50px;
+	bottom:78px;
+	left:-147px;
+	
+}
+/* #picture{
+	position:relative;
+	width:268px;
+	height:45px;
+	bottom:202px;
+	left:280px;
+	
+} */
+#gazou{
+	position:relative;
+	width:250px;
+	height:50px;
+	bottom:135px;
+	left:647px;
+	
+}
+#datepicker{
+	position:relative;
+	width:232px;
+	height:50px;
+	bottom:207px;
+	left:-146px;
+	
+}
+#datepicker2{
+	position:relative;
+	width:240px;
+	height:51px;
+	bottom:344px;
+	left:115px;
+	
+}
+#content{
+	position:relative;
+	width:520px;
+	height:291px;
+	bottom:337px;
+	left:-1px;
+	
+}
+#button{
+	position:relative;
+	width:180px;
+	height:48px;
+	bottom:368px;
+	left:-1px;
+	
+}
+
+#mark{
+	position:relative;
+	width:164px;
+	height:48px;
+	bottom:270px;
+	left:610px;
+	
+}
+
+.filelabel {
+   background-color: orange;  /* 背景色 */
+   color: white;              /* 文字色 */
+   border: 2px solid orange;  /* 枠線 */
+   border-radius: 3em;        /* 角丸 */
+   padding: 12px 9px;         /* 内側の余白 */
+   display: inline-block;     /* インラインブロック化 */
+   bottom:50px;
+   left:50px;
+   position:relative;
+}
+.filelabel img {
+   vertical-align: bottom;    /* 画像の垂直方向の配置 */
+}
+.filelabel:hover {
+   opacity: 0.5;              /* 半透明 */
+   border: 2px solid red;     /* 枠線(赤色) */
+   cursor: pointer;           /* マウス形状(ポインタ) */
+}
+#filesend {
+   display: none;  /* 本来のファイル選択フォームは非表示に */
+}
+.orange{
+	bottom:164px;
+   left:142px;
+   position:relative;
+	
+}
+
+
+

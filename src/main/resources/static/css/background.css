@@ -1,7 +1,10 @@
 @charset "UTF-8";
 
-     body{background-image: url("../img/hokkaido.webp"); 
+     body{background-image: url("../img/asayake.jpeg"); 
      background-size: cover;
+     background-position: center center;
+     background-attachment: fixed;
+   　background-repeat: no-repeat;
       } 
       
       
