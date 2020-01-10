@@ -10,11 +10,127 @@
 <link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="/js/search.js"></script>
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 <!-- end of iconj.com favicon code -->
 
+<!-- 画像が切り替わる -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    var setImg = '#photo';
+    var fadeSpeed = 1600;
+    var switchDelay = 5000;
+    $(setImg).children('img').css({opacity:'0.6'});
+    $(setImg + ' img:first').stop().animate({opacity:'1',zIndex:'20'},fadeSpeed);
+    setInterval(function(){
+        $(setImg + ' :first-child').animate({opacity:'0'},fadeSpeed).next('img').animate({opacity:'1'},fadeSpeed).end().appendTo(setImg);
+    },switchDelay);
+
+	$("#find").on("change",function(){
+		if ($("#find").val() == "prefecture") {
+		window.location.href = '/login';
+	};
+});
+});
+</script>
 </head>
 <body>
 
+<form th:action="@{/login}" method="POST" id="prefecture"></form>
+
+<header class="header">
+
+<!-- タイトル横の写真 -->
+<a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/logo.png}" class="people"></a>
+
+
+<!-- プルダウンボタン -->
+<ul class="bts1">
+<li class="search">
+<select name="search" id="find" border-radius: -2px>
+    <option value="title" >タイトル</option>
+    <option value="name">投稿者名</option>
+    <option value="content">内容</option>
+    <option value="prefecture">都道府県</option>
+</select>
+</li>
+
+<!-- タイトルから検索するボタン -->
+<li class="search" id="title">
+<form th:action="@{/findByTitle}" method="post" enctype="multipart/form-data">
+<input type="text" name="title" placeholder="タイトルから検索" class="stc">
+<button class="btnS">検索</button>
+</form>
+</li>
+
+
+<!-- 投稿者名から検索するボタン -->
+<li class="search" id="name">
+<form th:action="@{/findByName}" method="post" enctype="multipart/form-data">
+<input type="text" name="name" placeholder="投稿者名から検索"  class="stc">
+<button class="btnS">検索</button>
+</form>
+</li>
+
+
+<!-- 内容から検索するボタン -->
+<li class="search" id="content">
+<form th:action="@{/findByContent}" method="post" enctype="multipart/form-data">
+<input type="text" name="content" placeholder="内容から検索" class="stc">
+<button class="btnS">検索</button>
+</form>
+</li>
+
+</ul>
+
+
+<!-- ログインボタン -->
+<ul class="bts">
+<li class="buttons" style="width:200px" th:unless="${session.userName}">
+<a th:href="@{/login}" class="Login">
+<span class="en">Login</span>
+<span class="jp" style="text-align:center">ログイン</span>
+</a>
+</li>
+
+<!-- ログアウトボタン -->
+<li class="buttons" style="width:200px" th:if="${session.userName}">
+<a th:href="@{/logout}" class="Login">
+<span class="en">Logout</span>
+<span class="jp" style="text-align:center">ログアウト</span>
+</a>
+</li>
+
+<!-- 新規登録ボタン -->
+<li class="buttons" style="width:200px" th:unless="${session.userName}">
+<a th:href="@{/register}" class="Login">
+<i class="fas fa-user"></i>
+<span class="en">Register</span>
+<span class="jp" style="text-align:center">新規登録</span>
+</a>
+</li>
+
+<!-- 投稿ボタン -->
+<li class="buttons" style="width:200px" th:if="${session.userName}">
+<a th:href="@{/insert}" class="Login">
+<span class="en">Post</span>
+<span class="jp" style="text-align:center">記事投稿</span>
+</a>
+</li>
+
+<!-- ヘルプマーク -->
+<li class="help"><a><i class="far fa-question-circle fa-3x"></i></a></li>
+
+</ul>
+</header>
+
+<!-- 画像が切り替わる -->
+<div id="photo">
+<img th:src="@{/img/skytree.jpeg}" style="width:100%;">
+<img th:src="@{/img/fuji.jpeg}" style="width:100%;">
+<img th:src="@{/img/kyoto.jpeg}" style="width:100%;">
+<img th:src="@{/img/asakusa.jpeg}" style="width:100%;">
+</div>
 
 <!-- ユーザーの名前を表示 -->
 <!-- <div class="userName"> -->
@@ -24,15 +140,11 @@
 <!-- </div> -->
 
 
-<!-- タイトル -->
-<div class="text1" style="width:500px"><div class="h1">
-<font size="7" face="Comic Sans MS">TRAVEL AROUND</font>
-</div></div>
+<!-- 画鋲 -->
+<img th:src="@{/img/gb.png}" class="crp">
 
-
-<!-- タイトル横の写真 -->
-<a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/logo.png}" class="people"></a>
-
+<!-- 背景 -->
+<div class="row1"></div>
 
 <!-- 日本地図 -->
 <div class="map" style="width:10%">
@@ -134,82 +246,13 @@
 </div>
 
 
-<div class="allButtons">
-
-<!-- プルダウンボタン -->
-<div class="pullButtons">
-<select name="search" id="find">
-    <option value="title" >タイトル</option>
-    <option value="name">投稿者名</option>
-    <option value="content">内容</option>
-</select>
-</div>
-
-
-<!-- 投稿ボタン -->
-<div class="post" style="width:200px">
-<form th:action="@{/insert}" method="post">
-<button class="btn-square-so-pop" style="width:100px;height:50px">記事を投稿</button>
-</form>
-</div>
-
-
-<!-- タイトルから検索するボタン -->
-<div class="search">
-<div class="titleSearch" style="width:500px" id="title">
-<form th:action="@{/findByTitle}" method="post" enctype="multipart/form-data">
-<br>
-<input type="text" name="title" placeholder="タイトルから検索" style="width:200px;height:38px;border-radius: 6px">
-<button class="circle_spread_btn">検索</button>
-</form>
-</div>
-
-
-<!-- 投稿者名から検索するボタン -->
-<div class="nameSearch" style="width:500px" id="name">
-<form th:action="@{/findByName}" method="post" enctype="multipart/form-data">
-<br>
-<input type="text" name="name" placeholder="投稿者名から検索" style="width:200px;height:38px;border-radius: 6px">
-<button class="circle_spread_btn" style="width:50px;height:50px">検索</button>
-</form>
-</div>
-
-
-<!-- 内容から検索するボタン -->
-<div class="contentSearch" style="width:500px" id="content">
-<form th:action="@{/findByContent}" method="post" enctype="multipart/form-data">
-<br>
-<input type="text" name="content" placeholder="内容から検索" style="width:200px;height:38px;border-radius: 6px">
-<button class="circle_spread_btn" style="width:50px;height:50px" value="内容から">検索</button>
-</form>
-</div>
-</div>
-
-</div>
-
-
-<!-- ログインボタン -->
-<div class="login" style="width:200px" th:unless="${session.userName}">
-<form th:action="@{/login}" method="post">
-<button class="btn-square-so-pop" style="width:100px;height:50px">ログイン</button>
-</form>
-</div>
-
-<!-- ログアウトボタン -->
-<div class="logout" style="width:200px" th:if="${session.userName}">
-<form th:action="@{/logout}" method="post">
-<button class="btn-square-so-pop" style="width:100px;height:50px">ログアウト</button>
-</form>
-</div>
-
-
 <!-- 記事一覧表示 -->
 <div class="row">
-		<div>
-			<div class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-10 col-xs-12" style="background-color: white;">
+		<div class="col-sm-6 col-md-3">
+			<div class="styleArticle" style="border-style: none; background-color: none;">
 				<table class="table table-striped">
 					<tbody>
-						<tr th:each="article : ${articleList}" class="col-md-4" style="height: 320px;">
+						<tr th:each="article : ${articleList}" class="col-md-4" style="height: 320px;padding-top:200px;padding-left: 100px;">
 							<th><a th:href="@{'/showArticleDetail?id='+${article.id}}"> 
 							<img th:src="${article.imagePath}" class="img-responsive img-rounded" width="200" height="230"></a><br> 
 							<a th:href="@{'/showArticleDetail?id='+${article.id}}"> 
@@ -223,6 +266,13 @@
 				</table>
 			</div>
 		</div>
+</div>
+
+
+<!-- 記事上のタイトル -->
+<div class="kakomi1">
+<span class="en" style="font-size:100px;">Articles</span>
+<span class="jp1" style="text-align:center">記事</span>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

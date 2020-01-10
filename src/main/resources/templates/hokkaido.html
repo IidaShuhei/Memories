@@ -7,11 +7,7 @@
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
 <link rel="shortcut icon" href="http://www.iconj.com/ico/b/j/bji8kp0hzh.ico" type="image/x-icon" />
 
-<link rel="stylesheet" href="css/jquery.yycountdown.css">
 <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="/js/jquery.yycountdown.min.js"></script>
-<script type="text/javascript" src="/js/jquery.yycountdown.js"></script>
-<script type="text/javascript" src="/js/countdown.js"></script>
 
 </head>
 <body>
@@ -50,15 +46,11 @@
 	
 
 
-	<div class="row">
-		<div>
-			<div
-				class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-10 col-xs-12"
-				style="background-color: white;">
+	<div class="HokkaidoarticleList">
+			<div class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-10 col-xs-12" style="background-color: white;">
 				<table class="table table-striped">
 					<tbody>
-						<tr th:each="hokkaido : ${hokkaidoList}" class="col-md-4"
-							style="height: 320px;">
+						<tr th:each="hokkaido : ${hokkaidoList}" class="col-md-4" style="height: 320px;">
 							<th><a th:href="@{'/showArticleDetail?id='+${hokkaido.id}}">
 									<img th:src="${hokkaido.imagePath}"
 									class="img-responsive img-rounded" width="200" height="230">
@@ -71,17 +63,15 @@
 					</tbody>
 				</table>
 			</div>
-		</div>
 	</div>
-	
-<div id='yukimatsuri'>SAPPORO<span>●</span>2020</div>
- 
-<div id='yukimatsuriDate'>SAPPORO SNOW FESTIVAL is gonna be started, on 31 Jan 2020 !!</div>
 
-<div class="count">
+<div class="box27">
+<span class="box-title">COUNTDOWN!</span>
 
-<div id="countdown">
-   </div>
+<p class="festival">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAPPORO SNOW FESTIVAL</p><br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is gonna be started, on 31 Jan 2020 !!</p><br>
+
+<div id="countdown"></div>
    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
    <script>
    function countdowntimer(){
@@ -109,8 +99,8 @@
    countdowntimer();
    
    </script>
- 
- </div>
+</div>
+
 
 </body>
 </html>
