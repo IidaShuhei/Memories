@@ -807,6 +807,7 @@ input.end{
     border-top: solid 2px #DDFFFF;
     border-bottom: solid 2px #DDFFFF;
     text-align: center;
+    left:50px;
 }
 .box17:before, .box17:after{
     content: '';

@@ -294,4 +294,9 @@ public class ArticleController {
 		articleService.delete(id);
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/prefecture")
+	public String index2() {
+		return "japan";
+	}
 }

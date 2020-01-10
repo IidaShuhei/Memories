@@ -3,137 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link th:href="@{/css/japanMap.css}" rel="stylesheet">
-<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
-<!-- iconj.com favicon code -->
-<link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
-<link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="/js/search.js"></script>
-<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-<!-- end of iconj.com favicon code -->
-
-<!-- 画像が切り替わる -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript">
-$(function(){
-    var setImg = '#photo';
-    var fadeSpeed = 2600;
-    var switchDelay = 5000;
-    $(setImg).children('img').css({opacity:'0.6'});
-    $(setImg + ' img:first').stop().animate({opacity:'1',zIndex:'20'},fadeSpeed);
-    setInterval(function(){
-        $(setImg + ' :first-child').animate({opacity:'0'},fadeSpeed).next('img').animate({opacity:'1'},fadeSpeed).end().appendTo(setImg);
-    },switchDelay);
-    
-    $("#find").on("change",function(){
-		if ($("#find").val() == "prefecture") {
-		window.location.href = '/prefecture';
-	};
-	
-});
-});
-</script>
+<link th:href="@{/css/back.css}" rel="stylesheet">
 </head>
 <body>
-
-<form th:action="@{/login}" method="POST" id="prefecture"></form>
-
-<header class="header">
-
-<!-- タイトル横の写真 -->
-<a th:href="@{/}"><img th:src="@{/img/logo.png}" class="logo" /></a>
-
-
-<!-- プルダウンボタン -->
-<form th:action="@{/findByInfo}" method="post">
-<ul class="bts1">
-<li class="search">
-<select name="search" id="find">
-    <option th:value="1">タイトル</option>
-    <option th:value="2">投稿者名</option>
-    <option th:value="3">内容</option>
-    <option value="prefecture">都道府県</option>
-</select>
-</li>
-
-
-<!-- 検索ボックス -->
-<li class="search">
-<input type="text" class="textbox" name="contents">
-<button class="searchBtn"><i class="fas fa-search fa-lg"></i></button>
-</li>
-</ul>
-</form>
-
-
-<!-- ログインボタン -->
-<ul class="bts">
-<li class="buttons" style="width:200px" th:unless="${session.userName}">
-<a th:href="@{/login}" class="Login">
-<span class="en">Login</span>
-<span class="jp" style="text-align:center">ログイン</span>
-</a>
-</li>
-
-<!-- ログアウトボタン -->
-<li class="buttons" style="width:200px" th:if="${session.userName}">
-<a th:href="@{/logout}" class="Login">
-<span class="en">Logout</span>
-<span class="jp" style="text-align:center">ログアウト</span>
-</a>
-</li>
-
-<!-- 新規登録ボタン -->
-<li class="buttons" style="width:200px" th:unless="${session.userName}">
-<a th:href="@{/register}" class="Login">
-<span class="en">Register</span>
-<span class="jp" style="text-align:center">新規登録</span>
-</a>
-</li>
-
-<!-- 投稿ボタン -->
-<li class="buttons" style="width:200px" th:if="${session.userName}">
-<a th:href="@{/insert}" class="Login">
-<span class="en">Post</span>
-<span class="jp" style="text-align:center">記事投稿</span>
-</a>
-</li>
-
-<!-- ヘルプマーク -->
-<li class="help"><a><i class="far fa-question-circle fa-3x"></i></a></li>
-
-</ul>
-</header>
-
-<!-- 画像が切り替わる -->
-<div id="photo">
-<img th:src="@{/img/onsen.jpeg}" style="width:100%;">
-<img th:src="@{/img/deer.jpeg}" style="width:100%;">
-<img th:src="@{/img/eat.jpeg}" style="width:100%;">
-<img th:src="@{/img/fuji.jpeg}" style="width:100%;">
-<img th:src="@{/img/kyoto.jpeg}" style="width:100%;">
-<img th:src="@{/img/asakusa.jpeg}" style="width:100%;">
+<div class="searchBYprefecture">
+<h2>都道府県から記事検索</h2>
 </div>
-
-<!-- ユーザーの名前を表示 -->
-<!-- <div class="userName"> -->
-<!-- <font size="4" face="Times New Roman" color="blue"style="width:100px"> -->
-<!-- <span th:if="${session.userName}" th:text="${session.userName}">さんようこそ</span> -->
-<!-- </font> -->
-<!-- </div> -->
-
-
-<!-- 画鋲 -->
-<img th:src="@{/img/gb.png}" class="crp">
-
-<!-- 背景 -->
-<div class="row1"></div>
-
-<!-- 日本地図 -->
+<div class="back"></div>
 <div class="map" style="width:10%">
 	<img th:src="@{/img/japanMap.png}" width="750" class="japanMap">
-	
+
+<!-- 画鋲 -->
+<!-- <img th:src="@{/img/gb.png}" class="crp"> -->
+
+<div class="tape">
+<div class="paper" >
+</div>
+</div>
 	
 	<!-- 北海道 -->
 	<div class="hokkaido1">
@@ -229,37 +115,5 @@ $(function(){
 	</div>
 </div>
 
-
-<!-- 記事一覧表示 -->
-<div class="row">
-		<div class="col-sm-6 col-md-3">
-			<div class="styleArticle" style="border-style: none; background-color: none;">
-				<table class="table table-striped">
-					<tbody>
-						<tr th:each="article : ${articleList}" class="col-md-4" style="height: 320px;padding-top:200px;padding-left: 100px;">
-							<th><a th:href="@{'/showArticleDetail?id='+${article.id}}"> 
-							<img th:src="${article.imagePath}" class="img-responsive img-rounded" width="200" height="230"></a><br> 
-							<a th:href="@{'/showArticleDetail?id='+${article.id}}"> 
-							<span th:text="${article.title}"></span></a><br> 
-							投稿者名：<span th:text="${article.name}"></span><br>
-							投稿日時：<span th:text="${article.postDate}"></span><br>
-							都道府県：<span th:text="${article.prefecture}"></span>
-							</th>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-</div>
-
-
-<!-- 記事上のタイトル -->
-<div class="kakomi1">
-<span class="en" style="font-size:100px;">Articles</span>
-<span class="jp1" style="text-align:center">記事</span>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
