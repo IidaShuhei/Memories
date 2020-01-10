@@ -41,13 +41,13 @@ $(function(){
 <header class="header">
 
 <!-- タイトル横の写真 -->
-<a class="navbar-brand" th:href="@{/}"><img th:src="@{/img/logo.png}" class="people"></a>
+<a th:href="@{/}"><img th:src="@{/img/logo.png}" class="people" /></a>
 
 
 <!-- プルダウンボタン -->
 <ul class="bts1">
 <li class="search">
-<select name="search" id="find" border-radius: -2px>
+<select name="search" id="find" style="border-radius: -2px">
     <option value="title" >タイトル</option>
     <option value="name">投稿者名</option>
     <option value="content">内容</option>

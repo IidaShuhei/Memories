@@ -326,13 +326,9 @@ div.text1 {
 }
 
 /* 記事投稿のタイトル */
-<<<<<<< HEAD
-input#input_text{
-	width:537px;
-=======
+
 input#input_text {
 	width: 300px;
->>>>>>> sub
 }
 
 .count_num {
@@ -685,12 +681,10 @@ div.login {
 	font-size: 17px;
 	font-family: charcuterie-contrast, sans-serif;
 }
-
 a.Login {
 	transition: 2.0s;
 	color: white;
 }
-
 a.Login:hover {
 	text-decoration: none;
 	color: black;
@@ -931,26 +925,26 @@ select{
 }
 
 .filelabel {
-   background-color: orange;  /* 背景色 */
-   color: white;              /* 文字色 */
-   border: 2px solid orange;  /* 枠線 */
-   border-radius: 3em;        /* 角丸 */
-   padding: 12px 9px;         /* 内側の余白 */
-   display: inline-block;     /* インラインブロック化 */
+   background-color: orange;  背景色
+   color: white;              文字色
+   border: 2px solid orange;  枠線
+   border-radius: 3em;        角丸
+   padding: 12px 9px;         内側の余白
+   display: inline-block;     インラインブロック化
    bottom:50px;
    left:50px;
    position:relative;
 }
 .filelabel img {
-   vertical-align: bottom;    /* 画像の垂直方向の配置 */
+   vertical-align: bottom;    画像の垂直方向の配置
 }
 .filelabel:hover {
-   opacity: 0.5;              /* 半透明 */
-   border: 2px solid red;     /* 枠線(赤色) */
-   cursor: pointer;           /* マウス形状(ポインタ) */
+   opacity: 0.5;              半透明
+   border: 2px solid red;     枠線(赤色)
+   cursor: pointer;           マウス形状(ポインタ)
 }
 #filesend {
-   display: none;  /* 本来のファイル選択フォームは非表示に */
+   display: none;  本来のファイル選択フォームは非表示に
 }
 .orange{
 	bottom:164px;
