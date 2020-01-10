@@ -24,6 +24,7 @@ import com.example.domain.Article;
 import com.example.domain.Comment;
 import com.example.form.ArticleForm;
 import com.example.form.CommentForm;
+import com.example.form.SearchForm;
 import com.example.service.ArticleDetailService;
 import com.example.service.ArticleService;
 import com.example.service.CommentService;
@@ -84,8 +85,6 @@ public class ArticleController {
 		return "article_list";
 	}
 	
-	
-	
 	/**
 	 * 記事をタイトル、投稿者名、内容のいずれかで曖昧検索する
 	 * @param title
@@ -95,8 +94,15 @@ public class ArticleController {
 	 * @return
 	 */
 	@RequestMapping("/findByInfo")
-	public String findByTitleOrNameOrContent(String title,String name,String content,Model model) {
-		List<Article> articleList = articleService.showArticleByArticleInfo(title, name, content);
+	public String findByTitleOrNameOrContent(SearchForm searchForm,Model model) {
+		List<Article> articleList = null;
+		if(searchForm.getSearch() == 1) {
+			articleList = articleService.showArticleListFindByTitle(searchForm.getContents());
+		} else if(searchForm.getSearch() == 2) {
+			articleList = articleService.showArticleListFindByName(searchForm.getContents());
+		} else if(searchForm.getSearch() == 3) {
+			articleList = articleService.showArticleListFindByContent(searchForm.getContents());
+		}
 		model.addAttribute("articleList",articleList);
 		return "article_list";
 		
@@ -115,6 +121,7 @@ public class ArticleController {
 		model.addAttribute("articleList", articleList);
 		return "article_list";
 	}
+	
 	/**
 	 * 記事を投稿者名から曖昧検索する.
 	 * 
@@ -128,6 +135,7 @@ public class ArticleController {
 		model.addAttribute("articleList", articleList);
 		return "article_list";
 	}
+	
 	/**
 	 * 記事を内容から曖昧検索する.
 	 * 
@@ -141,6 +149,7 @@ public class ArticleController {
 		model.addAttribute("articleList", articleList);
 		return "article_list";
 	}
+	
 	/**
 	 * 記事を投稿する画面.
 	 * 
@@ -150,6 +159,7 @@ public class ArticleController {
 	public String insert() {
 		return "insertArticle";
 	}
+	
 	/**
 	 * 記事を投稿する.
 	 * 

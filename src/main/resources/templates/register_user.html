@@ -22,14 +22,13 @@
 
 				<!-- タイトル横の写真 -->
 				<a class="navbar-brand" th:href="@{/}"><img
-					th:src="@{/img/logo.png}" class="peopleRegister"></a>
+					th:src="@{/img/logo.png}" class="logoR"></a><br>
 
-				<h2>ユーザー登録</h2>
+				<h2>ユーザー登録</h2><br>
 
 				<div th:errors="*{name}" style="color: red"></div>
 				名前:<br>
-				<input type="text" name="name" th:field="*{name}"
-					style="width: 70%; border-radius: 6px"><br>
+				<input type="text" name="name" th:field="*{name}" style="width: 70%; border-radius: 6px"><br>
 
 
 				<div th:errors="*{email}" style="color: red"></div>
@@ -75,7 +74,6 @@
 						<button type="submit" class="cd_btn">登録</button>
 					</div>
 				</div>
-
 
 				<div class="clearButton">
 					<div class="loginButton">

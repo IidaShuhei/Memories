@@ -178,44 +178,4 @@ public class ArticleRepository {
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		template.update(sql, param);
 	}
-	
-	/** 記事のタイトル,投稿者名,内容のいずれかで記事を曖昧検索する
-	 * @param title
-	 * @param name
-	 * @param content
-	 * @return 記事
-	 */
-	public List<Article> findByArticleInfo(String title,String name,String content){
-		
-		//条件式を指定するurl(タイトルでの曖昧検索）
-		String whereTitleSql="";
-		if(!title.equals("")) {
-			whereTitleSql = "where title like :title";	
-		}else {
-			whereTitleSql ="";
-		}
-		
-		//条件式を指定するurl(名前での曖昧検索）
-		String whereNameSql="";
-		if(!name.equals("")) {
-			whereNameSql = "where name like : name";
-		}else {
-			whereNameSql = "";
-		}
-		
-		//条件式を指定するurl(内容での曖昧検索)
-		String whereContentSql="";
-		if(!content.equals("")) {
-			whereContentSql = "where content like :content";
-		}else {
-			whereContentSql="";
-					
-		}
-		
-		//sqlを発行
-		String sql = "select id,title,name,prefecture,content,post_date,image_path,good from articles" + whereTitleSql + whereNameSql + whereContentSql;
-		SqlParameterSource param = new MapSqlParameterSource().addValue("title", "%"+whereTitleSql+"%").addValue("name", "%"+whereNameSql+"%").addValue("content", "%"+whereContentSql+"%");
-		List<Article> articleList = template.query(sql, param,ARTICLE_ROW_MAPPER);
-		return articleList;
-	}
 }

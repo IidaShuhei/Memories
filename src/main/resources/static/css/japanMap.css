@@ -5,15 +5,22 @@ div.map {
 	top: -771px;
 }
 
+/* 検索ボックス */
+input.textbox{
+	left: 512px;
+	width: 90%;
+	height:40px;
+}
+
 /* ログイン、新規登録 */
 div.block {
 	background-color: white;
 	border-color: #ddd;
 	position: relative;
-	left: 512px;
-	width: 30%;
-	top: 60px;
-	height: 652px;
+	left: 409px;
+	width: 50%;
+	top: 23px;
+	height: 710px;
 	opacity: 0.9;
 }
 
@@ -32,7 +39,6 @@ ul.bts {
 	top: 63px;
 	right: 150px;
 }
-
 li.buttons {
 	float: left;
 	margin-left: 35px;
@@ -42,22 +48,26 @@ li.buttons {
 	letter-spacing: 0.11em;
 	list-style: none;
 }
-
 ul.bts1 {
 	position: absolute;
 	top: 46px;
 	right: 708px;
 }
-
 li.search {
 	width: 400px;
-	height: 38px;
 	float: left;
-	margin-left: -293px;
-	font-size: 11px;
-	line-height: 11px;
+	margin-left: -321px;
+	font-size: 12px;
 	font-weight: 500;
 	list-style: none;
+}
+.searchBtn{
+    height: 40px;
+    position: relative;
+    left: -4px;
+    top: -1px;
+    width:9%;
+    background-color: #dbaf35;
 }
 
 input.stc {
@@ -206,20 +216,26 @@ div.loginDesign {
 	top: -17px;
 }
 
-img.peopleLogin {
-	position: relative;
-	top: -29px;
-	right: 559px;
-	width: 50%;
+/* ロゴデザイン */
+img.logo {
+	position: absolute;
+	top: 16px;
+	right: 1274px;
+	width: 11%;
+}
+img.logoL{
+	position: absolute;
+	top: 10px;
+	right: 958px;
+	width: 23%;
+}
+img.logoR{
+	position: absolute;
+	top: -15px;
+	right: 958px;
+	width: 23%;
 }
 
-/* ユーザー登録画面の左上の画像 */
-img.peopleRegister {
-	position: relative;
-	top: -2px;
-	right: 559px;
-	width: 50%;
-}
 
 /* 新規登録のボタン */
 a.cp_btn {
@@ -236,23 +252,20 @@ a.cp_btn {
 	transition: .4s;
 	border-radius: 4px;
 }
-
 a.cp_btn:hover {
 	text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83), 6px 0px 15px
 		rgba(255, 255, 240, 0.83);
 	transition: .4s;
 }
-
 div.newButton {
 	position: relative;
 	top: -90px;
-	left: 127px;
+	left: 263px;
 }
-
 div.newButtonLetter {
 	position: relative;
 	top: -58px;
-	left:-22px;
+	left:69px;
 }
 
 /* ログインボタン */
@@ -263,9 +276,12 @@ div.newButtonLetter {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	top: 12px;
+	top: 112px;
 }
-
+div.LoginBottons{
+	position: relative;
+	top: 83px;
+}
 .cd_btn {
 	width: 140px;
 	height: 45px;
@@ -283,7 +299,6 @@ div.newButtonLetter {
 	cursor: pointer;
 	outline: none;
 }
-
 .cd_btn:hover {
 	background-color: #2EE59D;
 	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
@@ -295,21 +310,21 @@ div.newButtonLetter {
 div.registerDesign {
 	position: relative;
 	left: 64px;
-	top: -32px;
+	top: 9px;
 }
 
 /* ユーザー登録ボタン */
 div.registerButton {
 	position: relative;
 	left: 8px;
-	top: -16px;
+	top: -117px;
 }
 
 /* ユーザー登録クリアボタン */
 div.clearButton {
 	position: relative;
 	left: 8px;
-	top: -3px;
+	top: -100px;
 }
 
 /* 日本地図 */
@@ -368,13 +383,6 @@ div.h1:before {
 	transform: translateX(-50%);
 }
 
-/* タイトル横の画像 */
-img.people {
-	position: relative;
-	left: 15px;
-	top: 7px;
-	width: 150px;
-}
 
 /* 記事一覧表示 */
 div.row {
@@ -706,15 +714,12 @@ div.pullButtons {
 }
 
 /* プルボタン */
-select#find {
-	background-repeat: no-repeat;
-	outline: 0;
-	background-color: #d5deeb;
-	position: relative;
-	left: 40px;
-	top: 2px;
-	height: 40px;
+#find {
+	width: 20%;
+	text-align: center;
+	height:40px;
 }
+
 
 /* 検索ボタンをまとめてるボタン */
 div.search {
@@ -853,10 +858,7 @@ select{
 }
 #name{
 	position:relative;
-	width:231px;
-	height:50px;
-	bottom:78px;
-	left:-147px;
+	width:272px;
 }
 #prefecture{
 	position:relative;

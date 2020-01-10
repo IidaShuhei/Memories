@@ -18,18 +18,19 @@
 <script type="text/javascript">
 $(function(){
     var setImg = '#photo';
-    var fadeSpeed = 1600;
+    var fadeSpeed = 2600;
     var switchDelay = 5000;
     $(setImg).children('img').css({opacity:'0.6'});
     $(setImg + ' img:first').stop().animate({opacity:'1',zIndex:'20'},fadeSpeed);
     setInterval(function(){
         $(setImg + ' :first-child').animate({opacity:'0'},fadeSpeed).next('img').animate({opacity:'1'},fadeSpeed).end().appendTo(setImg);
     },switchDelay);
-
-	$("#find").on("change",function(){
+    
+    $("#find").on("change",function(){
 		if ($("#find").val() == "prefecture") {
 		window.location.href = '/login';
 	};
+	
 });
 });
 </script>
@@ -41,47 +42,29 @@ $(function(){
 <header class="header">
 
 <!-- タイトル横の写真 -->
-<a th:href="@{/}"><img th:src="@{/img/logo.png}" class="people" /></a>
+<a th:href="@{/}"><img th:src="@{/img/logo.png}" class="logo" /></a>
 
 
 <!-- プルダウンボタン -->
+<form th:action="@{/findByInfo}" method="post">
 <ul class="bts1">
 <li class="search">
-<select name="search" id="find" style="border-radius: -2px">
-    <option value="title" >タイトル</option>
-    <option value="name">投稿者名</option>
-    <option value="content">内容</option>
+<select name="search" id="find">
+    <option th:value="1">タイトル</option>
+    <option th:value="2">投稿者名</option>
+    <option th:value="3">内容</option>
     <option value="prefecture">都道府県</option>
 </select>
 </li>
 
-<!-- タイトルから検索するボタン -->
-<li class="search" id="title">
-<form th:action="@{/findByTitle}" method="post" enctype="multipart/form-data">
-<input type="text" name="title" placeholder="タイトルから検索" class="stc">
-<button class="btnS">検索</button>
-</form>
+
+<!-- 検索ボックス -->
+<li class="search">
+<input type="text" class="textbox" name="contents">
+<button class="searchBtn"><i class="fas fa-search fa-lg"></i></button>
 </li>
-
-
-<!-- 投稿者名から検索するボタン -->
-<li class="search" id="name">
-<form th:action="@{/findByName}" method="post" enctype="multipart/form-data">
-<input type="text" name="name" placeholder="投稿者名から検索"  class="stc">
-<button class="btnS">検索</button>
-</form>
-</li>
-
-
-<!-- 内容から検索するボタン -->
-<li class="search" id="content">
-<form th:action="@{/findByContent}" method="post" enctype="multipart/form-data">
-<input type="text" name="content" placeholder="内容から検索" class="stc">
-<button class="btnS">検索</button>
-</form>
-</li>
-
 </ul>
+</form>
 
 
 <!-- ログインボタン -->
@@ -104,7 +87,6 @@ $(function(){
 <!-- 新規登録ボタン -->
 <li class="buttons" style="width:200px" th:unless="${session.userName}">
 <a th:href="@{/register}" class="Login">
-<i class="fas fa-user"></i>
 <span class="en">Register</span>
 <span class="jp" style="text-align:center">新規登録</span>
 </a>
@@ -126,7 +108,9 @@ $(function(){
 
 <!-- 画像が切り替わる -->
 <div id="photo">
-<img th:src="@{/img/skytree.jpeg}" style="width:100%;">
+<img th:src="@{/img/onsen.jpeg}" style="width:100%;">
+<img th:src="@{/img/deer.jpeg}" style="width:100%;">
+<img th:src="@{/img/eat.jpeg}" style="width:100%;">
 <img th:src="@{/img/fuji.jpeg}" style="width:100%;">
 <img th:src="@{/img/kyoto.jpeg}" style="width:100%;">
 <img th:src="@{/img/asakusa.jpeg}" style="width:100%;">

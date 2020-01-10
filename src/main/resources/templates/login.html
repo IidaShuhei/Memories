@@ -11,8 +11,7 @@
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
 <link th:href="@{/css/japanMap.css}" rel="stylesheet">
 </head>
-<body
-	style="background-image: url('/img/tc02.jpg'); background-size: cover">
+<body style="background-image: url('/img/futa.jpeg'); background-size: cover">
 
 	<div class="block">
 		<div class="loginDesign">
@@ -22,23 +21,27 @@
 
 				<!-- タイトル横の写真 -->
 				<a class="navbar-brand" th:href="@{/}"><img
-					th:src="@{/img/logo.png}" class="peopleLogin"></a> <br>
+					th:src="@{/img/logo.png}" class="logoL"></a> <br><br><br>
 				<h2>ログイン</h2>
 				<br>
 
+				<div class="LoginBottons">
+				
 				<div th:if="${fail}" th:text="${fail}" style="color: red"></div>
 
 				<div th:errors="*{email}" style="color: red"></div>
 				<div>メールアドレス：</div>
 				<input type="email" name="email" th:field="*{email}"
 					style="width: 70%; border-radius: 6px"><br>
-				<br>
+				<br><br>
 
 				<div th:errors="*{password}" style="color: red"></div>
 				パスワード ：<br> <input type="password" name="password"
 					th:field="*{password}" style="width: 70%; border-radius: 6px"><br>
 				<br>
 				<br>
+				
+				</div>
 
 				<div class="loginButton">
 					<button class="cd_btn">
