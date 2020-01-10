@@ -219,3 +219,16 @@ div.box14 p {
     margin: 0; 
     padding: 0;
 }
+
+div.back {
+	position: relative;
+	top: 6px;
+	width: 80%;
+	left: 15%;
+	height: 800px;
+	border: 30px solid;
+	border-image-source: url("/img/wood.png");
+	border-image-slice: 33%;
+	border-image-repeat: repeat;
+	background: #f2f6f7;
+}
