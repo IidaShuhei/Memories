@@ -92,23 +92,45 @@ img.yuki{
 	width:15%;
 }
 
-/* カウントダウン */
-div.count{
-	position: relative;
-	left:1018px;
-	top:-610px;
-	font-size: 25px;
+/* COUNTDOWN!のところ */
+.box27 {
+    position: absolute;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #95ccff;
+    border-radius: 8px;
+    width:28%;
+    left:963px;
+    top:250px;
+    border-color:  green;
 }
-div#yukimatsuri{
-	position: relative;
-	left:1000px;
-	top:-661px;
-	font-size: 44px;
+.box27 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color:  green;
+    font-weight: bold;
 }
-div#yukimatsuriDate{
-	position: relative;
-	left:960px;
-	top:-652px;
-	font-size: 15px;
+.box27 p {
+    margin: 0; 
+    padding: 0;
+}
+p.festival{
+	font-size: 22px;
+}
+div#countdown{
+	font-size: 22px;
+	text-align: center;
 }
 
+
+/* 北海道の記事リスト */
+div.HokkaidoarticleList{
+	position: relative;
+	top:-374px;
+}
