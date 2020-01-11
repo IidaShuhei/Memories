@@ -9,8 +9,8 @@
 <link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
 <link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="/js/search.js"></script>
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<script type="text/javascript" src="/js/design.js"></script>
 <!-- end of iconj.com favicon code -->
 
 <!-- 画像が切り替わる -->
@@ -30,18 +30,22 @@ $(function(){
 		if ($("#find").val() == "prefecture") {
 		window.location.href = '/prefecture';
 	};
-	
-});
+	});
+    var data = [ [(${articleListForAutocomplete})] ];
+    $("#searchAll").autocomplete({
+    	source: data,
+        autoFocus: true,
+        delay: 500,
+        minLength: 1
+    });
 });
 </script>
 </head>
 <body>
 
-<form th:action="@{/login}" method="POST" id="prefecture"></form>
-
 <header class="header">
 
-<!-- タイトル横の写真 -->
+<!-- ロゴ -->
 <a th:href="@{/}"><img th:src="@{/img/logo.png}" class="logo" /></a>
 
 
@@ -60,7 +64,7 @@ $(function(){
 
 <!-- 検索ボックス -->
 <li class="search">
-<input type="text" class="textbox" name="contents">
+<input type="text" class="textbox" name="contents" id="searchAll">
 <button class="searchBtn"><i class="fas fa-search fa-lg"></i></button>
 </li>
 </ul>
@@ -99,11 +103,15 @@ $(function(){
 <span class="jp" style="text-align:center">記事投稿</span>
 </a>
 </li>
+</ul>
 
 <!-- ヘルプマーク -->
-<li class="help"><a><i class="far fa-question-circle fa-3x"></i></a></li>
-
+<ul class="side">
+<li><a href="" class="sideH"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">HOW TO</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">使い方</span></a></li>
+<li><a href="" class="sideH"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">QUESTION</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">質問</span></a></li>
+<li><a href="" class="sideH"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">REVIEW</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">　評価</span></a></li>
 </ul>
+
 </header>
 
 <!-- 画像が切り替わる -->

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/hokkaido.css}" rel="stylesheet">
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<link rel="shortcut icon" href="http://www.iconj.com/ico/b/j/bji8kp0hzh.ico" type="image/x-icon" />
+
+<script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+
+</head>
+<body>
+
+	<img th:src="@{/Hokkaido/iconHokkaido.png}" class="icon">
+
+	<span class="boysBe">少年よ大志を抱け…</span>
+
+	<img th:src="@{/Hokkaido/clark.jpg}" class="faceicon">
+
+	<br>
+	<br>
+
+	<div class="box26">
+		<span class="box-title">POINT!</span>
+		<p>北海道は日本の主要四島の中で最北端にある島で、</p>
+		<p>火山、天然温泉、スキー場で知られています。</p>
+		<p>起伏の激しい大雪山国立公園には蒸気を上げる火山の
+		<p>旭岳があり、支笏洞爺国立公園にはカルデラ湖、</p>
+		<p>地熱温泉、富士山に似た羊蹄山があります。人気の</p>
+		<p>スキーリゾートにはルスツ、富良野、ニセコなどがあります。</p>
+	</div>
+
+	<div class="snow">
+		<p class="textS">さっぽろ</p>
+		<p class="textS">雪まつり</p>
+		<p>雪と氷の祭典</p>
+		- - - - - - - - - - - - - - - - - - - - - <br>
+		<br>
+		<p>&lt;雪まつり開催期間&gt;</p>
+		2020/1.31〜2020/2.11
+	</div>
+
+	<img th:src="@{/Hokkaido/snow.png}" class="snowman">
+	<img th:src="@{/Hokkaido/reindeer.png}" class="reindeer">
+	
+
+
+	<div class="HokkaidoarticleList">
+			<div class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-10 col-xs-12" style="background-color: white;">
+				<table class="table table-striped">
+					<tbody>
+						<tr th:each="hokkaido : ${hokkaidoList}" class="col-md-4" style="height: 320px;">
+							<th><a th:href="@{'/showArticleDetail?id='+${hokkaido.id}}">
+									<img th:src="${hokkaido.imagePath}"
+									class="img-responsive img-rounded" width="200" height="230">
+							</a><br> <a th:href="@{'/showArticleDetail?id='+${hokkaido.id}}">
+									<span th:text="${hokkaido.title}"></span>
+							</a><br> 投稿者名：<span th:text="${hokkaido.name}"></span><br>
+								投稿日時：<span th:text="${hokkaido.postDate}"></span><br> 都道府県：<span
+								th:text="${hokkaido.prefecture}"></span></th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+
+<div class="box27">
+<span class="box-title">COUNTDOWN!</span>
+
+<p class="festival">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAPPORO SNOW FESTIVAL</p><br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is gonna be started, on 31 Jan 2020 !!</p><br>
+
+<div id="countdown"></div>
+   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+   <script>
+   function countdowntimer(){
+    var countdown = setInterval(function(){
+     var today = new Date();//今の日時
+     var targetDay = new Date('2020/01/31 00:00:00');//ターゲットの日時
+     var daysBetween = Math.ceil((targetDay - today) / (24*60*60*1000));//経過日時を1日のミリ秒で割る
+     var remainDay = (targetDay - today);//残り日時
+     if (remainDay >= 0){//もし残りの日時が0より多かったら、
+      var h = Math.floor(remainDay / 3600000);//残りの日時を1hで割った時間を取得(1h＝3600000ms)
+      var h1 = h % 24;//hを24で割った余り
+      var m = Math.floor((remainDay - h * 3600000) / 60000);//分を取得(1分＝60000 ms)
+      var s = Math.round((remainDay - h * 3600000 - m * 60000) / 1000);//秒を取得(1秒＝1000ms)
+      $("#countdown").text(daysBetween + " day " + h1 + " hour " + m + " min " +s + " sec ");//htmlに出力
+      if ((h == 0) && (m == 0) && (s == 0)) {//指定の日時が来たら、
+        clearTimeout(countdown);//ウントダウンを止める
+        $("#countdown").text("さっぽろ雪まつり開催中");//htmlに出力
+        }
+      }else{//指定の日時が過ぎてもテキストを表字させる用
+        $("#countdown").text("さっぽろ雪まつり開催中");
+      }
+    }, 1000);//処理を1秒後に予約
+   }
+
+   countdowntimer();
+   
+   </script>
+</div>
+
+
+</body>
+</html>

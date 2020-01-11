@@ -90,4 +90,24 @@ public class ArticleService {
 	public void delete(Integer id) {
 		repository.delete(id);
 	}
+	
+	/**
+	 * オートコンプリート用にJavaScriptの配列の中身を文字列で作ります.
+	 * 
+	 * @param articleList 記事一覧
+	 * @return オートコンプリート用JavaScriptの配列の文字列
+	 */
+	public StringBuilder getArticleListForAutocomplete(List<Article> articleList) {
+		StringBuilder articleListForAutocomplete = new StringBuilder();
+		for (int i = 0; i < articleList.size(); i++) {
+			if (i != 0) {
+				articleListForAutocomplete.append(",");
+			}
+			Article article = articleList.get(i);
+			articleListForAutocomplete.append("\"");
+			articleListForAutocomplete.append(article.getName());
+			articleListForAutocomplete.append("\"");
+		}
+		return articleListForAutocomplete;
+	}
 }

@@ -82,6 +82,11 @@ public class ArticleController {
 	public String findAll(Model model) {
 		List<Article> articleList = articleService.findAll();
 		model.addAttribute("articleList", articleList);
+		
+		// オートコンプリート用にJavaScriptの配列の中身を文字列で作ってスコープへ格納
+		StringBuilder articleListForAutocomplete = articleService.getArticleListForAutocomplete(articleService.findAll());
+		model.addAttribute("articleListForAutocomplete", articleListForAutocomplete);
+		
 		return "article_list";
 	}
 	

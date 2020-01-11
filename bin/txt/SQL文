@@ -1,10 +1,44 @@
 -- 記事
+drop table if exists articles cascade;
 
 create table articles (
  id serial primary key
- , name varchar(100) not null
+ , title varchar(100)
+ , name text not null
+ , prefecture text not null
  , content text not null
- , image_path text
+ , post_date date 
+ , image_path text not null
+ , trip_start_date text not null 
+ ,trip_end_date text not null
 ); 
 
-insert into articles values('京都に行きたくなる！世界的に有名な神社・寺を回ろう！','たのしい','kyoto.jpg');
+-- ユーザー
+drop table if exists users cascade;
+
+create table users (
+ id serial primary key
+ , name varchar(100) not null
+ , email varchar(100) not null unique
+ , password text not null
+ , zipcode varchar(7) not null
+ , address varchar(200) not null
+ , telephone varchar(15) not null
+) ;
+
+-- コメント
+drop table if exists comments cascade;
+
+CREATE TABLE comments
+(
+id serial NOT NULL, --コメントID
+name text NOT NULL, --名前
+content text NOT NULL, --コンテント
+article_id integer NOT NULL, --投稿ID
+CONSTRAINT comments_pkey PRIMARY KEY (id),
+FOREIGN KEY (article_id) REFERENCES articles (id)
+);
+
+
+--ユーザー登録(pass:morimori)
+insert into users(name, email, password, zipcode, address, telephone) values('テストユーザ', 'test@test.co.jp', '6f','1111111', 'テスト住所', 'テスト電話番号');
