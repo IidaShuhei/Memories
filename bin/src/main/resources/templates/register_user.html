@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<link rel="shortcut icon"
+	href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
+<link rel="shortcut icon"
+	href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6"
+	type="image/gif" />
+<link th:href="@{/css/japanMap.css}" rel="stylesheet">
+</head>
+<body style="background-image: url('/img/tc02.jpg'); background-size: cover">
+
+	<div class="block">
+
+		<div class="registerDesign">
+
+			<form th:action="@{/register/insert}" method="post"
+				th:object="${userForm}">
+
+				<!-- タイトル横の写真 -->
+				<a class="navbar-brand" th:href="@{/}"><img
+					th:src="@{/img/logo.png}" class="logoR"></a><br>
+
+				<h2>ユーザー登録</h2><br>
+
+				<div th:errors="*{name}" style="color: red"></div>
+				名前:<br>
+				<input type="text" name="name" th:field="*{name}" style="width: 70%; border-radius: 6px"><br>
+
+
+				<div th:errors="*{email}" style="color: red"></div>
+				メールアドレス:<br>
+				<input type="email" name="email" th:field="*{email}"
+					style="width: 70%; border-radius: 6px"><br>
+
+
+				<div th:errors="*{password}" style="color: red"></div>
+				パスワード:<br>
+				<input type="password" name="password" th:field="*{password}"
+					style="width: 70%; border-radius: 6px"><br>
+
+
+				<div th:errors="*{confirmationPassword}" style="color: red"></div>
+				確認用パスワード:<br>
+				<input type="password" name="confirmationPassword"
+					th:field="*{confirmationPassword}"
+					style="width: 70%; border-radius: 6px"><br>
+
+
+				<div th:errors="*{zipcode}" style="color: red"></div>
+				郵便番号:<br>
+				<input type="text" name="zipcode" size="10" maxlength="8"
+					onKeyUp="AjaxZip3.zip2addr(this,'','address','address');"
+					style="width: 70%; border-radius: 6px"><br>
+
+
+				<div th:errors="*{address}" style="color: red"></div>
+				住所:<br>
+				<input type="text" name="address" th:field="*{address}"
+					style="width: 70%; border-radius: 6px"><br>
+
+
+				<div th:errors="*{telephone}" style="color: red"></div>
+				電話番号:<br>
+				<input type="text" name="telephone" th:field="*{telephone}"
+					style="width: 70%; border-radius: 6px"><br> <br>
+
+
+				<div class="registerButton">
+					<div class="loginButton">
+						<button type="submit" class="cd_btn">登録</button>
+					</div>
+				</div>
+
+				<div class="clearButton">
+					<div class="loginButton">
+						<button type="reset" class="cd_btn">クリア</button>
+					</div>
+				</div>
+
+
+			</form>
+		</div>
+	</div>
+
+	<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
