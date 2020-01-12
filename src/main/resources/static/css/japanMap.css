@@ -5,25 +5,6 @@ div.map {
 	top: -771px;
 }
 
-/* サイドメニュー */
-.side {
-  z-index: 99;
-  cursor: pointer;
-  position: fixed;
-  top: 2.5%;
-  right: -140px;
-  background: #222222;
-  width: 180px;
-  color: #fff;
-  font-size: 16px;
-  list-style:square;
-  text-decoration: none;
-}
-a.sideH:hover{
-	text-decoration: none;
-}
-
-
 /* 検索ボックス */
 input.textbox{
 	left: 512px;
@@ -56,7 +37,7 @@ li.help {
 ul.bts {
 	position: absolute;
 	top: 63px;
-	right: 214px;
+	right: 150px;
 }
 li.buttons {
 	float: left;
@@ -89,6 +70,22 @@ li.search {
     background-color: #dbaf35;
 }
 
+input.stc {
+	position: relative;
+	top: 2px;
+	width: 400px;
+	height: 39px;
+}
+
+button.btnS {
+	position: relative;
+	top: -37px;
+	width: 40px;
+	height: 39px;
+	left: 399px;
+	background-color: green;
+	color: white;
+}
 
 /* 画像切り替わるもの */
 #photo {
@@ -133,6 +130,27 @@ span.jp1 {
 	font-size: 19px;
 }
 
+/* 投稿ボタンを囲むもの */
+div.kakomi2 {
+	position: relative;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	top: -5px;
+	left: 1274px;
+	width: 50%;
+	color: #615c48;
+}
+
+/* ログイン用囲み枠 */
+div.kakomi {
+	position: relative;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	top: 9px;
+	left: -116px;
+}
 
 /* ヘッダー英語 */
 span.en {
@@ -146,6 +164,15 @@ span.jp {
 	font-family: 'Luminari', sans-serif;
 	font-size: 1.2rem;
 	margin: 20px auto 0;
+}
+
+/* 画鋲 */
+img.crp {
+	position: relative;
+	top: 65px;
+	left: 54%;
+	z-index: 1;
+	width: 6%;
 }
 
 /* 背景色 */
@@ -306,8 +333,19 @@ img.japanMap {
 	left: 256px;
 }
 
+/* タイトル */
+div.text1 {
+	position: relative;
+	left: 420px;
+	top: 30px;
+}
 
-/* 記事投稿、文字数アラート */
+/* 記事投稿のタイトル */
+
+input#input_text {
+	width: 300px;
+}
+
 .count_num {
 	font-weight: bold;
 	display: block;
@@ -320,6 +358,31 @@ img.japanMap {
 	display: block;
 }
 
+/* タイトルのデザイン */
+div.h1 {
+	position: relative;
+	color: #158b2b;
+	font-size: 20px;
+	padding: 10px 0;
+	text-align: center;
+	margin: 1.5em 0;
+}
+
+div.h1:before {
+	content: "";
+	position: absolute;
+	top: -15px;
+	left: 50%;
+	width: 150px;
+	height: 108px;
+	border-radius: 50%;
+	border: 5px solid #a6ddb0;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
 
 /* 記事一覧表示 */
 div.row {
@@ -328,6 +391,7 @@ div.row {
 	left: 65px;
 	background-image: url("/img/cor.png");
 }
+
 div:row:nth-child(3n-1) {
 	margin: 0 2%;
 }
@@ -338,6 +402,7 @@ div.hokkaido1 {
 	left: 588px;
 	bottom: 660px;
 }
+
 div.hokkaido1:before {
 	content: '';
 	position: relative;
@@ -358,6 +423,7 @@ div.tofoku {
 	left: 815px;
 	bottom: 473px;
 }
+
 div.sen1:before {
 	content: '';
 	position: relative;
@@ -587,8 +653,42 @@ button.btn-square-so-pop:active {
 	押したとき box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
 
+/* 投稿ボタン */
+div.post {
+	position: relative;
+	left: -9px;
+	bottom: 692px;
+}
+
+/* タイトルから検索するボタン */
+div.titleSearch {
+	position: relative;
+	left: 167px;
+	bottom: 638px;
+}
+
+/* 投稿者名から検索するボタン */
+div.nameSearch {
+	position: relative;
+	left: 167px;
+	bottom: 644px;
+}
+
+/* 内容から検索するボタン */
+div.contentSearch {
+	position: relative;
+	left: 167px;
+	bottom: 696px;
+}
 
 /* ログインボタン */
+div.login {
+	position: relative;
+	left: 1105px;
+	top: -120px;
+	font-size: 17px;
+	font-family: charcuterie-contrast, sans-serif;
+}
 a.Login {
 	transition: 2.0s;
 	color: white;
@@ -598,12 +698,42 @@ a.Login:hover {
 	color: black;
 }
 
+/* ログアウトボタン */
+div.logout {
+	position: relative;
+	left: 870px;
+	bottom: 134px;
+}
+
+/* 投稿・検索ボタン全体 */
+div.pullButtons {
+	position: relative;
+	left: 87px;
+	top: -645px;
+	width: 50%;
+}
 
 /* プルボタン */
 #find {
 	width: 20%;
 	text-align: center;
 	height:40px;
+}
+
+
+/* 検索ボタンをまとめてるボタン */
+div.search {
+	position: relative;
+	left: 221px;
+	top: -64px;
+}
+
+/* プルダウン・投稿・検索ボタン */
+div.allButtons {
+	position: relative;
+	left: -88px;
+	top: 693px;
+	width: 50%;
 }
 
 /* エラー画像 */
@@ -666,7 +796,7 @@ div.count{
 	right:500px;
 	left:1019px;
 	position:relative;
-	bottom:15px;
+	bottom:35px;
 }
 	
 input.start{
