@@ -42,3 +42,13 @@ FOREIGN KEY (article_id) REFERENCES articles (id)
 
 --ユーザー登録(pass:morimori)
 insert into users(name, email, password, zipcode, address, telephone) values('テストユーザ', 'test@test.co.jp', '6f','1111111', 'テスト住所', 'テスト電話番号');
+
+-- レビュー
+drop table if exists reviews cascade;
+
+CREATE TABLE reviews(
+id serial primary key, --レビューID
+star integer NOT NULL, --評価
+review_title text NOT NULL, --タイトル
+message text NOT NULL --メッセージ
+);

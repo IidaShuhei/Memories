@@ -2,9 +2,37 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link th:href="@{/css/sideMenu.css}" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
+
+<div class="container">
+<form th:action="@{/sideMenu/insertReview}" method="post" id="contact">
+    <div class="head"><h2>レビューを書く</h2></div>
+    <div class="evaluation">
+    <input id="star1" type="radio" name="star" value="5" />
+    <label for="star1">★</label>
+    <input id="star2" type="radio" name="star" value="4" />
+    <label for="star2">★</label>
+    <input id="star3" type="radio" name="star" value="3" />
+    <label for="star3">★</label>
+    <input id="star4" type="radio" name="star" value="2" />
+    <label for="star4">★</label>
+    <input id="star5" type="radio" name="star" value="1" />
+    <label for="star5">★</label></div>
+    星をタップして評価してください
+    
+    <input type="text" name="reviewTitle" placeholder="タイトル" style="color:black"/><br /><br>
+    
+	<textarea name="message" placeholder="レビュー" style="color:black" class="review"></textarea><br />
+	
+    <div class="message">Message Sent</div>
+    <button id="submit" type="submit">送信</button>
+</form><br>
+	<a th:href="@{/}" class="return">トップページに戻る</a>
+	</div>
+
 
 </body>
 </html>
