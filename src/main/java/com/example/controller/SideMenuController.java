@@ -83,18 +83,12 @@ public class SideMenuController {
 	 */
 	@RequestMapping("/insertReview")
 	public String insertReview(@Validated ReviewForm reviewForm, BindingResult result) {
-		
-		System.out.println(reviewForm);
-		
 		if (result.hasErrors()) {
 			return review();
 		}
 		Review review = new Review();
-//		BeanUtils.copyProperties(reviewForm, review);
+		BeanUtils.copyProperties(reviewForm, review);
 		review.setStar(Integer.parseInt(reviewForm.getStar()));
-		review.setReviewTitle(reviewForm.getReviewTitle());
-		review.setMessage(reviewForm.getMessage());
-		System.err.println(reviewForm);
 		
 		service.insert(review);
 		return "review_finished";
