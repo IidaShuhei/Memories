@@ -60,6 +60,8 @@ public class ArticleRepository {
 //		}
 //		return articleList;
 //	};
+//	１ページに表示する記事数は９個
+	private static final int VIEW_SIZE = 10;
 
 	private static final RowMapper<Article>ARTICLE_ROW_MAPPER = (rs,i) -> {
 	

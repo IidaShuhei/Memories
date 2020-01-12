@@ -38,6 +38,9 @@ import com.example.service.CommentService;
 @Controller
 @RequestMapping("/")
 public class ArticleController {
+	
+	// 1ページに表示する記事数は9
+		private static final int VIEW_SIZE = 10;
 
 	@Autowired
 	private ArticleService articleService;
