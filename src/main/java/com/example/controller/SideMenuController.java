@@ -3,6 +3,7 @@ package com.example.controller;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,7 @@ import com.example.service.SideMenuService;
 @RequestMapping("/sideMenu")
 public class SideMenuController {
 	
+	@Autowired
 	private SideMenuService service;
 	
 	@ModelAttribute
@@ -88,7 +90,11 @@ public class SideMenuController {
 			return review();
 		}
 		Review review = new Review();
-		BeanUtils.copyProperties(reviewForm, review);
+//		BeanUtils.copyProperties(reviewForm, review);
+		review.setStar(Integer.parseInt(reviewForm.getStar()));
+		review.setReviewTitle(reviewForm.getReviewTitle());
+		review.setMessage(reviewForm.getMessage());
+		System.err.println(reviewForm);
 		
 		service.insert(review);
 		return "review_finished";
