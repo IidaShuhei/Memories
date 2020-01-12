@@ -49,7 +49,7 @@ public class SideMenuRepository {
 	 * @param review レビュー
 	 */
 	public void insert(Review review) {
-		String sql = "insert into review(star,review_title,message)values(:star,:reviewTitle,:message)";
+		String sql = "insert into reviews(star,review_title,message)values(:star,:reviewTitle,:message)";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(review);
 		template.update(sql, param);
 	}
