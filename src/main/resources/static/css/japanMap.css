@@ -37,7 +37,7 @@ li.help {
 ul.bts {
 	position: absolute;
 	top: 63px;
-	right: 150px;
+	right: 220px;
 }
 li.buttons {
 	float: left;
@@ -973,6 +973,3 @@ select{
    position:relative;
 	
 }
-
-
-

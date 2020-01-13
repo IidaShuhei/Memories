@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 <link th:href="@{/css/japanMap.css}" rel="stylesheet">
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<link th:href="@{/css/help.css}" rel="stylesheet">
 <!-- iconj.com favicon code -->
 <link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
 <link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
@@ -107,10 +108,11 @@ $(function(){
 
 <!-- ヘルプマーク -->
 <ul class="side">
-<li><a th:href="@{/sideMenu}" class="sideH"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">HOW TO</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">使い方</span></a></li>
-<li><a th:href="@{/sideMenu/question}" class="sideH"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">QUESTION</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">質問</span></a></li>
-<li><a th:href="@{/sideMenu/review}" class="sideH"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">REVIEW</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">　評価</span></a></li>
-</ul>
+<li><a href="#" style="font-size: 20px;" class="nav">HELP</a><ul>
+<li><a th:href="@{/sideMenu}"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">HOW TO</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">使用</span></a></li>
+<li><a th:href="@{/sideMenu/question}"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">QUESTION</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">質問</span></a></li>
+<li><a th:href="@{/sideMenu/review}"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">REVIEW</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">　評価</span></a></li>
+</ul></li></ul>
 
 </header>
 

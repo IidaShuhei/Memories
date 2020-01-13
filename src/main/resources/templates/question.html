@@ -3,15 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link th:href="@{/css/sideMenu.css}" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/js/sideMenu.js"></script>
 </head>
 <body>
 
-<form action="">
-<input type="text" name="name" placeholder="山田太郎">
-<input type="email" name="email" placeholder="text@example.com">
-<input type="text" name="question" placeholder="お問い合わせを入力してください">
-
-<button>送信する</button>
+<form id="contact">
+  <div class="container">
+    <div class="head">
+      <h2>お問い合わせ</h2>
+    </div>
+    <input type="text" name="name" placeholder="名前" /><br />
+    
+    
+    <textarea name="message" placeholder="お問い合わせ"></textarea><br />
+    <div class="message">Message Sent</div>
+    <button id="submit" type="submit">
+      送信
+    </button><br>
+    <a th:href="@{/}" class="return">トップページに戻る</a>
+  </div>
 </form>
 
 </body>

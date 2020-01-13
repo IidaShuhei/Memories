@@ -94,7 +94,7 @@ public class ArticleRepository {
 	 * @return 全記事
 	 */
 	public List<Article> findAll(){
-		String sql = "select id,title,name,prefecture,content,post_date,image_path from articles order by id";
+		String sql = "select id,title,name,prefecture,content,post_date,image_path from articles order by id desc";
 		return template.query(sql, ARTICLE_ROW_MAPPER);
 	}
 	

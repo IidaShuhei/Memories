@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Review;
 import com.example.form.ReviewForm;
+import com.example.form.SortForm;
 import com.example.service.SideMenuService;
 
 /**
@@ -38,7 +39,7 @@ public class SideMenuController {
 	 * 
 	 * @return 使い方のページ
 	 */
-	@RequestMapping("")
+	@RequestMapping("/howTo")
 	public String index() {
 		return "how_to";
 	}
@@ -72,7 +73,7 @@ public class SideMenuController {
 	public String showReviewList(Model model) {
 		List<Review> reviewList = service.showReviewList();
 		model.addAttribute("reviewList", reviewList);
-		return "review";
+		return "review_list";
 	}
 	
 	/**
@@ -92,5 +93,19 @@ public class SideMenuController {
 		
 		service.insert(review);
 		return "review_finished";
+	}
+	
+	/**
+	 * 評価が高い順、低い順で並び替える.
+	 * 
+	 * @param sortForm ソートフォーム
+	 * @param model モデル
+	 * @return 評価が高い順、低い順
+	 */
+	@RequestMapping("/findByStar")
+	public String findByStar(SortForm sortForm, Model model) {
+		List<Review> reviewList = service.findByStar(sortForm);
+		model.addAttribute("reviewList", reviewList);
+		return "review_list";
 	}
 }

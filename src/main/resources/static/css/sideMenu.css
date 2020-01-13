@@ -62,7 +62,7 @@ input {
   margin-bottom:10px;
 }
 textarea {
-  height:100px;
+  height:350px;
   margin-bottom:10px;
 }
 input:first-of-type
@@ -148,4 +148,10 @@ label.error {
 }
 a.return{
 	text-decoration: none;
+}
+
+
+/* 問い合わせ */
+.questionText{
+	height:360px;
 }

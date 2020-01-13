@@ -39,7 +39,7 @@ public class SideMenuRepository {
 	 * @return レビュー一覧
 	 */
 	public List<Review> findAll(){
-		String sql = "select id,star,review_title,message from reviews order by star";
+		String sql = "select id,star,review_title,message from reviews order by id desc";
 		return template.query(sql, REVIEW_ROW_MAPPER);
 	}
 	
@@ -52,5 +52,25 @@ public class SideMenuRepository {
 		String sql = "insert into reviews(star,review_title,message)values(:star,:reviewTitle,:message)";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(review);
 		template.update(sql, param);
+	}
+	
+	/**
+	 * 評価が高い順に並び替える.
+	 * 
+	 * @return 評価高い順
+	 */
+	public List<Review> findByHighStar(){
+		String sql = "select id,star,review_title,message from reviews order by star desc";
+		return template.query(sql, REVIEW_ROW_MAPPER);
+	}
+	
+	/**
+	 * 評価が低い順に並び替える.
+	 * 
+	 * @return 評価低い順
+	 */
+	public List<Review> findByLowStar(){
+		String sql = "select id,star,review_title,message from reviews order by star";
+		return template.query(sql, REVIEW_ROW_MAPPER);
 	}
 }

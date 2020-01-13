@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+$( function() {
+	$("#changeSortButton").on("change",function(){
+		$("#changeSortForm").submit();
+	});
+});
+</script>
+</head>
+<body>
+
+	<div align="center">
+		<form th:action="@{/sideMenu/findByStar}" method="post" id="changeSortForm" style="margin-bottom: 20px;">
+			<span class="tape-box">評価を並び替える</span> 
+			<select id="changeSortButton" name="sort" class="btn-default">
+				<option value="">-----</option>
+				<option value="high">評価が高い順</option>
+				<option value="low">評価が低い順</option>
+			</select>
+		</form>
+	</div>
+
+	<table th:each="review : ${reviewList}" border="1">
+
+		<tr>
+			<th>評価</th>
+			<td th:text="${review.star}"></td>
+		</tr>
+
+
+		<tr>
+			<th>タイトル</th>
+			<td th:text="${review.reviewTitle}"></td>
+		</tr>
+
+		<tr>
+			<th>コメント</th>
+			<td th:text="${review.message}"></td>
+		</tr>
+
+	</table>
+
+</body>
+</html>
