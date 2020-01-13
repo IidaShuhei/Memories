@@ -115,7 +115,7 @@ div.kakomi1 {
 	text-align: center;
 	display: flex;
 	align-items: center;
-	top: -2376px;
+	top: -1110px;
 	left: 445px;
 	width: 50%;
 	color: #615c48;
@@ -178,7 +178,7 @@ img.crp {
 /* îwåiêF */
 div.row1 {
 	position: relative;
-	top: 6px;
+	top: 69px;
 	width: 80%;
 	left: 15%;
 	height: 800px;
@@ -387,7 +387,7 @@ div.h1:before {
 /* ãLéñàÍóóï\é¶ */
 div.row {
 	position: relative;
-	bottom: 1160px;
+	bottom: -120px;
 	left: 65px;
 	background-image: url("/img/cor.png");
 }

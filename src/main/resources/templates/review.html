@@ -25,11 +25,12 @@
     
     <input type="text" name="reviewTitle" placeholder="タイトル" style="color:black"/><br /><br>
     
-	<textarea name="message" placeholder="レビュー" style="color:black" class="review"></textarea><br />
+	<textarea name="message" placeholder="レビュー" style="color:black" class="review"></textarea><br>
 	
     <div class="message">Message Sent</div>
     <button id="submit" type="submit">送信</button>
 </form><br>
+	<a th:href="@{/sideMenu/showReviewList}" class="return">レビューを見る</a><br>
 	<a th:href="@{/}" class="return">トップページに戻る</a>
 	</div>
 

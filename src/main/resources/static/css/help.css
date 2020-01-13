@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .side {
   position: relative;
-  top:42px;
+  top:34px;
   left:1254px;
   width:12%;
   z-index: 1; 
@@ -19,7 +19,7 @@
     text-decoration: none;
     box-sizing: border-box;
     position: relative;
-    left: -36px;
+    left: -89px;
     margin-top: 10px;
     top: -9px;
 }
