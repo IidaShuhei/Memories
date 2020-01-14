@@ -3,10 +3,13 @@ package com.example.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.Review;
+import com.example.form.ContactForm;
 import com.example.form.SortForm;
 import com.example.repository.SideMenuRepository;
 
@@ -19,9 +22,29 @@ import com.example.repository.SideMenuRepository;
 @Service
 @Transactional
 public class SideMenuService {
+	
+	@Autowired
+	private MailSender mailSender;
 
 	@Autowired
 	private SideMenuRepository repository;
+	
+	/**
+	 * お問い合わせメールを送信する.
+	 * 
+	 * @param contactForm 問い合わせフォーム
+	 */
+	public void sendMail(ContactForm contactForm) {
+		SimpleMailMessage msg = new SimpleMailMessage();
+		String body = "お名前: " + contactForm.getName() + "\n" + 
+                "メールアドレス: " + contactForm.getContactEmail() + "\n" + 
+                "メッセージ: \n" + contactForm.getContactMessage();
+        msg.setFrom(contactForm.getContactEmail());
+        msg.setTo("rakus.yahoo@gmail.com"); // 適宜変更してください
+        msg.setSubject("お問い合わせがありました");
+        msg.setText("お問い合わせは下記の通りです。\n\n---------------------------\n" + body + "\n---------------------------");
+        mailSender.send(msg);
+	}
 
 	/**
 	 * レビュー一覧を表示する.

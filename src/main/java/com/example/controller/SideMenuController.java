@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Review;
+import com.example.form.ContactForm;
 import com.example.form.ReviewForm;
 import com.example.form.SortForm;
 import com.example.service.SideMenuService;
@@ -52,6 +53,18 @@ public class SideMenuController {
 	@RequestMapping("/question")
 	public String question() {
 		return "question";
+	}
+	
+	/**
+	 * 問い合わせを送信する.
+	 * 
+	 * @param contactForm 問い合わせフォーム.
+	 * @return 問い合わせを送信
+	 */
+	@RequestMapping("/sendQuestion")
+	public String sendQuestion(ContactForm contactForm) {
+		service.sendMail(contactForm);
+		return "question_finished";
 	}
 	
 	/**

@@ -65,9 +65,8 @@ textarea {
   height:350px;
   margin-bottom:10px;
 }
-input:first-of-type
-{
-  margin-top:35px;
+input:first-of-type{
+  margin-top:10px;
 }
 input, textarea {
   font-size: 1em;
@@ -82,7 +81,7 @@ input, textarea {
   max-width: 600px;
 }
 button {
-  margin-top:15px;
+  margin-top:5px;
   margin-bottom:25px;
   background-color:#2ABCA7;
   padding: 12px 45px;
