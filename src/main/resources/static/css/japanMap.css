@@ -350,12 +350,17 @@ input#input_text {
 	font-weight: bold;
 	display: block;
 	margin: 0 0 5px 0;
+	width:90px;
 }
 
 .count_alert {
 	color: #ff0000;
 	font-weight: bold;
 	display: block;
+	width:170px;
+	position:relative;
+	left:50px;
+	bottom:50px;
 }
 
 /* タイトルのデザイン */
@@ -973,4 +978,6 @@ select{
    position:relative;
 	
 }
-
+div.tripCost{
+	width:220px;
+}

@@ -43,7 +43,7 @@ import com.example.service.CommentService;
 public class ArticleController {
 
 	// 1ページに表示する記事数は9
-	private static final int VIEW_SIZE = 1;
+	private static final int VIEW_SIZE = 9;
 
 	@Autowired
 	private ArticleService articleService;
@@ -230,6 +230,14 @@ public class ArticleController {
 		}
 		base64image.append(base64);
 		article.setImagePath(base64image.toString());
+		article.setTransportation(articleForm.getTransportation());
+		article.setFare(Integer.parseInt(articleForm.getFare()));
+		article.setHotelName(articleForm.getHotelName());
+		article.setHotelFee(Integer.parseInt(articleForm.getHotelFee()));
+		article.setMealFee(Integer.parseInt(articleForm.getMealFee()));
+		article.setOtherAmount(Integer.parseInt(articleForm.getOtherAmount()));
+		article.setTotalFee(Integer.parseInt(articleForm.getTotalFee()));
+		article.setGood(articleForm.getGood());
 		articleService.registerArticle(article);
 		return "forward:/";
 	}
@@ -295,6 +303,21 @@ public class ArticleController {
 		}
 		base64image.append(base64);
 		article.setImagePath(base64image.toString());
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
+		Date startDate = sdf.parse(articleForm.getTripStartDate());
+		article.setTripStartDate(startDate);
+
+		Date endDate = sdf.parse(articleForm.getTripEndDate());
+		article.setTripEndDate(endDate);
+		article.setTransportation(articleForm.getTransportation());
+		article.setFare(Integer.parseInt(articleForm.getFare()));
+		article.setHotelName(articleForm.getHotelName());
+		article.setHotelFee(Integer.parseInt(articleForm.getHotelFee()));
+		article.setMealFee(Integer.parseInt(articleForm.getMealFee()));
+		article.setOtherAmount(Integer.parseInt(articleForm.getOtherAmount()));
+		article.setTotalFee(Integer.parseInt(articleForm.getTotalFee()));
+		article.setGood(articleForm.getGood());
 
 		articleService.update(article);
 		return "forward:/";

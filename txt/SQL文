@@ -11,6 +11,14 @@ create table articles (
  , image_path text not null
  , trip_start_date text not null 
  ,trip_end_date text not null
+ ,transportation text
+ ,fare integer
+ ,hotel_name text
+ ,hotel_fee integer 
+ ,meal_fee integer
+ ,other_amount integer
+ ,total_fee integer
+ ,good integer
 ); 
 
 -- ユーザー
