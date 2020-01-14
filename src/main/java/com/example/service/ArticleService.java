@@ -1,5 +1,6 @@
 package com.example.service;
 import java.util.List;
+import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,6 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.Article;
 import com.example.repository.ArticleRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 
 @Service
 @Transactional
@@ -90,32 +94,33 @@ public class ArticleService {
 		repository.delete(id);
 	}
 	
-//	/**
-//	 * ページング用メソッド.
-//	 * @param page 表示させたいページ数
-//	 * @param size １ページに表示させる記事数
-//	 * @param employeeList 絞り込み対象リスト
-//	 * @return １ページに表示されるサイズ分の記事一覧情報
-//	 */
-//	public Page<Article> showListPaging(int page, int size,List<Article> articleList){
-//		// 表示させたいページ数を-1しなければうまく動かない
-//		page--;
-//		// どの記事から表示させるかと言うカウント値
-//		int startItemCount = page * size;
-//		// 絞り込んだ後の記事リストが入る変数
-//		List<Article> list;
-//		
-//		if(articleList.size()<startItemCount) {
-//			// (ありえないが)もし表示させたい記事カウントがサイズよりも大きい場合は空のリストを返す
-//			list= Collections.emptyList();
-//		}else {
-//			// 該当ページに表示させる記事一覧を作成
-//			int toIndex = Math.min(startItemCount + size, articleList.size());
-//			list = articleList.subList(startItemCount, toIndex);
-//		}
+	/**
+	 * ページング用メソッド.
+     * @param page 表示させたいページ数
+	 * @param size １ページに表示させる記事数
+	 * @param employeeList 絞り込み対象リスト
+	 * @return １ページに表示されるサイズ分の記事一覧情報
+	 */
+	public Page<Article> showListPaging(int page, int size,List<Article> articleList){
+//		 表示させたいページ数を-1しなければうまく動かない
+		page--;
+//		 どの記事から表示させるかと言うカウント値
+		int startItemCount = page * size;
+//		 絞り込んだ後の記事リストが入る変数
+		List<Article> list;
 		
-//		Page<Article> articlePage = new PageImpl<Article>(list, PageRequest.of(page,size),articleList.size());
-//		return articlePage;
+    	if(articleList.size()<startItemCount) {
+//			 (ありえないが)もし表示させたい記事カウントがサイズよりも大きい場合は空のリストを返す
+			list= Collections.emptyList();
+		}else {
+//			 該当ページに表示させる記事一覧を作成
+			int toIndex = Math.min(startItemCount + size, articleList.size());
+			list = articleList.subList(startItemCount, toIndex);
+		}
+		
+		Page<Article> articlePage = new PageImpl<Article>(list, PageRequest.of(page,size),articleList.size());
+    	return articlePage;
+	}
 	 /* オートコンプリート用にJavaScriptの配列の中身を文字列で作ります.
 	 * 
 	 * @param articleList 記事一覧

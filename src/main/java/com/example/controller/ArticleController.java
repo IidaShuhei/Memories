@@ -7,12 +7,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,6 +31,7 @@ import com.example.service.ArticleDetailService;
 import com.example.service.ArticleService;
 import com.example.service.CommentService;
 
+
 /**
  * 記事を表示するコントローラー.
  * 
@@ -38,9 +41,9 @@ import com.example.service.CommentService;
 @Controller
 @RequestMapping("/")
 public class ArticleController {
-	
+
 	// 1ページに表示する記事数は9
-		private static final int VIEW_SIZE = 10;
+	private static final int VIEW_SIZE = 9;
 
 	@Autowired
 	private ArticleService articleService;
@@ -80,8 +83,20 @@ public class ArticleController {
 	 * @return 全件検索結果
 	 */
 	@RequestMapping("")
-	public String findAll(Model model) {
+	public String findAll(Model model,Integer page) {
 		List<Article> articleList = articleService.findAll();
+		// ページング機能追加
+		if (page == null) {
+			// ページ数の指定が無い場合は1ページ目を表示させる
+			page = 1;
+		}
+		// 表示させたいページ数、ページサイズ、従業員リストを渡し１ページに表示させる従業員リストを絞り込み
+		Page<Article> articlePage = articleService.showListPaging(page, VIEW_SIZE, articleList);
+		model.addAttribute("articlePage", articlePage);
+
+		// ページングのリンクに使うページ数をスコープに格納 (例)28件あり1ページにつき10件表示させる場合→1,2,3がpageNumbersに入る
+		List<Integer> pageNumbers = calcPageNumbers(model, articlePage);
+		model.addAttribute("pageNumbers", pageNumbers);
 		model.addAttribute("articleList", articleList);
 
 		// オートコンプリート用にJavaScriptの配列の中身を文字列で作ってスコープへ格納
@@ -102,7 +117,7 @@ public class ArticleController {
 	 * @return
 	 */
 	@RequestMapping("/findByInfo")
-	public String findByTitleOrNameOrContent(SearchForm searchForm, Model model) {
+	public String findByTitleOrNameOrContent(SearchForm searchForm, Model model,Integer page) {
 		List<Article> articleList = null;
 		if (searchForm.getSearch() == 1) {
 			articleList = articleService.showArticleListFindByTitle(searchForm.getContents());
@@ -301,4 +316,23 @@ public class ArticleController {
 	public String index2() {
 		return "japan";
 	}
+
+	/**
+	 * ページングのリンクに使うページ数をスコープに格納 (例)28件あり1ページにつき10件表示させる場合→1,2,3がpageNumbersに入る
+	 * 
+	 * @param model        モデル
+	 * @param articlePage ページング情報
+	 */
+	private List<Integer> calcPageNumbers(Model model, Page<Article> articlePage) {
+		int totalPages = articlePage.getTotalPages();
+		List<Integer> pageNumbers = null;
+		if (totalPages > 0) {
+			pageNumbers = new ArrayList<Integer>();
+			for (int i = 1; i <= totalPages; i++) {
+				pageNumbers.add(i);
+			}
+		}
+		return pageNumbers;
+	}
+
 }
