@@ -43,7 +43,7 @@ import com.example.service.CommentService;
 public class ArticleController {
 
 	// 1ページに表示する記事数は9
-	private static final int VIEW_SIZE = 1;
+	private static final int VIEW_SIZE = 9;
 
 	@Autowired
 	private ArticleService articleService;
