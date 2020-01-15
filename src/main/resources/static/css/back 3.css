@@ -1,0 +1,284 @@
+@charset "UTF-8";
+
+div.back {
+	position: relative;
+	top: 6px;
+	width: 72%;
+	left: 15%;
+	height: 572px;
+	border: 30px solid;
+	border-image-source: url("/img/wood.png");
+	border-image-slice: 33%;
+	border-image-repeat: repeat;
+	background: #f2f6f7;
+}
+body {
+	background-image: url("/img/cor.jpg");
+	width: 90%;
+}
+
+div.map {
+	position: relative;
+	left: 129px;
+	top: -771px;
+}
+/* 日本地図 */
+img.japanMap {
+	position: relative;
+	left: 315px;
+	width:440%;
+	top:162px;
+}
+div.hokkaido1 {
+	position: relative;
+	left: 524px;
+	bottom: 457px;
+}
+
+div.hokkaido1:before {
+	content: '';
+	position: relative;
+	left: 30px;
+	bottom: -10px; /*線の上下位置*/
+	display: inline-block;
+	width: 70px; /*線の長さ*/
+	height: 3px; /*線の太さ*/
+	-webkit-transform: translateX(-50%);
+	transform: translateX(40%); /*位置調整*/
+	background-color: purple; /*線の色*/
+	border-radius: 2px; /*線の丸み*/
+}
+
+/* 東北 */
+div.tofoku {
+	position: relative;
+	left: 742px;
+	bottom: 335px;
+}
+div.sen1:before {
+	content: '';
+	position: relative;
+	left: 33px;
+	bottom: -1px; /*線の上下位置*/
+	display: inline-block;
+	width: 120px; /*線の長さ*/
+	height: 3px; /*線の太さ*/
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-47%); /*位置調整*/
+	background-color: blue; /*線の色*/
+	border-radius: 2px; /*線の丸み*/
+}
+
+/* 関東 */
+div.kanto {
+	position: relative;
+	left: 705px;
+	bottom: 305px;
+}
+
+div.sen2:before {
+	content: '';
+	position: relative;
+	left: -8px;
+	bottom: -1px; /*線の上下位置*/
+	display: inline-block;
+	width: 120px; /*線の長さ*/
+	height: 3px; /*線の太さ*/
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-15%); /*位置調整*/
+	background-color: green; /*線の色*/
+	border-radius: 2px; /*線の丸み*/
+}
+
+/* 中部 */
+div.tyubu {
+	position: relative;
+	left: 519px;
+	bottom: 605px;
+}
+
+div.sen3:before {
+	content: '';
+	position: absolute;
+	left: -12px;
+	bottom: -10px; /*線の上下位置*/
+	display: inline-block;
+	width: 120px; /*線の長さ*/
+	height: 3px; /*線の太さ*/
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-12%); /*位置調整*/
+	background-color: lime; /*線の色*/
+	border-radius: 2px; /*線の丸み*/
+}
+
+/* 近畿 */
+div.kinki {
+	position: relative;
+	left: 566px;
+	bottom: 420px;
+}
+
+div.sen4:before {
+	content: '';
+	position: absolute;
+	left: -15px;
+	bottom: -10px; /*線の上下位置*/
+	display: inline-block;
+	width: 120px; /*線の長さ*/
+	height: 3px; /*線の太さ*/
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-12%); /*位置調整*/
+	background-color: yellow; /*線の色*/
+	border-radius: 2px; /*線の丸み*/
+}
+
+/* 中国 */
+div.chugoku {
+	position: relative;
+	left: 368px;
+	bottom: 704px;
+}
+
+div.sen5:before {
+	content: '';
+	position: absolute;
+	left: -13px;
+	bottom: -10px; /*線の上下位置*/
+	display: inline-block;
+	width: 120px; /*線の長さ*/
+	height: 3px; /*線の太さ*/
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-12%); /*位置調整*/
+	background-color: orange; /*線の色*/
+	border-radius: 2px; /*線の丸み*/
+}
+
+/* 四国 */
+div.shikoku {
+	position: relative;
+	left: 445px;
+	bottom: 565px;
+}
+
+div.sen6:before {
+	content: '';
+	position: absolute;
+	left: 31px;
+	bottom: -10px; /*線の上下位置*/
+	display: inline-block;
+	width: 120px; /*線の長さ*/
+	height: 3px; /*線の太さ*/
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-47%); /*位置調整*/
+	background-color: pink; /*線の色*/
+	border-radius: 2px; /*線の丸み*/
+}
+
+/* 九州 */
+div.kyushu {
+	position: relative;
+	left: 230px;
+	bottom: 645px;
+}
+
+div.sen7:before {
+	content: '';
+	position: absolute;
+	left: -20px;
+	bottom: -10px; /*線の上下位置*/
+	display: inline-block;
+	width: 120px; /*線の長さ*/
+	height: 3px; /*線の太さ*/
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-10%); /*位置調整*/
+	background-color: red; /*線の色*/
+	border-radius: 2px; /*線の丸み*/
+}
+
+/* 沖縄 */
+div.okinawa {
+	position: relative;
+	left: 795px;
+	bottom: 680px;
+}
+
+div.sen8:before {
+	content: '';
+	position: absolute;
+	left: -13px;
+	bottom: -10px; /*線の上下位置*/
+	display: inline-block;
+	width: 80px; /*線の長さ*/
+	height: 3px; /*線の太さ*/
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-17%); /*位置調整*/
+	background-color: red; /*線の色*/
+	border-radius: 2px; /*線の丸み*/
+}
+
+div.searchBYprefecture{
+	margin:1em 0;
+    position: relative;
+    border-top: solid 2px #8B4513	;
+    border-bottom: solid 2px #8B4513	;
+    text-align: center;
+    left:73px;
+}
+
+.searchBYprefecture:before, .searchBYprefecture:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: #8B4513	;
+    margin:0 auto;
+}
+.searchBYprefecture:before {left: 10px;}
+.searchBYprefecture:after {right: 10px;}
+.searchBYprefecture p {
+    margin: 0 auto; 
+}
+
+/* 画鋲 */
+img.crp {
+	position: relative;
+	top: 65px;
+	left: 54%;
+	z-index: 1;
+	width: 6%;
+}
+
+/* セロテープ */
+.tape {
+    position:relative;/*テープの表示位置の基準となる*/
+    display:inline-block;/*内容に合わせて幅も伸縮させる*/
+    width:256px;
+    left:14px;
+    top:450px;
+   
+}
+.tape::before, .tape::after {
+    content: "";
+    display: block;
+    position: relative;
+    background: rgb(251, 223, 251,0.7);
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+.tape::before {
+
+    left: -2%;
+    top: -900px;
+    width: 55%;
+    height: 50px;
+    transform: rotate(-10deg);
+}
+.tape::after {
+	
+    right: -377%;
+     top: -948px;
+    width: 55%;
+    height: 50px;
+    transform: rotate(10deg);
+}

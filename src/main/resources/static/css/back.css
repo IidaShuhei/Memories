@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+div.tape1{
+	position: relative;
+	top:100px;
+	left:100px;
+}
+
 div.back {
 	position: relative;
 	top: 6px;
