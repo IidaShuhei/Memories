@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/japanMap.css}" rel="stylesheet">
+<link th:href="@{/css/background.css}" rel="stylesheet">
+<link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
+<link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
+
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/design.js"></script>
+
+<!-- カレンダー機能 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" >
+
+<script>
+  $(function() {
+    $("#datepicker").datepicker();
+  });
+</script>
+<script>
+  $(function() {
+    $("#datepicker2").datepicker();
+  });
+</script>
+
+</head>
+<body>
+
+<!-- <img src="../img/travel.png" class="trip"> -->
+<div class="travel"></div>
+
+<div class="box17">
+<h2 style="color:#E6FFE9">旅の思い出を記録しよう！</h2>
+</div>
+
+<div class="img"></div>
+<div class="box">
+<div class="box14">
+<div class="form-style-10">
+<form th:action="@{/registerArticle}" method="post" enctype="multipart/form-data" th:object="${articleForm}">
+
+<div class="panel-body">
+
+
+<div th:errors="*{title}" style="color:red"></div>
+<input type="text" id="input_text" name="title" th:field="*{title}" placeholder="タイトルを入力してください"></input>
+<div class="count">
+<span class="count_num"></span>
+<span class="count_alert"></span>
+</div>
+</div>
+
+
+<div class="form-group">
+
+<div th:errors="*{name}" style="color:red"></div>
+<input type="text" name="name" th:field="*{name}"  placeholder="投稿者名を入力してください"><br>
+</div>
+
+
+<div th:errors="*{prefecture}" style="color:red"></div>
+<select name="prefecture" th:field="*{prefecture}" style="width:230px" >
+<option value="">都道府県を選択してください</option>
+<option value="北海道">北海道</option>
+<option value="青森">青森</option>
+<option value="岩手">岩手</option>
+<option value="宮城">宮城</option>
+<option value="秋田">秋田</option>
+<option value="山形">山形</option>
+<option value="福島">福島</option>
+<option value="茨城">茨城</option>
+<option value="栃木">栃木</option>
+<option value="群馬">群馬</option>
+<option value="埼玉">埼玉</option>
+<option value="千葉">千葉</option>
+<option value="東京">東京</option>
+<option value="神奈川">神奈川</option>
+<option value="新潟">新潟</option>
+<option value="富山">富山</option>
+<option value="石川">石川</option>
+<option value="福井">福井</option>
+<option value="山梨">山梨</option>
+<option value="長野">長野</option>
+<option value="岐阜">岐阜</option>
+<option value="静岡">静岡</option>
+<option value="愛知">愛知</option>
+<option value="三重">三重</option>
+<option value="滋賀">滋賀</option>
+<option value="京都">京都</option>
+<option value="大阪">大阪</option>
+<option value="兵庫">兵庫</option>
+<option value="奈良">奈良</option>
+<option value="和歌山">和歌山</option>
+<option value="鳥取">鳥取</option>
+<option value="島根">島根</option>
+<option value="岡山">岡山</option>
+<option value="広島">広島</option>
+<option value="山口">山口</option>
+<option value="徳島">徳島</option>
+<option value="香川">香川</option>
+<option value="愛媛">愛媛</option>
+<option value="高知">高知</option>
+<option value="福岡">福岡</option>
+<option value="佐賀">佐賀</option>
+<option value="長崎">長崎</option>
+<option value="熊本">熊本</option>
+<option value="大分">大分</option>
+<option value="宮崎">宮崎</option>
+<option value="鹿児島">鹿児島</option>
+<option value="沖縄">沖縄</option>
+</select>
+
+<h3 id="gazou">画像アップロード</h3>
+<div class="orange">
+<label >
+<span class="filelabel" title="ファイルを選択">
+   <img src="../img/camera-orange-rev.png" width="32" height="26" alt="＋画像">
+   選択
+</span>
+<input type="file"  id="filesend" name="imagePath" ><br>
+</label>
+</div>
+<br>
+
+
+<input type="text" class="start" id="datepicker" name="tripStartDate"  placeholder="旅行開始日を選択してください"><h2 id="mark">~</h2>
+<input type="text" class="end" id="datepicker2" name="tripEndDate"  placeholder="旅行終了日を選択してください">
+<br>
+
+
+<div th:errors="*{content}" style="color:red"></div>
+<textarea name="content" rows="20" cols="30" th:field="*{content}" placeholder="投稿内容を入力してください"></textarea><br>
+<br>
+
+<input type="submit" value="この内容で投稿する" id="button">
+
+</form>
+</div>
+</div>
+</div>
+</body>
+</html>

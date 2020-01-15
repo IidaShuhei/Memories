@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+/* 言葉 */
+.margin{
+	position:relative;
+
+    margin-top: 100px;
+}
+.boysBe {
+    font-size:  80px;       /* 文字サイズ指定 */
+    position:  relative;    /* 位置調整 */
+    border-bottom: solid 4px rgba(76, 175, 80, 0.6);        /* 線指定 */
+    border-radius: 0px 0px 160px 180px/0px 0px 20px 4px;    /* 角丸指定 */
+    left:100px;
+    font-family: 'HanziPen SC',monospace;
+}
+
+
+/* アイコン */
+.icon{
+	position:relative;
+	left:50px;
+	width:230px;
+}
+
+/* クラーク博士 */
+img.faceicon {
+  position:  relative;
+  border-radius: 50%;
+  width: 290px;
+  left:150px;
+}
+
+/* POINT!のところ */
+.box26 {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #95ccff;
+    border-radius: 8px;
+    width:30%;
+    left:26px;
+}
+.box26 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color: #95ccff;
+    font-weight: bold;
+}
+.box26 p {
+    margin: 0; 
+    padding: 0;
+}
+
+/* さっぽろ雪まつり */
+div.snow{
+	position: relative;
+	left:500px;
+	top:-275px;
+	width: 380px; /* ボックスの横幅を指定 */
+	height: 285px; /* ボックスの高さを指定 */
+	border: 2px solid lightblue; /* 境界線を実線で指定 */
+	text-align: center; /* テキストを中央寄せに指定 */
+	border-radius: 50px 0px 50px 0px;
+}
+p.textS{
+	font-size:45px;
+	font-family: 'Hannotate SC',sans-serif;
+}
+img.snowman{
+	position: relative;
+	left:791px;
+	top:-581px;
+	width:10%;
+}
+img.reindeer{
+	position: relative;
+	left:317px;
+	top:-420px;
+	width:8%;
+}
+img.yuki{
+	position: relative;
+	left:694px;
+	top:-515px;
+	width:15%;
+}
+
+/* COUNTDOWN!のところ */
+.box27 {
+    position: absolute;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #95ccff;
+    border-radius: 8px;
+    width:28%;
+    left:963px;
+    top:250px;
+    border-color:  green;
+}
+.box27 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color:  green;
+    font-weight: bold;
+}
+.box27 p {
+    margin: 0; 
+    padding: 0;
+}
+p.festival{
+	font-size: 22px;
+}
+div#countdown{
+	font-size: 22px;
+	text-align: center;
+}
+
+
+/* 北海道の記事リスト */
+div.HokkaidoarticleList{
+	position: relative;
+	top:-374px;
+}
