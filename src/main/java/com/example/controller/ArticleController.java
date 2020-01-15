@@ -231,6 +231,9 @@ public class ArticleController {
 		base64image.append(base64);
 		article.setImagePath(base64image.toString());
 		article.setTransportation(articleForm.getTransportation());
+//		if(articleForm.getFare() == "") {
+//			
+//		}
 		article.setFare(Integer.parseInt(articleForm.getFare()));
 		article.setHotelName(articleForm.getHotelName());
 		article.setHotelFee(Integer.parseInt(articleForm.getHotelFee()));

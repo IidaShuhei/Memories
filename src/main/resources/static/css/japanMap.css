@@ -980,4 +980,16 @@ select{
 }
 div.tripCost{
 	width:220px;
+	position :relative;
+	left:1075px;
+	bottom:915px;
+}
+#travelCost{
+	width:285px;
+}
+
+#button1{
+	position:relative;
+	left:413px;
+	bottom:370px;
 }
