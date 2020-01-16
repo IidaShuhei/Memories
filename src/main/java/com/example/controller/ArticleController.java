@@ -3,13 +3,13 @@ package com.example.controller;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Base64;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -30,7 +30,6 @@ import com.example.form.SearchForm;
 import com.example.service.ArticleDetailService;
 import com.example.service.ArticleService;
 import com.example.service.CommentService;
-
 
 /**
  * 記事を表示するコントローラー.
@@ -83,7 +82,7 @@ public class ArticleController {
 	 * @return 全件検索結果
 	 */
 	@RequestMapping("")
-	public String findAll(Model model,Integer page) {
+	public String findAll(Model model, Integer page) {
 		List<Article> articleList = articleService.findAll();
 		// ページング機能追加
 		if (page == null) {
@@ -117,7 +116,7 @@ public class ArticleController {
 	 * @return
 	 */
 	@RequestMapping("/findByInfo")
-	public String findByTitleOrNameOrContent(SearchForm searchForm, Model model,Integer page) {
+	public String findByTitleOrNameOrContent(SearchForm searchForm, Model model, Integer page) {
 		List<Article> articleList = null;
 		if (searchForm.getSearch() == 1) {
 			articleList = articleService.showArticleListFindByTitle(searchForm.getContents());
@@ -199,21 +198,26 @@ public class ArticleController {
 		if (result.hasErrors()) {
 			return insert();
 		}
-
+        System.err.println("formの中身＝"+articleForm.getTripStartDate());
 		Article article = new Article();
 		article.setTitle(articleForm.getTitle());
 		article.setName(articleForm.getName());
 		article.setPrefecture(articleForm.getPrefecture());
 		article.setContent(articleForm.getContent());
 		LocalDate localDate = LocalDate.now();
-		Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+		java.util.Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 		article.setPostDate(date);
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
-		Date startDate = sdf.parse(articleForm.getTripStartDate());
-		article.setTripStartDate(startDate);
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+//		Date startDate = sdf.parse(articleForm.getTripStartDate());	    
+//		System.err.println(startDate);
+//		article.setTripStartDate(startDate);
 
-		Date endDate = sdf.parse(articleForm.getTripEndDate());
-		article.setTripEndDate(endDate);
+//		Date endDate = sdf.parse(articleForm.getTripEndDate());
+//		article.setTripEndDate(endDate);
+		
+		article.setTripStartDate(Date.valueOf(articleForm.getTripStartDate().replace("/", "-")));
+		article.setTripEndDate(Date.valueOf(articleForm.getTripEndDate().replace("/", "-")));
+		
 
 		byte[] encoded = Base64.getEncoder().encode(articleForm.getImagePath().getBytes());
 		Charset charset = StandardCharsets.UTF_8;
@@ -231,16 +235,30 @@ public class ArticleController {
 		base64image.append(base64);
 		article.setImagePath(base64image.toString());
 		article.setTransportation(articleForm.getTransportation());
-//		if(articleForm.getFare() == "") {
-//			
-//		}
-		article.setFare(Integer.parseInt(articleForm.getFare()));
-		article.setHotelName(articleForm.getHotelName());
-		article.setHotelFee(Integer.parseInt(articleForm.getHotelFee()));
-		article.setMealFee(Integer.parseInt(articleForm.getMealFee()));
-		article.setOtherAmount(Integer.parseInt(articleForm.getOtherAmount()));
-		article.setTotalFee(Integer.parseInt(articleForm.getTotalFee()));
-		article.setGood(articleForm.getGood());
+		if (!(articleForm.getFare().equals(""))) {
+			article.setFare(Integer.parseInt(articleForm.getFare()));
+		}
+		if (!(articleForm.getHotelName().equals(""))) {
+			article.setHotelName(articleForm.getHotelName());
+
+		}
+		if (!(articleForm.getHotelFee().equals(""))) {
+			article.setHotelFee(Integer.parseInt(articleForm.getHotelFee()));
+
+		}
+		if (!(articleForm.getMealFee().equals(""))) {
+			article.setMealFee(Integer.parseInt(articleForm.getMealFee()));
+
+		}
+		if (!(articleForm.getOtherAmount().equals(""))) {
+
+			article.setOtherAmount(Integer.parseInt(articleForm.getOtherAmount()));
+		}
+		if (!(articleForm.getTotalFee().equals(""))) {
+
+			article.setTotalFee(Integer.parseInt(articleForm.getTotalFee()));
+		}
+
 		articleService.registerArticle(article);
 		return "forward:/";
 	}
@@ -288,7 +306,7 @@ public class ArticleController {
 		BeanUtils.copyProperties(articleForm, article);
 		article.setId(Integer.parseInt(articleForm.getId()));
 		LocalDate localDate = LocalDate.now();
-		Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+		java.util.Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 		article.setPostDate(date);
 
 		byte[] encoded = Base64.getEncoder().encode(articleForm.getImagePath().getBytes());
@@ -306,13 +324,15 @@ public class ArticleController {
 		}
 		base64image.append(base64);
 		article.setImagePath(base64image.toString());
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
-		Date startDate = sdf.parse(articleForm.getTripStartDate());
-		article.setTripStartDate(startDate);
 
-		Date endDate = sdf.parse(articleForm.getTripEndDate());
-		article.setTripEndDate(endDate);
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
+//		Date startDate = sdf.parse(articleForm.getTripStartDate());
+//		article.setTripStartDate(startDate);
+//
+//		Date endDate = sdf.parse(articleForm.getTripEndDate());
+//		article.setTripEndDate(endDate);
+		article.setTripStartDate(Date.valueOf(articleForm.getTripStartDate().replace("/", "-")));
+		article.setTripEndDate(Date.valueOf(articleForm.getTripEndDate().replace("/", "-")));
 		article.setTransportation(articleForm.getTransportation());
 		article.setFare(Integer.parseInt(articleForm.getFare()));
 		article.setHotelName(articleForm.getHotelName());
@@ -346,7 +366,7 @@ public class ArticleController {
 	/**
 	 * ページングのリンクに使うページ数をスコープに格納 (例)28件あり1ページにつき10件表示させる場合→1,2,3がpageNumbersに入る
 	 * 
-	 * @param model        モデル
+	 * @param model       モデル
 	 * @param articlePage ページング情報
 	 */
 	private List<Integer> calcPageNumbers(Model model, Page<Article> articlePage) {

@@ -15,7 +15,7 @@
 タイトル:<span th:text="${article.title}"></span><br>
 <img th:src="${article.imagePath}" class="img-responsive img-rounded" width="50%" height="50%"><br> 
 投稿者名:<span th:text="${article.name}"></span><br>
-都道府県：<span th:text="${article.prefecture}"></span><br>
+都道府県：<span th:text="${article.prefecture}"></span>     旅行期間：<span th:text="${article.tripStartDate}"></span>~<span th:text="${article.tripEndDate}"></span><br>
 内容:<div th:text="${article.content}"></div>
 
 <!-- 編集ボタン -->

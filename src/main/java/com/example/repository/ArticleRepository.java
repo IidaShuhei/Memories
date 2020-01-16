@@ -73,6 +73,17 @@ public class ArticleRepository {
 		article.setContent(rs.getString("content"));
 		article.setPostDate(rs.getDate("post_date"));
 		article.setImagePath(rs.getString("image_path"));
+		article.setTripStartDate(rs.getDate("trip_start_date"));
+		article.setTripEndDate(rs.getDate("trip_end_date"));
+		article.setTransportation(rs.getString("transportation"));
+		article.setFare(rs.getInt("fare"));
+		article.setHotelName(rs.getString("hotel_name"));
+		article.setHotelFee(rs.getInt("hotel_fee"));
+		article.setMealFee(rs.getInt("meal_fee"));
+		article.setOtherAmount(rs.getInt("other_amount"));
+		article.setTotalFee(rs.getInt("total_fee"));
+		article.setGood(rs.getInt("good"));
+		
 		return article;
 	};
 	
@@ -139,7 +150,7 @@ public class ArticleRepository {
 	 */
 	public Article load(Integer id) {
 
-		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee,goodfrom articles where id =:id";
+		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee,good from articles where id =:id ";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		return template.queryForObject(sql, param, ARTICLE_ROW_MAPPER);
 	}

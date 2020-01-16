@@ -1,5 +1,9 @@
 package com.example.controller;
 
+import java.util.Calendar;
+import java.util.Date;
+
+import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +35,14 @@ public class ShowArticleDetailController {
 	@RequestMapping("")
 	public String showArticleDetail(Integer id,Model model) {
 		Article article = service.showArticleDetail(id);
+//		article.setTripStartDate(Date.valueOf(article.getTripStartDate().replace("/", "-")));
+//		article.setTripEndDate(Date.valueOf(article.getTripEndDate().replace("/", "-")));
+		
+//		Date newStartDay = DateUtils.truncate(article.getTripStartDate(),Calendar.DAY_OF_MONTH);
+//		article.setTripStartDate(newStartDay);
+//		Date newEndDay = DateUtils.truncate(article.getTripEndDate(),Calendar.DAY_OF_MONTH);
+//		article.setTripEndDate(newEndDay);
+		System.err.println("articleの中身="+article.getTripStartDate());
 		model.addAttribute("article", article);
 		return "article_detail";
 	}
