@@ -42,7 +42,6 @@ public class ShowArticleDetailController {
 //		article.setTripStartDate(newStartDay);
 //		Date newEndDay = DateUtils.truncate(article.getTripEndDate(),Calendar.DAY_OF_MONTH);
 //		article.setTripEndDate(newEndDay);
-		System.err.println("articleの中身="+article.getTripStartDate());
 		model.addAttribute("article", article);
 		return "article_detail";
 	}

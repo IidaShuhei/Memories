@@ -936,8 +936,8 @@ select{
 	position:relative;
 	width:180px;
 	height:48px;
-	bottom:368px;
-	left:-1px;
+	bottom:355px;
+	left:65px;
 	
 }
 
@@ -949,40 +949,38 @@ select{
 	left:610px;
 	
 }
-
 .filelabel {
-   position:relative;
-   background-color: orange; 
-   color: white;              
-   border: 2px solid orange; 
-   border-radius: 3em;        
-   padding: 12px 9px;         
-   display: inline-block;    
-   left:50px;
-   bottom:50px;
+   background-color: orange;  /* 背景色 */
+   color: white;              /* 文字色 */
+   border: 2px solid orange;  /* 枠線 */
+   border-radius: 3em;        /* 角丸 */
+   padding: 12px 9px;         /* 内側の余白 */
+   display: inline-block;     /* インラインブロック化 */
 }
-.filelabel img {
-   vertical-align: bottom;    
-}
+ .filelabel img {
+   vertical-align: bottom;    画像の垂直方向の配置
+} 
 .filelabel:hover {
-   opacity: 0.5;              
-   border: 2px solid red;    
-   cursor: pointer;          
+   opacity: 0.5;              /* 半透明 */
+   border: 2px solid red;     /* 枠線(赤色) */
+   cursor: pointer;           /* マウス形状(ポインタ) */
 }
 #filesend {
-   display: none;  
+   display: none;  /* 本来のファイル選択フォームは非表示に */
 }
 .orange{
-	bottom:164px;
-   left:142px;
+	bottom:215px;
+   left:850px;
    position:relative;
+   width:150px;
+   height:35px;
 	
 }
 div.tripCost{
 	width:220px;
 	position :relative;
 	left:1075px;
-	bottom:915px;
+	bottom:785px;
 }
 #travelCost{
 	width:285px;
@@ -991,5 +989,32 @@ div.tripCost{
 #button1{
 	position:relative;
 	left:413px;
-	bottom:370px;
+	bottom:355px;
+}
+.totalFee{
+	position:relative;
+	left:100px;
+	bottom:23px;
+}
+
+/* #reset{
+	position:relative;
+	left:12px;
+	bottom:142px;
+} */
+
+/* .previewImage{
+	position:relative;
+	left:260px;
+	bottom:116px;
+}  */
+#previewbox {
+   display: inline-block;     /* プレビュー領域をボタンと横並びに配置する */
+   vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
+   position:relative;
+   left:162px;
+   bottom:85px;
+}
+p{
+	height:50px;
 }
