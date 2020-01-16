@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/sideMenu.css}" rel="stylesheet">
+<script type="text/javascript" src="/js/sideMenu.js"></script>
+
+</head>
+<body>
+
+<form th:action="@{/sideMenu/sendQuestion}" method="post">
+  <div class="container">
+    <div class="head">
+      <h2>お問い合わせ</h2>
+    </div>
+    <input type="text" name="name" placeholder="名前" /><br />
+    <input type="email" name="contactEmail" placeholder="メールアドレス" /><br />
+    <textarea name="contactMessage" placeholder="お問い合わせ"></textarea><br />
+    <div class="message">Message Sent</div>
+    <button type="submit">送信</button><br>
+    <a th:href="@{/}" class="return">トップページに戻る</a>
+  </div>
+</form>
+
+</body>
+</html>
