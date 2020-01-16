@@ -36,16 +36,6 @@ public class SideMenuController {
 	}
 
 	/**
-	 * 使い方のページを表示.
-	 * 
-	 * @return 使い方のページ
-	 */
-	@RequestMapping("/howTo")
-	public String index() {
-		return "how_to";
-	}
-	
-	/**
 	 * 質問ページを表示.
 	 * 
 	 * @return 質問ページ
