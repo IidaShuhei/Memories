@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{/css/back.css}" rel="stylesheet">
+<link th:href="@{/css/japanMap.css}" rel="stylesheet">
+<link th:href="@{/css/nigata.css}" rel="stylesheet">
 <link rel="shortcut icon" href="http://www.iconj.com/ico/w/d/wd8rbe0uge.ico" type="image/x-icon" />
 </head>
 <body>
@@ -11,14 +13,15 @@
 <div class="searchBYprefecture">
 <h2>新潟県の記事</h2>
 </div>
-<div class="back"></div>
+<div class="backNigata">
+<img th:src="@{/img/nigata.jpg}" class="nigata"></div>
 
 <div class="row">
 		<div>
-			<div class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-10 col-xs-12" style="background-color: white;">
+			<div class="styleArticle" style="border-style: none;">
 				<table class="table table-striped">
 					<tbody>
-						<tr th:each="nigata : ${nigataList}" class="col-md-4" style="height: 320px;">
+						<tr th:each="nigata : ${nigataList}" style="height: 320px;padding-top:200px;padding-left: 100px;">
 							<th><a th:href="@{'/showArticleDetail?id='+${nigata.id}}"> 
 							<img th:src="${nigata.imagePath}" class="img-responsive img-rounded" width="200" height="230"></a><br> 
 							<a th:href="@{'/showArticleDetail?id='+${nigata.id}}"> 

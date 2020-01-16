@@ -27,11 +27,20 @@
     $("#datepicker2").datepicker();
   });
 </script>
+<script>
+  $(function(){
+	  $("#tripCost").hide();
+	  $("#button1").on("click",function(){
+		  $("#tripCost").show();
+	  })
+	  
+  })
+
+</script>
 
 </head>
 <body>
 
-<!-- <img src="../img/travel.png" class="trip"> -->
 <div class="travel"></div>
 
 <div class="box17">
@@ -59,7 +68,7 @@
 <div class="form-group">
 
 <div th:errors="*{name}" style="color:red"></div>
-<input type="text" name="name" th:field="*{name}"  placeholder="投稿者名を入力してください"><br>
+<input type="text" id="input-name" name="name" th:field="*{name}"  placeholder="投稿者名を入力してください"><br>
 </div>
 
 
@@ -136,8 +145,44 @@
 <div th:errors="*{content}" style="color:red"></div>
 <textarea name="content" rows="20" cols="30" th:field="*{content}" placeholder="投稿内容を入力してください"></textarea><br>
 <br>
-
 <input type="submit" value="この内容で投稿する" id="button">
+
+<input type="button" value="旅費入力をする" id="button1">
+
+<div class="tripCost" id="tripCost">
+<div class="transport">
+交通手段<br>
+<input type="checkbox" name="transportation"  th:value="車">車
+<input type="checkbox" name="transportation" th:value="バス">バス
+<input type="checkbox" name="transportation"  th:value="電車">電車
+<input type="checkbox" name="transportation" th:value="飛行機">飛行機
+</div><br>
+
+<div class="fare">
+<input type="text" name="fare" placeholder="交通費を入力してください 　　  (円)" id="travelCost"><br>
+</div>
+
+<div class="hotelName">
+<input type="text" name="hotelName" placeholder="ホテル名を入力してください" id="travelCost"><br>
+</div>
+
+<div class="hotelFee">
+<input type="text" name="hotelFee" placeholder="ホテル代を入力してください　   (円)" id="travelCost"><br>
+</div>
+
+<div class="mealFee">
+<input type="text" name="mealFee" placeholder="食事代を入力してください　　   (円)" id="travelCost"><br>
+</div>
+
+<div class="otherAmount">
+<input type="text" name="otherAmount" placeholder="その他費用を入力してください　(円)" id="travelCost"><br>
+</div>
+
+<div class="totalFee">
+<input type="text" name="totalFee" placeholder="合計金額を入力してください　　(円)" id="travelCost"><br>
+</div>
+</div>
+
 
 </form>
 </div>

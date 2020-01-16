@@ -11,6 +11,14 @@ create table articles (
  , image_path text not null
  , trip_start_date text not null 
  ,trip_end_date text not null
+ ,transportation text
+ ,fare integer
+ ,hotel_name text
+ ,hotel_fee integer 
+ ,meal_fee integer
+ ,other_amount integer
+ ,total_fee integer
+ ,good integer
 ); 
 
 -- ユーザー
@@ -42,3 +50,13 @@ FOREIGN KEY (article_id) REFERENCES articles (id)
 
 --ユーザー登録(pass:morimori)
 insert into users(name, email, password, zipcode, address, telephone) values('テストユーザ', 'test@test.co.jp', '6f','1111111', 'テスト住所', 'テスト電話番号');
+
+-- レビュー
+drop table if exists reviews cascade;
+
+CREATE TABLE reviews(
+id serial primary key, --レビューID
+star integer NOT NULL, --評価
+review_title text NOT NULL, --タイトル
+message text NOT NULL --メッセージ
+);

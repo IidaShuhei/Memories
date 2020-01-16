@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+a.rtn{
+	position: relative;
+	top:-1430px;
+	left:1003px;
+	text-decoration: none;
+}
+
 div.tape1{
 	position: relative;
 	top:100px;

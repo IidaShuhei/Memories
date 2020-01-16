@@ -37,7 +37,7 @@ li.help {
 ul.bts {
 	position: absolute;
 	top: 63px;
-	right: 150px;
+	right: 220px;
 }
 li.buttons {
 	float: left;
@@ -115,7 +115,7 @@ div.kakomi1 {
 	text-align: center;
 	display: flex;
 	align-items: center;
-	top: -2376px;
+	top: -1110px;
 	left: 445px;
 	width: 50%;
 	color: #615c48;
@@ -178,7 +178,7 @@ img.crp {
 /* 背景色 */
 div.row1 {
 	position: relative;
-	top: 6px;
+	top: 69px;
 	width: 80%;
 	left: 15%;
 	height: 800px;
@@ -350,12 +350,17 @@ input#input_text {
 	font-weight: bold;
 	display: block;
 	margin: 0 0 5px 0;
+	width:90px;
 }
 
 .count_alert {
 	color: #ff0000;
 	font-weight: bold;
 	display: block;
+	width:170px;
+	position:relative;
+	left:50px;
+	bottom:50px;
 }
 
 /* タイトルのデザイン */
@@ -387,7 +392,7 @@ div.h1:before {
 /* 記事一覧表示 */
 div.row {
 	position: relative;
-	bottom: 1160px;
+	bottom: -120px;
 	left: 65px;
 	background-image: url("/img/cor.png");
 }
@@ -759,6 +764,22 @@ div.box{
 	text-align: center;
 }
 
+div.form-group{
+	position:relative;
+	left:-126px;
+	bottom:71px;
+	width: 50px;
+}
+
+#input-name{
+	position:relative;
+	left:573px;
+	bottom:2px;
+	width: 231px;
+	height:50px;
+	
+}
+
 
 div.box14{
 	 background-color: rgba( 255, 255, 255, 0.4 );
@@ -768,6 +789,7 @@ div.box14{
     text-align: center;
     position: relative;
     top:-12px;
+    left:50px;
     
 }
 /* div.box14 p {
@@ -777,7 +799,7 @@ div.box14{
 div.count{
 	width:80px;
 	right:500px;
-	left:1237px;
+	left:1019px;
 	position:relative;
 	bottom:35px;
 }
@@ -855,7 +877,8 @@ select{
 	width:500px;
 	height:50px;
 	position:relative;
-	left:251px;
+	left:144px;
+	bottom:-7px;
 }
 #name{
 	position:relative;
@@ -928,26 +951,26 @@ select{
 }
 
 .filelabel {
-   background-color: orange;  背景色
-   color: white;              文字色
-   border: 2px solid orange;  枠線
-   border-radius: 3em;        角丸
-   padding: 12px 9px;         内側の余白
-   display: inline-block;     インラインブロック化
-   bottom:50px;
-   left:50px;
    position:relative;
+   background-color: orange; 
+   color: white;              
+   border: 2px solid orange; 
+   border-radius: 3em;        
+   padding: 12px 9px;         
+   display: inline-block;    
+   left:50px;
+   bottom:50px;
 }
 .filelabel img {
-   vertical-align: bottom;    画像の垂直方向の配置
+   vertical-align: bottom;    
 }
 .filelabel:hover {
-   opacity: 0.5;              半透明
-   border: 2px solid red;     枠線(赤色)
-   cursor: pointer;           マウス形状(ポインタ)
+   opacity: 0.5;              
+   border: 2px solid red;    
+   cursor: pointer;          
 }
 #filesend {
-   display: none;  本来のファイル選択フォームは非表示に
+   display: none;  
 }
 .orange{
 	bottom:164px;
@@ -955,6 +978,18 @@ select{
    position:relative;
 	
 }
+div.tripCost{
+	width:220px;
+	position :relative;
+	left:1075px;
+	bottom:915px;
+}
+#travelCost{
+	width:285px;
+}
 
-
-
+#button1{
+	position:relative;
+	left:413px;
+	bottom:370px;
+}

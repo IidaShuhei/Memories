@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{/css/back.css}" rel="stylesheet">
+<link th:href="@{/css/japanMap.css}" rel="stylesheet">
+<link th:href="@{/css/okinawa.css}" rel="stylesheet">
 <link rel="shortcut icon" href="http://www.iconj.com/ico/6/8/68wzky39g7.ico" type="image/x-icon" />
 </head>
 <body>
@@ -11,14 +13,15 @@
 <div class="searchBYprefecture">
 <h2>沖縄県の記事</h2>
 </div>
-<div class="back"></div>
+<div class="backOki">
+<img th:src="@{/img/okinawa.jpg}" class="oki"></div>
 
 <div class="row">
 		<div>
-			<div class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-10 col-xs-12" style="background-color: white;">
+			<div class="styleArticle" style="border-style: none;">
 				<table class="table table-striped">
 					<tbody>
-						<tr th:each="okinawa : ${okinawaList}" class="col-md-4" style="height: 320px;">
+						<tr th:each="okinawa : ${okinawaList}" style="height: 320px;padding-top:200px;padding-left: 100px;">
 							<th><a th:href="@{'/showArticleDetail?id='+${okinawa.id}}"> 
 							<img th:src="${okinawa.imagePath}" class="img-responsive img-rounded" width="200" height="230"></a><br> 
 							<a th:href="@{'/showArticleDetail?id='+${okinawa.id}}"> 
