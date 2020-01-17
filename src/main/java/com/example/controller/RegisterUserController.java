@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.domain.User;
 import com.example.form.LoginForm;
@@ -67,6 +68,7 @@ public class RegisterUserController {
 		if(userEmail != null) {
 			result.rejectValue("email", null, "そのメールアドレスは使われています");
 		}
+		
 		//パスワードの重複チェック
 		if(!(userForm.getPassword().equals(userForm.getConfirmationPassword()))){
 			result.rejectValue("confirmationPassword", null, "パスワードと確認用パスワードが異なります");
@@ -75,8 +77,11 @@ public class RegisterUserController {
 		if(result.hasErrors()) {
 			return index();
 		}
+		
 		BeanUtils.copyProperties(userForm, user);
 		service.insert(user);
 		return "login";
 	}
+	
+	
 }

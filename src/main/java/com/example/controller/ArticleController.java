@@ -325,12 +325,6 @@ public class ArticleController {
 		base64image.append(base64);
 		article.setImagePath(base64image.toString());
 
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
-//		Date startDate = sdf.parse(articleForm.getTripStartDate());
-//		article.setTripStartDate(startDate);
-//
-//		Date endDate = sdf.parse(articleForm.getTripEndDate());
-//		article.setTripEndDate(endDate);
 		article.setTripStartDate(Date.valueOf(articleForm.getTripStartDate().replace("/", "-")));
 		article.setTripEndDate(Date.valueOf(articleForm.getTripEndDate().replace("/", "-")));
 		article.setTransportation(articleForm.getTransportation());
@@ -358,6 +352,11 @@ public class ArticleController {
 		return "redirect:/";
 	}
 
+	/**
+	 * 検索用日本地図表示.
+	 * 
+	 * @return 日本地図
+	 */
 	@RequestMapping("/prefecture")
 	public String index2() {
 		return "japan";
@@ -380,5 +379,21 @@ public class ArticleController {
 		}
 		return pageNumbers;
 	}
-
+	
+	/**
+	 * いいねを追加する.
+	 * 
+	 * @param form フォーム
+	 * @return　
+	 */
+	@RequestMapping("/updateGood")
+	public String update(ArticleForm articleForm) {
+		
+		System.err.println(articleForm.getGood());
+		
+		Article article = new Article();
+		article.setGood(articleForm.getGood());
+		detailService.update(article.getGood());
+		return "forward:/";
+	}
 }

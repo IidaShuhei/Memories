@@ -7,6 +7,14 @@
 <link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
 <link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+<script>
+var count = 0;
+function countUp() {
+    document.getElementById( "output" ).innerHTML = ++count;
+}
+</script>
+
 </head>
 <body>
 
@@ -39,9 +47,10 @@
 </form>
 
 <!-- いいねボタン -->
-<form action="#" method="post">
+<form action="@{/updateGood}" method="post">
 <input type="hidden" name="good">
-<button><img th:src="@{/img/good.png}" class="good"></button>
+<button onclick="countUp();"><img th:src="@{/img/good.png}" class="good"></button>
+<span id="output" style="margin-left: 10px;">0</span>
 </form>
 
 <!-- <!-- コメント機能 -->

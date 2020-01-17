@@ -173,7 +173,7 @@ public class ArticleRepository {
 	 * @param article　記事
 	 */
 	public void update(Article article) {
-		String sql = "update articles set title=:title,name=:name,prefecture=:prefecture,content=:content,post_date=:postDate,image_path=:imagePath,trip_start_date=:tripStartDate,trip_end_date=:tripEndDate,transportation=:transportation,fare=:fare,hotel_name=:hotelName,hotel_fee=:hotelFee,meal_fee=:mealFee,other_amount=:otherAmount,total_fee=:totalFee,good=:good where id=:id";
+		String sql = "update articles set title=:title,name=:name,prefecture=:prefecture,content=:content,post_date=:postDate,image_path=:imagePath,trip_start_date=:tripStartDate,trip_end_date=:tripEndDate,transportation=:transportation,fare=:fare,hotel_name=:hotelName,hotel_fee=:hotelFee,meal_fee=:mealFee,other_amount=:otherAmount,total_fee=:totalFee where id=:id";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(article);
 		template.update(sql, param);
 	}
@@ -186,6 +186,17 @@ public class ArticleRepository {
 	public void delete(Integer id) {
 		String sql = "delete from articles where id=:id";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
+		template.update(sql, param);
+	}
+	
+	/**
+	 * いいねを更新する.
+	 * 
+	 * @param good いいね
+	 */
+	public void update(Integer good) {
+		String sql = "update articles set good=:good where id=:id";
+		SqlParameterSource param = new BeanPropertySqlParameterSource(good);
 		template.update(sql, param);
 	}
 }

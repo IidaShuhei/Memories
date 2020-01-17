@@ -5,6 +5,12 @@ div.map {
 	top: -771px;
 }
 
+button.button{
+	position: relative;
+	left: 109px;
+	top: -3px;
+}
+
 /* 検索ボックス */
 input.textbox{
 	left: 512px;
