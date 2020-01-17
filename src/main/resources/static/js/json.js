@@ -1,36 +1,36 @@
 /**
  * 
  */
-jQuery(document).ready(function(){
-   jQuery('#form').validationEngine();
-});
 
-$('#inputEmail').blur(function(){
-	var inputEmail = $('#inputEmail').val();
-	//メールが入力されたら重複チェック開始
-	if(inputEmail != ""){
-		if(inputEmail.match(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
+$(function(){
+    jQuery("#form").validationEngine();
+  });
+
+$('#email').blur(function(){
+	var email = $('#email').val();
+	if(email != ""){
+		if(email.match(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
 			$.ajax({
 				type:'POST',
 				url:'/judge',
-				date: { email : inputEmail },
-				dateType : 'json'
+				data: { email : $('#email').val() },
+				dataType : 'json'
+					
 				//失敗
-			}).done(function(date){
-				console.log(date);
-					if(date != null){
-						$("#err").html('<span style="color:red">メールアドレスが重複しています</span>');
+			}).done(function(data){
+					if(data.email != null){
+						$("#err").html('<span style="color:red" id="err1">メールアドレスが重複しています</span>');
+						$("#register").prop("disabled",true);
 				//成功
-					} else if(date == null){
-						
-						$('#form').submit();
+					} else if(data.email == null){
+						$("#register").prop("disabled",false);
+						$("#err1").remove();
+						$("#err2").remove();
 					}
-				});
-			
+				})
 		} else {
-			$("#err").html('<span style="color:red">メールの形式が異なります</span>');
-		}
+			$("#err").html('<span style="color:red" id="err2">メールアドレスの形式が異なります</span>');
+			}
 	}
-	
-	
+			
 });

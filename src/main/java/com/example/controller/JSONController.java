@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,8 +26,15 @@ public class JSONController {
 	 * @return メールアドレス
 	 */
 	@RequestMapping("/judge")
-	public User emailReturn(@RequestBody User user) {
-		System.out.println(user);
-		return service.findByEmail(user.getEmail());
+	public User emailReturn(String email) {
+		User user = service.findByEmail(email);
+		
+		System.out.println(" 1 : " + user);
+		
+		if(user == null) {
+			user = new User();
+			System.out.println(" 2 : " + user);
+		}
+		return user;
 	}
 }

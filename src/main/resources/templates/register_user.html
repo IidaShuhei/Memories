@@ -7,12 +7,11 @@
 <link th:href="@{/css/japanMap.css}" rel="stylesheet">
 <link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
 <link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/validationEngine.jquery.min.css" type="text/css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/jquery-1.8.2.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/languages/jquery.validationEngine-ja.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/jquery.validationEngine.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/validationEngine.jquery.min.css" type="text/css"/> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script src="../js/jquery.validationEngine.js"></script>
+<script src="../js/jquery.validationEngine-ja.js"></script>
+<link rel="stylesheet" th:href="@{/css/validationEngine.jquery.css}">
 
 </head>
 <body style="background-image: url('/img/futa.jpeg'); background-size: cover">
@@ -31,42 +30,42 @@
 				<h2 style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;margin-left:155px;">ユーザー登録</h2><br>
 
 				名前:<br>
-				<input type="text" name="name" th:field="*{name}" style="width: 70%; border-radius: 6px" class="validate[required]"><br>
+				<input type="text" name="name" th:field="*{name}" style="width: 70%; border-radius: 6px" class="validate[required]"><br><br>
 
 
-				メールアドレス:<br><span id="err"></span>
-				<input type="email" name="email" th:field="*{email}"
-					style="width: 70%; border-radius: 6px" id="inputEmail"><br>
+				メールアドレス:<span id="err"></span><br>
+				<input type="text" name="email" th:field="*{email}"
+					style="width: 70%; border-radius: 6px" id="email"><br><br>
 
 
 				パスワード:<br>
 				<input type="password" name="password" th:field="*{password}" id="pass1"
-					style="width: 70%; border-radius: 6px" class="validate[required,minSize[8],maxSize[20]]"><br>
+					style="width: 70%; border-radius: 6px" class="validate[required,minSize[8],maxSize[20]]"><br><br>
 
 
 				確認用パスワード:<br>
 				<input type="password" name="confirmationPassword"
 					th:field="*{confirmationPassword}" id="pass2"
-					style="width: 70%; border-radius: 6px" class="validate[required,equals[pass1]]"><br>
+					style="width: 70%; border-radius: 6px" class="validate[required,equals[pass1]]"><br><br>
 
 
 				郵便番号:<br>
 				<input type="text" name="zipcode" size="10" maxlength="8"
 					onKeyUp="AjaxZip3.zip2addr(this,'','address','address');"
-					style="width: 70%; border-radius: 6px" class="validate[required]"><br>
+					style="width: 70%; border-radius: 6px" class="validate[required]"><br><br>
 
 
 				住所:<br>
 				<input type="text" name="address" th:field="*{address}"
-					style="width: 70%; border-radius: 6px" class="validate[required]"><br>
+					style="width: 70%; border-radius: 6px" class="validate[required]"><br><br>
 
 
 				電話番号:<br>
 				<input type="text" name="telephone" th:field="*{telephone}"
-					style="width: 70%; border-radius: 6px" class="validate[required,custom[phone]]"><br> <br>
+					style="width: 70%; border-radius: 6px" class="validate[required,custom[phone]]"><br> <br><br>
 
 
-						<button type="submit" class="cd_btn button">登録</button>
+						<button type="submit" class="cd_btn button" id="register" disabled="disabled">登録</button>
 
 						<button type="reset" class="cd_btn button">クリア</button>
 
@@ -75,8 +74,7 @@
 		</div>
 	</div>
 
-	<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
-	<script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/json.js"></script>
+<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+<script type="text/javascript" th:src="@{/js/json.js}"></script>
 </body>
 </html>
