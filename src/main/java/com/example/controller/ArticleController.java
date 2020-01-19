@@ -195,10 +195,12 @@ public class ArticleController {
 	public String RegisterArticle(@Validated ArticleForm articleForm, BindingResult result)
 			throws IOException, ParseException {
 
+		System.err.println(articleForm.getTotalFee());
+		
+		
 		if (result.hasErrors()) {
 			return insert();
 		}
-        System.err.println("formの中身＝"+articleForm.getTripStartDate());
 		Article article = new Article();
 		article.setTitle(articleForm.getTitle());
 		article.setName(articleForm.getName());
@@ -324,7 +326,6 @@ public class ArticleController {
 		}
 		base64image.append(base64);
 		article.setImagePath(base64image.toString());
-
 		article.setTripStartDate(Date.valueOf(articleForm.getTripStartDate().replace("/", "-")));
 		article.setTripEndDate(Date.valueOf(articleForm.getTripEndDate().replace("/", "-")));
 		article.setTransportation(articleForm.getTransportation());
@@ -378,22 +379,5 @@ public class ArticleController {
 			}
 		}
 		return pageNumbers;
-	}
-	
-	/**
-	 * いいねを追加する.
-	 * 
-	 * @param form フォーム
-	 * @return　
-	 */
-	@RequestMapping("/updateGood")
-	public String update(ArticleForm articleForm) {
-		
-		System.err.println(articleForm.getGood());
-		
-		Article article = new Article();
-		article.setGood(articleForm.getGood());
-		detailService.update(article.getGood());
-		return "forward:/";
 	}
 }

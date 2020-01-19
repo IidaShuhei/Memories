@@ -1,7 +1,7 @@
 /**
  * 
  */
-
+//新規登録のバリデーション
 $(function(){
     jQuery("#form").validationEngine();
   });

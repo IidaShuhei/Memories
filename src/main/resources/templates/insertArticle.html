@@ -100,20 +100,6 @@
 	});
 </script>
  -->
-<script>
-	$(function() {
-		$("#myTable").on('input', '.txtCal', function() {
-			var calculated_total_sum = 0;
-			$("#myTable .txtCal").each(function() {
-				var get_textbox_value = $(this).val();
-				if ($.isNumeric(get_textbox_value)) {
-					calculated_total_sum += parseFloat(get_textbox_value);
-				}
-			});
-			$(".total_sum_value").html(calculated_total_sum);
-		});
-	});
-</script>
 
 </head>
 <body>
@@ -208,12 +194,13 @@
 					<div class="orange">
 						<p>
 							<label> <span class="filelabel" title="ファイルを選択"> <img
-									src="../img/camera-orange-rev.png" width="32" height="26" alt="＋画像">
-									<span id="selectednum">選択</span>
+									src="../img/camera-orange-rev.png" width="32" height="26"
+									alt="＋画像"> <span id="selectednum">選択</span>
 							</span> <input type="file" name="imagePath" id="filesend" multiple
 								accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
-							</label> <span id="previewbox"></span> <!-- <input type="reset" value="Reset" 
-								onclick="resetPreview();"> --> 
+							</label> <span id="previewbox"></span>
+							<!-- <input type="reset" value="Reset" 
+								onclick="resetPreview();"> -->
 							<!-- ※これはリセットボタン(省略可) -->
 						</p>
 					</div>
@@ -241,39 +228,37 @@
 						</div>
 						<br>
 
-						<div id="myTable">
-							<div class="fare">
-								<input type="text" name="fare"
-									placeholder="交通費を入力してください 　　  (円)" id="travelCost"
-									class='txtCal'><br>
-							</div>
+						<div class="fare">
+							<input type="number" name="fare"
+								placeholder="交通費を入力してください 　　  (円)" id="travelCost1"
+								class='txtCal'><br>
+						</div>
 
-							<div class="hotelName">
-								<input type="text" name="hotelName" placeholder="ホテル名を入力してください"
-									id="travelCost" class='txtCal'><br>
-							</div>
+						<div class="hotelName">
+							<input type="text" name="hotelName" placeholder="ホテル名を入力してください"
+								id="travelCost2" class='txtCal'><br>
+						</div>
 
-							<div class="hotelFee">
-								<input type="text" name="hotelFee"
-									placeholder="ホテル代を入力してください　   (円)" id="travelCost"
-									class='txtCal'><br>
-							</div>
+						<div class="hotelFee">
+							<input type="number" name="hotelFee"
+								placeholder="ホテル代を入力してください　   (円)" id="travelCost3"
+								class='txtCal'><br>
+						</div>
 
-							<div class="mealFee">
-								<input type="text" name="mealFee"
-									placeholder="食事代を入力してください　　   (円)" id="travelCost"
-									class='txtCal'><br>
-							</div>
+						<div class="mealFee">
+							<input type="number" name="mealFee"
+								placeholder="食事代を入力してください　　   (円)" id="travelCost4"
+								class='txtCal'><br>
+						</div>
 
-							<div class="otherAmount">
-								<input type="text" name="otherAmount"
-									placeholder="その他費用を入力してください　(円)" id="travelCost" class='txtCal'><br>
-							</div>
+						<div class="otherAmount">
+							<input type="number" name="otherAmount"
+								placeholder="その他費用を入力してください　(円)" id="travelCost5" class='txtCal'><br>
+						</div>
 
-							<div class="totalFee">
-								<input type="hidden" name="totalFee"> 合計金額 : <span
-									id="travelCost" class="total_sum_value"></span>円<br>
-							</div>
+						<div class="totalFee">
+							<input type="hidden" name="totalFee"> 合計金額 : <span
+								id="travelCost6" class="total_sum_value"></span>円<br>
 						</div>
 					</div>
 
@@ -282,5 +267,25 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		$(function() {
+			calc_price();
+			$("input[type=number]").change(function() {
+				calc_price();
+			});
+			function calc_price() {
+				var t1 = parseInt($("#travelCost1").val()) || 0;
+				var t3 = parseInt($("#travelCost3").val()) || 0;
+				var t4 = parseInt($("#travelCost4").val()) || 0;
+				var t5 = parseInt($("#travelCost5").val()) || 0;
+				var total = t1 + t3 + t4 + t5;
+				$("#travelCost6").text(total.toLocaleString());
+				$('input[name=totalFee]').val(total);
+			}
+			;
+		});
+	</script>
+
 </body>
 </html>

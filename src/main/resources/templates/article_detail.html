@@ -8,13 +8,6 @@
 <link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
-<script>
-var count = 0;
-function countUp() {
-    document.getElementById( "output" ).innerHTML = ++count;
-}
-</script>
-
 </head>
 <body>
 
@@ -26,12 +19,12 @@ function countUp() {
 都道府県：<span th:text="${article.prefecture}"></span>     旅行期間：<span th:text="${article.tripStartDate}"></span>~<span th:text="${article.tripEndDate}"></span><br>
 内容:<span th:text="${article.content}"></span><br>
 交通機関:<span th:text="${article.transportation}">--</span><br>
-交通費:<span th:text="${article.fare}">--</span><br>
+交通費:<span th:text="${article.fare}">--</span>円<br>
 ホテル名:<span th:text="${article.hotelName}">--</span><br>
-ホテル料金：<span th:text="${article.hotelFee}">--</span><br>
-食事代：<span th:text="${article.mealFee}">--</span><br>
-その他費用：<span th:text="${article.otherAmount}">--</span><br>
-合計費用：<span th:text="${article.totalFee}">--</span><br>
+ホテル料金：<span th:text="${article.hotelFee}"></span>円<br>
+食事代：<span th:text="${article.mealFee}">--</span>円<br>
+その他費用：<span th:text="${article.otherAmount}">--</span>円<br>
+合計費用：<span th:text="${article.totalFee}">--</span>円<br>
 
 
 <!-- 編集ボタン -->
@@ -47,11 +40,7 @@ function countUp() {
 </form>
 
 <!-- いいねボタン -->
-<form action="@{/updateGood}" method="post">
-<input type="hidden" name="good">
-<button onclick="countUp();"><img th:src="@{/img/good.png}" class="good"></button>
-<span id="output" style="margin-left: 10px;">0</span>
-</form>
+<input type="button" name="good" id="good">
 
 <!-- <!-- コメント機能 -->
 <!-- <div th:each="comment:${article.commentList}"> -->
@@ -66,6 +55,7 @@ function countUp() {
 <!-- コメント:<textarea name="content" rows="2" cols="23"></textarea><br> -->
 <!-- <button>コメント投稿</button> -->
 <!-- </form> -->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/js/good.js}"></script>
 </body>
 </html>

@@ -116,7 +116,7 @@ public class ArticleRepository {
 	 * @return 曖昧検索結果
 	 */
 	public List<Article> findByTitle(String title){
-		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee,goodfrom articles where title Ilike :title";
+		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee,good from articles where title Ilike :title";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("title",'%' + title + '%');
 		return template.query(sql, param, ARTICLE_ROW_MAPPER);
 	}
@@ -127,7 +127,7 @@ public class ArticleRepository {
 	 * @return 曖昧検索結果
 	 */
 	public List<Article> findByName(String name){
-		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee,goodfrom articles where name Ilike :name";
+		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee,good from articles where name Ilike :name";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("name",'%' + name + '%');
 		return template.query(sql, param, ARTICLE_ROW_MAPPER);
 	}
@@ -196,7 +196,7 @@ public class ArticleRepository {
 	 */
 	public void update(Integer good) {
 		String sql = "update articles set good=:good where id=:id";
-		SqlParameterSource param = new BeanPropertySqlParameterSource(good);
+		SqlParameterSource param = new MapSqlParameterSource().addValue("good", good);
 		template.update(sql, param);
 	}
 }

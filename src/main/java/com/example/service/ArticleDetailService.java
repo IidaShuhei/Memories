@@ -31,7 +31,7 @@ public class ArticleDetailService {
 	}
 	
 	/**
-	 * いいねを追加する.
+	 * いいねを更新する.
 	 * 
 	 * @param good いいね
 	 */
