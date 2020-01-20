@@ -139,4 +139,22 @@ public class ArticleService {
 		}
 		return articleListForAutocomplete;
 	}
+	
+	/**
+	 * いいね高い順で並び替える.
+	 * 
+	 * @return いいね高い順
+	 */
+	public List<Article> findByHighGood(){
+		return repository.findByHighGood();
+	}
+	
+	/**
+	 * いいね低い順で並び替える.
+	 * 
+	 * @return いいね低い順
+	 */
+	public List<Article> findByLowGood(){
+		return repository.findByLowGood();
+	}
 }

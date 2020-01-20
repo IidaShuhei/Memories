@@ -35,7 +35,7 @@ public class ArticleDetailService {
 	 * 
 	 * @param good いいね
 	 */
-	public void update(Integer good) {
-		repository.update(good);
+	public void update(Integer id,Integer good) {
+		repository.update(id,good);
 	}
 }

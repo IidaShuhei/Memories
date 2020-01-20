@@ -2,24 +2,17 @@
  * 
  */
 //いいねボタン
-$("#good").on('click',function(){
-	var good = $('#good').val();
-	if(good == null){
-		good = 1;
-	} else {
-		good += + 1;
-	}
-	console.log("1 : " + good);
+$("#id").on('click',function(){
+	var good = 1;
+	var id = $('#id').val();
 	
 	$.ajax({
 		type:'POST',
 		url:'/good',
-		data: { good : good },
+		data: { good : good , id : id },
 		dataType : 'json'
 	}).done(function(data) {
-		
-		console.log("2 : " + data)
-		
-		alert('success');
+		$("#good").empty();
+		$("#good").append("<span>"+data.good+"</span>");
 	})
 });

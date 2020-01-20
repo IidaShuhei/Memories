@@ -5,6 +5,49 @@ div.map {
 	top: -771px;
 }
 
+/* 記事一覧の写真 */
+#thumbnail {
+    display: inline-block; /* ここがポイント */
+    height: 150px;
+    margin-right: 15px;
+    margin-bottom: 17px;
+    width:53%;
+}
+#thumbnail img {
+    height: 100%;
+}
+
+#img_detail{
+	display: inline-block; /* ここがポイント */
+    height: 150px;
+    margin-right: 15px;
+    margin-bottom: 17px;
+    width:180px;
+}
+#img_detail img {
+    height: 100%;
+}
+
+/* いいねボタン */
+img.good {
+	position: relative;
+	width: 25px;
+	top:4px;
+}
+button#id{
+	background-color:Transparent;
+	border-color: Transparent;
+}
+span#textGood{
+	font-size: 15px;
+	color:white;
+}
+span#good{
+	font-size: 15px;
+	color:white;
+}
+
+
 button.button{
 	position: relative;
 	left: 109px;
@@ -752,11 +795,6 @@ img.baka {
 	width: 30%;
 }
 
-/* いいねボタン */
-img.good {
-	position: relative;
-	width: 25px;
-}
 
 /* ユーザーの名前 */
 /* div.userName { */

@@ -142,6 +142,25 @@ public class ArticleRepository {
 		SqlParameterSource param = new MapSqlParameterSource().addValue("content",'%' + content + '%');
 		return template.query(sql, param, ARTICLE_ROW_MAPPER);
 	}
+	
+	/**
+	 * いいね数高い順で並び替える
+	 * 
+	 * @return いいね数で並び替えた結果
+	 */
+	public List<Article> findByHighGood(){
+		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee,good from articles order by good desc";
+		return template.query(sql, ARTICLE_ROW_MAPPER);
+	}
+	/**
+	 * いいね数低い順で並び替える
+	 * 
+	 * @return いいね数で並び替えた結果
+	 */
+	public List<Article> findByLowGood(){
+		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee,good from articles order by good";
+		return template.query(sql, ARTICLE_ROW_MAPPER);
+	}
 	/**
 	 * 記事の詳細を表示する.
 	 * 
@@ -194,9 +213,9 @@ public class ArticleRepository {
 	 * 
 	 * @param good いいね
 	 */
-	public void update(Integer good) {
-		String sql = "update articles set good=:good where id=:id";
-		SqlParameterSource param = new MapSqlParameterSource().addValue("good", good);
+	public void update(Integer id,Integer good) {
+		String sql = "update articles set good=good + :good where id=:id";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("good", good).addValue("id", id);
 		template.update(sql, param);
 	}
 }

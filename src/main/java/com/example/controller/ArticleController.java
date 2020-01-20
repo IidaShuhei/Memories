@@ -5,7 +5,6 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -171,6 +170,32 @@ public class ArticleController {
 		model.addAttribute("articleList", articleList);
 		return "article_list";
 	}
+	
+	/**
+	 * 記事をいいね高い順で並び替える.
+	 * 
+	 * @param model モデル
+	 * @return 記事一覧
+	 */
+	@RequestMapping("/sortByHighGood")
+	public String findByHighGood(Model model) {
+		List<Article> articleList = articleService.findByHighGood();
+		model.addAttribute("articleList",articleList);
+		return "article_list";
+	}
+	
+	/**
+	 * 記事をいいね低い順で並び替える.
+	 * 
+	 * @param model モデル
+	 * @return 記事一覧
+	 */
+	@RequestMapping("/sortByLowGood")
+	public String findByLowGood(Model model) {
+		List<Article> articleList = articleService.findByHighGood();
+		model.addAttribute("articleList",articleList);
+		return "article_list";
+	}
 
 	/**
 	 * 記事を投稿する画面.
@@ -192,12 +217,8 @@ public class ArticleController {
 	 * @throws ParseException
 	 */
 	@RequestMapping("/registerArticle")
-	public String RegisterArticle(@Validated ArticleForm articleForm, BindingResult result)
+	public String RegisterArticle(@Validated ArticleForm articleForm, BindingResult result, Model model)
 			throws IOException, ParseException {
-
-		System.err.println(articleForm.getTotalFee());
-		
-		
 		if (result.hasErrors()) {
 			return insert();
 		}
@@ -209,14 +230,6 @@ public class ArticleController {
 		LocalDate localDate = LocalDate.now();
 		java.util.Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 		article.setPostDate(date);
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-//		Date startDate = sdf.parse(articleForm.getTripStartDate());	    
-//		System.err.println(startDate);
-//		article.setTripStartDate(startDate);
-
-//		Date endDate = sdf.parse(articleForm.getTripEndDate());
-//		article.setTripEndDate(endDate);
-		
 		article.setTripStartDate(Date.valueOf(articleForm.getTripStartDate().replace("/", "-")));
 		article.setTripEndDate(Date.valueOf(articleForm.getTripEndDate().replace("/", "-")));
 		
@@ -260,7 +273,10 @@ public class ArticleController {
 
 			article.setTotalFee(Integer.parseInt(articleForm.getTotalFee()));
 		}
-
+		if (articleForm.getGood() == null) {
+			
+			article.setGood(0);
+		}
 		articleService.registerArticle(article);
 		return "forward:/";
 	}

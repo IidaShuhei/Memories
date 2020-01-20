@@ -32,5 +32,4 @@ $('#email').blur(function(){
 			$("#err").html('<span style="color:red" id="err2">メールアドレスの形式が異なります</span>');
 			}
 	}
-			
 });

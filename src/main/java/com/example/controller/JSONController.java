@@ -1,9 +1,11 @@
 package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.domain.Article;
 import com.example.domain.User;
 import com.example.service.ArticleDetailService;
 import com.example.service.RegisterUserService;
@@ -45,13 +47,10 @@ public class JSONController {
 	 * @return グッドを返す
 	 */
 	@RequestMapping("/good")
-	public Integer update(Integer good) {
-		if(good == null) {
-			good = 1;
-		} else {
-			good += 1;
-		}
-		detailService.update(good);
-		return good;
+	public Article update(Integer id,Integer good,Model model) {
+		detailService.update(id,good);
+		Article article = detailService.showArticleDetail(id);
+		model.addAttribute("article",article);
+		return article;
 	}
 }

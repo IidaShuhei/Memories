@@ -27,11 +27,27 @@ $(function(){
         $(setImg + ' :first-child').animate({opacity:'0'},fadeSpeed).next('img').animate({opacity:'1'},fadeSpeed).end().appendTo(setImg);
     },switchDelay);
     
+    //都道府県から検索するところページ遷移
     $("#find").on("change",function(){
 		if ($("#find").val() == "prefecture") {
 		window.location.href = '/prefecture';
 	};
 	});
+    
+  	//いいね高い順にページ遷移
+    $("#find").on("change",function(){
+		if ($("#find").val() == "highGood") {
+		window.location.href = '/sortByHighGood';
+	};
+	});
+  	
+  　//いいね低い順にページ遷移
+    $("#find").on("change",function(){
+		if ($("#find").val() == "lowGood") {
+		window.location.href = '/sortByLowGood';
+	};
+	});
+    
     var data = [ [(${articleListForAutocomplete})] ];
     $("#searchAll").autocomplete({
     	source: data,
@@ -58,6 +74,8 @@ $(function(){
     <option th:value="1">タイトル</option>
     <option th:value="2">投稿者名</option>
     <option th:value="3">内容</option>
+    <option value="highGood">いいね数高い順</option>
+    <option value="lowGood">いいね数低い順</option>
     <option value="prefecture">都道府県</option>
 </select>
 </li>
@@ -143,12 +161,13 @@ $(function(){
 					<tbody>
 						<tr th:each="article : ${articlePage}" class="col-md-4" style="height: 320px;padding-top:200px;padding-left: 100px;">
 							<th><a th:href="@{'/showArticleDetail?id='+${article.id}}"> 
-							<img th:src="${article.imagePath}" class="img-responsive img-rounded" width="200" height="230"></a><br> 
+							<img th:src="${article.imagePath}" class="img-responsive img-rounded" id="thumbnail"></a><br> 
+							<span th:text="${article.postDate}"></span><br>
 							<a th:href="@{'/showArticleDetail?id='+${article.id}}"> 
 							<span th:text="${article.title}"></span></a><br> 
-							投稿者名：<span th:text="${article.name}"></span><br>
-							投稿日時：<span th:text="${article.postDate}"></span><br>
-							都道府県：<span th:text="${article.prefecture}"></span>
+							投稿者名 : <span th:text="${article.name}"></span><br>
+							都道府県 : <span th:text="${article.prefecture}"></span><br>
+							いいね数 : <span th:text="${article.good}"></span>
 							</th>
 						</tr>
 					</tbody>
