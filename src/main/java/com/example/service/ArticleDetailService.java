@@ -29,13 +29,4 @@ public class ArticleDetailService {
 	public Article showArticleDetail(Integer id) {
 		return repository.load(id);
 	}
-	
-	/**
-	 * いいねを更新する.
-	 * 
-	 * @param good いいね
-	 */
-	public void update(Integer id,Integer good) {
-		repository.update(id,good);
-	}
 }

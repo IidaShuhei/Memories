@@ -22,7 +22,6 @@ public class Article {
 	private Integer mealFee;
 	private Integer otherAmount;
 	private Integer totalFee;
-	private Integer good;
 
 	/**
 	 * @return the id
@@ -262,28 +261,13 @@ public class Article {
 		this.totalFee = totalFee;
 	}
 
-	/**
-	 * @return the good
-	 */
-	public Integer getGood() {
-		return good;
-	}
-
-	/**
-	 * @param good the good to set
-	 */
-	public void setGood(Integer good) {
-		this.good = good;
-	}
-
 	@Override
 	public String toString() {
 		return "Article [id=" + id + ", title=" + title + ", name=" + name + ", prefecture=" + prefecture + ", content="
 				+ content + ", postDate=" + postDate + ", imagePath=" + imagePath + ", commentList=" + commentList
 				+ ", tripStartDate=" + tripStartDate + ", tripEndDate=" + tripEndDate + ", transportation="
 				+ transportation + ", fare=" + fare + ", hotelName=" + hotelName + ", hotelFee=" + hotelFee
-				+ ", mealFee=" + mealFee + ", otherAmount=" + otherAmount + ", totalFee=" + totalFee + ", good=" + good
-				+ "]";
+				+ ", mealFee=" + mealFee + ", otherAmount=" + otherAmount + ", totalFee=" + totalFee + "]";
 	}
 
 }

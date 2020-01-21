@@ -57,6 +57,35 @@ $(function(){
     });
 });
 </script>
+<style>
+input[type=search] {
+	-webkit-appearance: none;
+	display: inline-block;
+	margin-right: 0;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 200px;
+	height: 40px;
+	font-size: 100%;
+	box-sizing: border-box;
+	border-radius: 5px 0 0 5px;
+	border: 1px solid #ccc;
+	border-right: none;
+}
+input[type=submit] {
+	-webkit-appearance: none;
+	display: inline-block;
+	padding: 0 10px;
+	color: #fff;
+	width: 50px;
+	height: 40px;
+	font-size: 100%;
+	vertical-align: top;
+	border: none;
+	border-radius: 0 5px 5px 0;
+	background: #1f76e2;
+}
+</style>
 </head>
 <body>
 
@@ -64,7 +93,6 @@ $(function(){
 
 <!-- ロゴ -->
 <a th:href="@{/}"><img th:src="@{/img/logo.png}" class="logo" /></a>
-
 
 <!-- プルダウンボタン -->
 <form th:action="@{/findByInfo}" method="post">
@@ -80,15 +108,12 @@ $(function(){
 </select>
 </li>
 
-
 <!-- 検索ボックス -->
 <li class="search">
-<input type="text" class="textbox" name="contents" id="searchAll">
-<button class="searchBtn"><i class="fas fa-search fa-lg"></i></button>
+<input type="search" name="contents" value="" placeholder="キーワード"><input type="submit" name="btn_search" id="searchAll">
 </li>
 </ul>
 </form>
-
 
 <!-- ログインボタン -->
 <ul class="bts">

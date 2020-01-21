@@ -27,7 +27,7 @@ public class UserRepository {
 	public static final RowMapper<User> USER_ROW_MAPPER = (rs, i) -> {
 
 		User user = new User();
-		user.setId(rs.getInt("id"));
+		user.setUserId(rs.getInt("user_id"));
 		user.setName(rs.getString("name"));
 		user.setEmail(rs.getString("email"));
 		user.setPassword(rs.getString("password"));
@@ -55,7 +55,7 @@ public class UserRepository {
 	 * @return ユーザー情報
 	 */
 	public User findByEmail(String email) {
-		String sql = "select id,name,email,password,zipcode,address,telephone from users where email =:email";
+		String sql = "select user_id,name,email,password,zipcode,address,telephone from users where email =:email";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("email", email);
 		List<User> userList = template.query(sql, param, USER_ROW_MAPPER);
 		if (userList.isEmpty()) {

@@ -95,7 +95,6 @@ public class ArticleController {
 		// ページングのリンクに使うページ数をスコープに格納 (例)28件あり1ページにつき10件表示させる場合→1,2,3がpageNumbersに入る
 		List<Integer> pageNumbers = calcPageNumbers(model, articlePage);
 		model.addAttribute("pageNumbers", pageNumbers);
-		model.addAttribute("articleList", articleList);
 
 		// オートコンプリート用にJavaScriptの配列の中身を文字列で作ってスコープへ格納
 		StringBuilder articleListForAutocomplete = articleService
@@ -273,10 +272,6 @@ public class ArticleController {
 
 			article.setTotalFee(Integer.parseInt(articleForm.getTotalFee()));
 		}
-		if (articleForm.getGood() == null) {
-			
-			article.setGood(0);
-		}
 		articleService.registerArticle(article);
 		return "forward:/";
 	}
@@ -351,7 +346,6 @@ public class ArticleController {
 		article.setMealFee(Integer.parseInt(articleForm.getMealFee()));
 		article.setOtherAmount(Integer.parseInt(articleForm.getOtherAmount()));
 		article.setTotalFee(Integer.parseInt(articleForm.getTotalFee()));
-		article.setGood(articleForm.getGood());
 
 		articleService.update(article);
 		return "forward:/";

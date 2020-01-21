@@ -17,7 +17,7 @@ public class LoginRepository {
 
 	public final static RowMapper<User> LOGIN_ROW_MAPPER = (rs, i) -> {
 		User user = new User();
-		user.setId(rs.getInt("id"));
+		user.setUserId(rs.getInt("user_id"));
 		user.setName(rs.getString("name"));
 		user.setZipcode(rs.getString("zipcode"));
 		user.setAddress(rs.getString("address"));
@@ -34,7 +34,7 @@ public class LoginRepository {
 	 * @return　メールアドレスとパスワード
 	 */
 	public User findByemailAndPassword(String email,String password) {
-		String sql = "select id,name,email,password,zipcode,address,telephone from users where email=:email and password=:password";
+		String sql = "select user_id,name,email,password,zipcode,address,telephone from users where email=:email and password=:password";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("email", email).addValue("password", password);
 		try {
 			

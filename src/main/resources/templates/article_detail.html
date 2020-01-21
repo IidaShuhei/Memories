@@ -39,9 +39,13 @@
 <button><i class="fa fa-trash fa-lg" aria-hidden="true"></i></button>
 </form>
 
+
 <!-- いいねボタン -->
-<button name="id" id="id" th:value="${article.id}"><img src="/img/good.png" class="good">
-<span th:text="${article.good}" id="good"></span><span id="textGood">いいね</span></button>
+<button id="articleId" th:value="${article.id}"><img src="/img/good.png" class="good"></button>
+<input th:value="${user.userId}" id="userId" type="hidden">
+
+
+
 <!-- <!-- コメント機能 -->
 <!-- <div th:each="comment:${article.commentList}"> -->
 <!-- コメント者名:<span th:text="${comment.name}"></span><br>  -->

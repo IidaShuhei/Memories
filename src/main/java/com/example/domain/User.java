@@ -8,7 +8,7 @@ package com.example.domain;
  */
 public class User {
 
-	private Integer id;
+	private Integer userId;
 	private String name;
 	private String email;
 	private String password;
@@ -17,17 +17,17 @@ public class User {
 	private String telephone;
 
 	/**
-	 * @return the id
+	 * @return the userId
 	 */
-	public Integer getId() {
-		return id;
+	public Integer getUserId() {
+		return userId;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param userId the userId to set
 	 */
-	public void setId(Integer id) {
-		this.id = id;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", zipcode="
-				+ zipcode + ", address=" + address + ", telephone=" + telephone + "]";
+		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", password=" + password
+				+ ", zipcode=" + zipcode + ", address=" + address + ", telephone=" + telephone + "]";
 	}
 
 }

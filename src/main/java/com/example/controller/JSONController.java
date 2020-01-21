@@ -1,13 +1,15 @@
 package com.example.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.domain.Article;
+import com.example.domain.Good;
 import com.example.domain.User;
-import com.example.service.ArticleDetailService;
+import com.example.repository.GoodRepository;
 import com.example.service.RegisterUserService;
 
 /**
@@ -23,7 +25,7 @@ public class JSONController {
 	private RegisterUserService service;
 	
 	@Autowired
-	private ArticleDetailService detailService;
+	private GoodRepository goodRepository;
 
 	/**
 	 * メールを返す.
@@ -47,10 +49,13 @@ public class JSONController {
 	 * @return グッドを返す
 	 */
 	@RequestMapping("/good")
-	public Article update(Integer id,Integer good,Model model) {
-		detailService.update(id,good);
-		Article article = detailService.showArticleDetail(id);
-		model.addAttribute("article",article);
-		return article;
+	public List<Good> update(Integer userId,Integer articleId,Model model) {
+		List<Good> goodList = goodRepository.findByUserIdAndArticleId(userId, articleId);
+		if(goodList.size() == 0) {
+			goodRepository.insert(userId, articleId);
+		} else {
+			goodRepository.delete(userId, articleId);
+		}
+		return goodList;
 	}
 }
