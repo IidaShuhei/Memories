@@ -1,5 +1,6 @@
 package com.example.repository;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -37,7 +38,6 @@ public class LoginRepository {
 		String sql = "select user_id,name,email,password,zipcode,address,telephone from users where email=:email and password=:password";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("email", email).addValue("password", password);
 		try {
-			
 			User user = template.queryForObject(sql, param, LOGIN_ROW_MAPPER);
 			return user;
 		}catch(Exception e) {
@@ -45,5 +45,4 @@ public class LoginRepository {
 			return null;
 		}
 	}
-
 }

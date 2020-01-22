@@ -1,16 +1,20 @@
 package com.example.service;
-import java.util.List;
 import java.util.Collections;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.Article;
+import com.example.domain.LoginUser;
 import com.example.repository.ArticleRepository;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 
 @Service
 @Transactional
@@ -18,6 +22,9 @@ public class ArticleService {
 
 	@Autowired
 	private ArticleRepository repository;
+	
+	@Autowired
+	public HttpSession session;
 	
 	/**
 	 * 記事一覧を表示する.
@@ -60,10 +67,11 @@ public class ArticleService {
 	
 	/**
 	 *記事情報を登録する.
+	 *
 	 * @param article
 	 */
 	public void registerArticle(Article article) {
-		 repository.insert(article);
+		repository.insert(article);
 	}
 	
 	/**
