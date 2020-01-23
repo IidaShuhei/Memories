@@ -45,7 +45,7 @@ public class GoodRepository {
 		Good good = new Good();
 		good.setId(rs.getInt("id"));
 		good.setUserId(rs.getInt("user_id"));
-		good.setGoodId(rs.getInt("good_id"));
+		good.setArticleId(rs.getInt("article_id"));
 		return good;
 	};
 	
@@ -55,9 +55,9 @@ public class GoodRepository {
 	 * @param userId ユーザーID
 	 * @param goodId グッドID
 	 */
-	public void insert(Integer userId,Integer goodId) {
-		String sql = "INSERT INTO goods (user_id,good_id) VALUES (:userId,:goodId)";
-		SqlParameterSource param = new MapSqlParameterSource().addValue("userId",userId).addValue("goodId", goodId);
+	public void insert(Integer userId,Integer articleId) {
+		String sql = "INSERT INTO goods (user_id,article_id) VALUES (:userId,:articleId)";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("userId",userId).addValue("articleId", articleId);
 		template.update(sql, param);
 	}
 	
@@ -81,7 +81,7 @@ public class GoodRepository {
 	 */
 	public List<Article> findByUserId(Integer userId){
 		String sql = "SELECT a.id AS id,a.title AS title,a.name AS name,a.prefecture AS prefecture,a.content AS content,a.post_date AS post_date,"
-				+ "a.image_path AS image_path,a.trip_start_date AS  trip_start_date,a.trip_end_date AS  trip_end_date,a.transportation AS transportation,"
+				+ "a.image_path AS image_path,a.trip_start_date AS trip_start_date,a.trip_end_date AS trip_end_date,a.transportation AS transportation,"
 				+ "a.fare AS fare,a.hotel_name AS hotel_name,a.hotel_fee AS hotel_fee,a.meal_fee AS meal_fee,a.other_amount AS other_amount,a.total_fee AS total_fee "
 				+ "FROM articles AS a JOIN goods AS g ON a.id = g.article_id WHERE g.user_id = :userId";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("userId", userId);

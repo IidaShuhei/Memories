@@ -61,12 +61,13 @@ public class ArticleRepository {
 //		return articleList;
 //	};
 //	１ページに表示する記事数は９個
-	private static final int VIEW_SIZE = 10;
+	private static final int VIEW_SIZE = 9;
 
 	private static final RowMapper<Article>ARTICLE_ROW_MAPPER = (rs,i) -> {
 	
 		Article article = new Article();
 		article.setId(rs.getInt("id"));
+		article.setUserId(rs.getInt("user_id"));
 		article.setTitle(rs.getString("title"));
 		article.setName(rs.getString("name"));
 		article.setPrefecture(rs.getString("prefecture"));
@@ -104,7 +105,7 @@ public class ArticleRepository {
 	 * @return 全記事
 	 */
 	public List<Article> findAll(){
-		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee from articles order by id desc";
+		String sql = "select id,user_id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee from articles order by id desc";
 		return template.query(sql, ARTICLE_ROW_MAPPER);
 	}
 	
@@ -115,7 +116,7 @@ public class ArticleRepository {
 	 * @return 曖昧検索結果
 	 */
 	public List<Article> findByTitle(String title){
-		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee from articles where title Ilike :title";
+		String sql = "select id,user_id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee from articles where title Ilike :title";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("title",'%' + title + '%');
 		return template.query(sql, param, ARTICLE_ROW_MAPPER);
 	}
@@ -126,7 +127,7 @@ public class ArticleRepository {
 	 * @return 曖昧検索結果
 	 */
 	public List<Article> findByName(String name){
-		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee from articles where name Ilike :name";
+		String sql = "select id,user_id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee from articles where name Ilike :name";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("name",'%' + name + '%');
 		return template.query(sql, param, ARTICLE_ROW_MAPPER);
 	}
@@ -137,29 +138,11 @@ public class ArticleRepository {
 	 * @return 曖昧検索結果
 	 */
 	public List<Article> findByContent(String content){
-		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee from articles where content Ilike :content";
+		String sql = "select id,user_id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee from articles where content Ilike :content";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("content",'%' + content + '%');
 		return template.query(sql, param, ARTICLE_ROW_MAPPER);
 	}
 	
-	/**
-	 * いいね数高い順で並び替える
-	 * 
-	 * @return いいね数で並び替えた結果
-	 */
-	public List<Article> findByHighGood(){
-		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee from articles order by good desc";
-		return template.query(sql, ARTICLE_ROW_MAPPER);
-	}
-	/**
-	 * いいね数低い順で並び替える
-	 * 
-	 * @return いいね数で並び替えた結果
-	 */
-	public List<Article> findByLowGood(){
-		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee from articles order by good";
-		return template.query(sql, ARTICLE_ROW_MAPPER);
-	}
 	/**
 	 * 記事の詳細を表示する.
 	 * 
@@ -168,18 +151,18 @@ public class ArticleRepository {
 	 */
 	public Article load(Integer id) {
 
-		String sql = "select id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee from articles where id =:id ";
+		String sql = "select id,user_id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee from articles where id =:id ";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		return template.queryForObject(sql, param, ARTICLE_ROW_MAPPER);
 	}
 	
 	/**
-	 * 記事情報を登録する.
+	 * 記事を登録する.
 	 * 
 	 * @param article　
 	 */
 	public void insert(Article article) {
-		String sql = "insert into articles(title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee)values(:title,:name,:prefecture,:content,:postDate,:imagePath,:tripStartDate,:tripEndDate,:transportation,:fare,:hotelName,:hotelFee,:mealFee,:otherAmount,:totalFee)";
+		String sql = "insert into articles(user_id,title,name,prefecture,content,post_date,image_path,trip_start_date,trip_end_date,transportation,fare,hotel_name,hotel_fee,meal_fee,other_amount,total_fee)values(:userId,:title,:name,:prefecture,:content,:postDate,:imagePath,:tripStartDate,:tripEndDate,:transportation,:fare,:hotelName,:hotelFee,:mealFee,:otherAmount,:totalFee)";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(article);
 		template.update(sql, param);
 	
@@ -191,7 +174,7 @@ public class ArticleRepository {
 	 * @param article　記事
 	 */
 	public void update(Article article) {
-		String sql = "update articles set title=:title,name=:name,prefecture=:prefecture,content=:content,post_date=:postDate,image_path=:imagePath,trip_start_date=:tripStartDate,trip_end_date=:tripEndDate,transportation=:transportation,fare=:fare,hotel_name=:hotelName,hotel_fee=:hotelFee,meal_fee=:mealFee,other_amount=:otherAmount,total_fee=:totalFee where id=:id";
+		String sql = "update articles set user_id:userID,title=:title,name=:name,prefecture=:prefecture,content=:content,post_date=:postDate,image_path=:imagePath,trip_start_date=:tripStartDate,trip_end_date=:tripEndDate,transportation=:transportation,fare=:fare,hotel_name=:hotelName,hotel_fee=:hotelFee,meal_fee=:mealFee,other_amount=:otherAmount,total_fee=:totalFee where id=:id";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(article);
 		template.update(sql, param);
 	}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -91,6 +91,8 @@ input[type=submit] {
 
 <header class="header">
 
+<span sec:authorize="hasRole('ROLE_USER')"><span sec:authentication="principal.user.name"></span>さんこんにちは！</span>
+
 <!-- ロゴ -->
 <a th:href="@{/}"><img th:src="@{/img/logo.png}" class="logo" /></a>
 
@@ -117,7 +119,7 @@ input[type=submit] {
 
 <!-- ログインボタン -->
 <ul class="bts">
-<li class="buttons" style="width:200px" th:unless="${session.userName}">
+<li class="buttons" style="width:200px">
 <a th:href="@{/login}" class="Login">
 <span class="en">Login</span>
 <span class="jp" style="text-align:center">ログイン</span>
@@ -125,7 +127,7 @@ input[type=submit] {
 </li>
 
 <!-- ログアウトボタン -->
-<li class="buttons" style="width:200px" th:if="${session.userName}">
+<li class="buttons" style="width:200px">
 <a th:href="@{/logout}" class="Login">
 <span class="en">Logout</span>
 <span class="jp" style="text-align:center">ログアウト</span>
@@ -133,7 +135,7 @@ input[type=submit] {
 </li>
 
 <!-- 新規登録ボタン -->
-<li class="buttons" style="width:200px" th:unless="${session.userName}">
+<li class="buttons" style="width:200px">
 <a th:href="@{/register}" class="Login">
 <span class="en">Register</span>
 <span class="jp" style="text-align:center">新規登録</span>
@@ -141,7 +143,7 @@ input[type=submit] {
 </li>
 
 <!-- 投稿ボタン -->
-<li class="buttons" style="width:200px" th:if="${session.userName}">
+<li class="buttons" style="width:200px">
 <a th:href="@{/insert}" class="Login">
 <span class="en">Post</span>
 <span class="jp" style="text-align:center">記事投稿</span>
@@ -192,7 +194,6 @@ input[type=submit] {
 							<span th:text="${article.title}"></span></a><br> 
 							投稿者名 : <span th:text="${article.name}"></span><br>
 							都道府県 : <span th:text="${article.prefecture}"></span><br>
-							いいね数 : <span th:text="${article.good}"></span>
 							</th>
 						</tr>
 					</tbody>

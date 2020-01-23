@@ -8,6 +8,9 @@ $(function(){
 
 $('#email').blur(function(){
 	var email = $('#email').val();
+	
+	console.log(email)
+	
 	if(email != ""){
 		if(email.match(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
 			$.ajax({

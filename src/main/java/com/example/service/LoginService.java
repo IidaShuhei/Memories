@@ -1,6 +1,5 @@
 package com.example.service;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +18,11 @@ import com.example.repository.UserRepository;
 
 @Service
 @Transactional
-public class LoginService implements UserDetailsService{
+public class LoginService{
 
 	@Autowired
 	private LoginRepository repository;
 
-	@Autowired
-	private UserRepository userRepository;
 
 	/**
 	 * メールとパスワードからユーザー情報を取得する.
@@ -39,19 +36,4 @@ public class LoginService implements UserDetailsService{
 		return user;
 	}
 
-	/**
-	 * @see org.springframework.security.core.userdetails.UserDetailsService#
-	 *      loadUserByUsername(java.lang.String) DBから検索をし、ログイン情報を構成して返す。
-	 */
-	@Override
-	public UserDetails loadUserByUsername(String mailAddress) throws UsernameNotFoundException {
-		User user = userRepository.findByEmail(mailAddress);
-		if (user == null) {
-			throw new UsernameNotFoundException("そのメールアドレスは登録されていません");
-		}
-		// 権限付与の例
-		Collection<GrantedAuthority> authorityList = new ArrayList<>();
-		authorityList.add(new SimpleGrantedAuthority("ROLE_USER")); // ユーザ権限付与
-		return new LoginUser(user, authorityList);
-	}
 }

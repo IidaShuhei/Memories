@@ -44,24 +44,25 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		//パスの書き方。コントローラのパスとメソッドのパス
-			.antMatchers("/login/**"
-						,"/**"
+			.antMatchers("/login/toLogin**"
+						,"/doLogin"
+						,"/"
+						,"/register/**"
 						,"/judge"
 						,"/good"
 						,"/ShowItemDetail/**"
 						,"/prefecture/**"
-						,"/register/**"
 						,"/showArticleDetail"
-						,"/sideMenu/**").permitAll()//全てのユーザでアクセス化
+						,"/sideMenu/question").permitAll()//全てのユーザでアクセス化
 			.anyRequest().authenticated();//それ以外のパスは認証必須
 		
 		http.formLogin()//ログインに関する設定
 			
-			.loginPage("/login/ToLogin")//ログイン画面に遷移させるパス
-			.loginProcessingUrl("//login/ToLogin")//ログインhtmlのアクション属性のパスと一致させる.このアクションのボタンが押されたらSecurityがログイン認証を行う
-			.failureUrl("/login?error=true")
+			.loginPage("/login/toLogin")//ログイン画面に遷移させるパス
+			.loginProcessingUrl("/doLogin")//ログインhtmlのアクション属性のパスと一致させる.このアクションのボタンが押されたらSecurityがログイン認証を行う
+			.failureUrl("/login/toLogin?error=true")
 			.defaultSuccessUrl("/",true)//認証後第一引数のパスに遷移
-			.usernameParameter("mailAddress")
+			.usernameParameter("email")
 			.passwordParameter("password");
 		
 		http.logout()
@@ -69,6 +70,9 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter{
 			.logoutSuccessUrl("/")//ログアウト後に遷移させるパス
 			.deleteCookies("JSESSIONID")//ログアウト後Cookieに保存されているセッションIDを削除
 			.invalidateHttpSession(true);//true:ログアウト後セッションを無効にする
+		
+		//ajaxを使えるようにする.
+		http.csrf().ignoringAntMatchers("/judge");
 	}
 	
 	@Override

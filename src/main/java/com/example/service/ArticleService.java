@@ -70,7 +70,7 @@ public class ArticleService {
 	 *
 	 * @param article
 	 */
-	public void registerArticle(Article article) {
+	public void registerArticle(Article article, @AuthenticationPrincipal LoginUser loginUser) {
 		repository.insert(article);
 	}
 	
@@ -146,23 +146,5 @@ public class ArticleService {
 			articleListForAutocomplete.append("\"");
 		}
 		return articleListForAutocomplete;
-	}
-	
-	/**
-	 * いいね高い順で並び替える.
-	 * 
-	 * @return いいね高い順
-	 */
-	public List<Article> findByHighGood(){
-		return repository.findByHighGood();
-	}
-	
-	/**
-	 * いいね低い順で並び替える.
-	 * 
-	 * @return いいね低い順
-	 */
-	public List<Article> findByLowGood(){
-		return repository.findByLowGood();
 	}
 }

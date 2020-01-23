@@ -1,7 +1,8 @@
 package com.example.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -54,13 +55,12 @@ public class UserRepository {
 	 * @return ユーザー情報 / 存在しなければnullを返す
 	 */
 	public User findByEmail(String email) {
-		String sql = "SELECT user_id, name, email, password zipcode, address, telephone from users WHERE email = :email";
+		String sql = "SELECT user_id, name, email, password, zipcode, address, telephone from users WHERE email = :email";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("email", email);
-		try {
-			return template.queryForObject(sql, param, USER_ROW_MAPPER);
-		} catch (DataAccessException e) {
-			e.printStackTrace();
+		List<User> userList = template.query(sql, param, USER_ROW_MAPPER);
+		if(userList.size() == 0) {
 			return null;
 		}
+		return userList.get(0);
 	}
 }

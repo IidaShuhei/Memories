@@ -6,6 +6,7 @@ import java.util.List;
 public class Article {
 
 	private Integer id;
+	private Integer userId;
 	private String title;
 	private String name;
 	private String prefecture;
@@ -35,6 +36,20 @@ public class Article {
 	 */
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the userId
+	 */
+	public Integer getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	/**
@@ -263,11 +278,11 @@ public class Article {
 
 	@Override
 	public String toString() {
-		return "Article [id=" + id + ", title=" + title + ", name=" + name + ", prefecture=" + prefecture + ", content="
-				+ content + ", postDate=" + postDate + ", imagePath=" + imagePath + ", commentList=" + commentList
-				+ ", tripStartDate=" + tripStartDate + ", tripEndDate=" + tripEndDate + ", transportation="
-				+ transportation + ", fare=" + fare + ", hotelName=" + hotelName + ", hotelFee=" + hotelFee
-				+ ", mealFee=" + mealFee + ", otherAmount=" + otherAmount + ", totalFee=" + totalFee + "]";
+		return "Article [id=" + id + ", userId=" + userId + ", title=" + title + ", name=" + name + ", prefecture="
+				+ prefecture + ", content=" + content + ", postDate=" + postDate + ", imagePath=" + imagePath
+				+ ", commentList=" + commentList + ", tripStartDate=" + tripStartDate + ", tripEndDate=" + tripEndDate
+				+ ", transportation=" + transportation + ", fare=" + fare + ", hotelName=" + hotelName + ", hotelFee="
+				+ hotelFee + ", mealFee=" + mealFee + ", otherAmount=" + otherAmount + ", totalFee=" + totalFee + "]";
 	}
 
 }

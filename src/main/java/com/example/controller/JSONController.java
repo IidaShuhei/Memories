@@ -3,11 +3,13 @@ package com.example.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.domain.Good;
+import com.example.domain.LoginUser;
 import com.example.domain.User;
 import com.example.repository.GoodRepository;
 import com.example.service.RegisterUserService;
@@ -48,8 +50,28 @@ public class JSONController {
 	 * @param good グッド
 	 * @return グッドを返す
 	 */
+	@RequestMapping("/test")
+	public String showDetail(Integer id, @AuthenticationPrincipal LoginUser loginUser, Model model) {
+		model.addAttribute("user", loginUser.getUser());
+		return "detail";
+	}
+	
 	@RequestMapping("/good")
 	public List<Good> update(Integer userId,Integer articleId,Model model) {
+		
+		
+		List<Good> goodList = goodRepository.findByUserIdAndArticleId(userId, articleId);
+		if(goodList.size() == 0) {
+			goodRepository.insert(userId, articleId);
+		} else {
+			goodRepository.delete(userId, articleId);
+		}
+		return goodList;
+	}
+	@RequestMapping("/good2")
+	public List<Good> update2(@AuthenticationPrincipal LoginUser loginUser, Integer articleId,Model model) {
+		Integer userId = loginUser.getUser().getUserId();
+		
 		List<Good> goodList = goodRepository.findByUserIdAndArticleId(userId, articleId);
 		if(goodList.size() == 0) {
 			goodRepository.insert(userId, articleId);

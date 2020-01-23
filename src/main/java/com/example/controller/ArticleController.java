@@ -14,6 +14,7 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Article;
 import com.example.domain.Comment;
+import com.example.domain.LoginUser;
 import com.example.form.ArticleForm;
 import com.example.form.CommentForm;
 import com.example.form.SearchForm;
@@ -56,23 +58,6 @@ public class ArticleController {
 	private ArticleForm setUpForm() {
 		return new ArticleForm();
 	}
-
-	/**
-	 * 記事を全件検索する.
-	 * 
-	 * @param model モデル
-	 * @return 全件検索結果
-	 */
-//	@RequestMapping("")
-//	public String findAll(Model model) {
-//		List<Article> articleList = articleService.findAll();
-//		for(Article article : articleList) {
-//			List<Comment> commentList = commentService.findByArticleId(article.getId());
-//			article.setCommentList(commentList);
-//		}
-//		model.addAttribute("articleList", articleList);
-//		return "forward:/";
-//	}
 
 	/**
 	 * 記事を全件検索する.
@@ -129,74 +114,6 @@ public class ArticleController {
 	}
 
 	/**
-	 * 記事をタイトルから曖昧検索する.
-	 * 
-	 * @param title タイトル
-	 * @param model モデル
-	 * @return 記事一覧
-	 */
-	@RequestMapping("/findByTitle")
-	public String findByTitle(String title, Model model) {
-		List<Article> articleList = articleService.showArticleListFindByTitle(title);
-		model.addAttribute("articleList", articleList);
-		return "article_list";
-	}
-
-	/**
-	 * 記事を投稿者名から曖昧検索する.
-	 * 
-	 * @param name  名前
-	 * @param model モデル
-	 * @return 記事一覧
-	 */
-	@RequestMapping("/findByName")
-	public String findByName(String name, Model model) {
-		List<Article> articleList = articleService.showArticleListFindByName(name);
-		model.addAttribute("articleList", articleList);
-		return "article_list";
-	}
-
-	/**
-	 * 記事を内容から曖昧検索する.
-	 * 
-	 * @param name  名前
-	 * @param model モデル
-	 * @return 記事一覧
-	 */
-	@RequestMapping("/findByContent")
-	public String findByContent(String content, Model model) {
-		List<Article> articleList = articleService.showArticleListFindByContent(content);
-		model.addAttribute("articleList", articleList);
-		return "article_list";
-	}
-	
-	/**
-	 * 記事をいいね高い順で並び替える.
-	 * 
-	 * @param model モデル
-	 * @return 記事一覧
-	 */
-	@RequestMapping("/sortByHighGood")
-	public String findByHighGood(Model model) {
-		List<Article> articleList = articleService.findByHighGood();
-		model.addAttribute("articleList",articleList);
-		return "article_list";
-	}
-	
-	/**
-	 * 記事をいいね低い順で並び替える.
-	 * 
-	 * @param model モデル
-	 * @return 記事一覧
-	 */
-	@RequestMapping("/sortByLowGood")
-	public String findByLowGood(Model model) {
-		List<Article> articleList = articleService.findByHighGood();
-		model.addAttribute("articleList",articleList);
-		return "article_list";
-	}
-
-	/**
 	 * 記事を投稿する画面.
 	 * 
 	 * @return 記事を投稿する画面へ遷移
@@ -216,12 +133,16 @@ public class ArticleController {
 	 * @throws ParseException
 	 */
 	@RequestMapping("/registerArticle")
-	public String RegisterArticle(@Validated ArticleForm articleForm, BindingResult result, Model model)
+	public String RegisterArticle(@Validated ArticleForm articleForm, BindingResult result, Model model,@AuthenticationPrincipal LoginUser loginUser)
 			throws IOException, ParseException {
+		
+		System.out.println("ユーザーID : " + loginUser.getUser().getUserId());
+		
 		if (result.hasErrors()) {
 			return insert();
 		}
 		Article article = new Article();
+		article.setUserId(loginUser.getUser().getUserId());
 		article.setTitle(articleForm.getTitle());
 		article.setName(articleForm.getName());
 		article.setPrefecture(articleForm.getPrefecture());
@@ -272,7 +193,7 @@ public class ArticleController {
 
 			article.setTotalFee(Integer.parseInt(articleForm.getTotalFee()));
 		}
-		articleService.registerArticle(article);
+		articleService.registerArticle(article,loginUser);
 		return "forward:/";
 	}
 

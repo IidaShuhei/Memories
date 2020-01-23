@@ -4,7 +4,7 @@ public class Good {
 
 	private Integer id;
 	private Integer userId;
-	private Integer goodId;
+	private Integer articleId;
 
 	/**
 	 * @return the id
@@ -35,22 +35,22 @@ public class Good {
 	}
 
 	/**
-	 * @return the goodId
+	 * @return the articleId
 	 */
-	public Integer getGoodId() {
-		return goodId;
+	public Integer getArticleId() {
+		return articleId;
 	}
 
 	/**
-	 * @param goodId the goodId to set
+	 * @param articleId the articleId to set
 	 */
-	public void setGoodId(Integer goodId) {
-		this.goodId = goodId;
+	public void setArticleId(Integer articleId) {
+		this.articleId = articleId;
 	}
 
 	@Override
 	public String toString() {
-		return "Good [id=" + id + ", userId=" + userId + ", goodId=" + goodId + "]";
+		return "Good [id=" + id + ", userId=" + userId + ", articleId=" + articleId + "]";
 	}
 
 }

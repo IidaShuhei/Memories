@@ -32,13 +32,6 @@ public class ShowArticleDetailController {
 	@RequestMapping("")
 	public String showArticleDetail(Integer id,Model model) {
 		Article article = service.showArticleDetail(id);
-//		article.setTripStartDate(Date.valueOf(article.getTripStartDate().replace("/", "-")));
-//		article.setTripEndDate(Date.valueOf(article.getTripEndDate().replace("/", "-")));
-		
-//		Date newStartDay = DateUtils.truncate(article.getTripStartDate(),Calendar.DAY_OF_MONTH);
-//		article.setTripStartDate(newStartDay);
-//		Date newEndDay = DateUtils.truncate(article.getTripEndDate(),Calendar.DAY_OF_MONTH);
-//		article.setTripEndDate(newEndDay);
 		model.addAttribute("article", article);
 		return "article_detail";
 	}

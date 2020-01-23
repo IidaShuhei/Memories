@@ -16,28 +16,27 @@
 	<div class="block">
 		<div class="loginDesign">
 
-			<form th:action="@{/login/Tologin}" method="post"
+			<form th:action="@{/doLogin}" method="post"
 				th:object="${loginForm}">
 
 				<!-- タイトル横の写真 -->
-				<a class="navbar-brand" th:href="@{/}"><img
-					th:src="@{/img/logo.png}" class="logoL"></a> <br><br><br>
+				<a class="navbar-brand" th:href="@{/}">
+				<img th:src="@{/img/logo.png}" class="logoL"></a> <br><br><br>
 				<h2 style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif; margin-top:50px; margin-left: 193px;">ログイン</h2>
 				<br>
 
 				<div class="LoginBottons">
 				
-				<div th:if="${fail}" th:text="${fail}" style="color: red"></div>
+				<div class="alert alert-danger" th:if="${errorMessage}">
+				<p th:text="${errorMessage}">メールアドレスまたはパスワードが間違っています</p>
+				</div>
 
-				<div th:errors="*{email}" style="color: red"></div>
-				<div>メールアドレス：</div>
-				<input type="email" name="email" th:field="*{email}"
-					style="width: 70%; border-radius: 6px"><br>
+				メールアドレス：<br>
+				<input type="email" name="email" style="width: 70%; border-radius: 6px"><br>
 				<br><br>
 
-				<div th:errors="*{password}" style="color: red"></div>
-				パスワード ：<br> <input type="password" name="password"
-					th:field="*{password}" style="width: 70%; border-radius: 6px"><br>
+				パスワード ：<br> 
+				<input type="password" name="password" style="width: 70%; border-radius: 6px"><br>
 				<br>
 				<br>
 				
