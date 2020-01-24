@@ -2,19 +2,18 @@
  * 
  */
 //いいねボタン
-$("#articleId").on('click',function(){
-	var articleId = $('#articleId').val();;
-	var userId = $('#userId').val();
+$("#article").on('click',function(){
+	var articleId = $('#article').val();;
+	var userId = $('#user').val();
 	
-	console.log("記事ID : " + aricleId);
+	console.log("記事ID : " + articleId);
 	console.log("ユーザーID : " + userId);
 	
 	$.ajax({
 		type:'POST',
 		url:'/good',
-		data: { articleId : articleId , userId : userId },
+		data: { id : articleId , userId : userId },
 		dataType : 'json'
 	}).done(function(data) {
-		alert("成功です");
 	})
 });

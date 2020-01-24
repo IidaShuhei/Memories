@@ -67,9 +67,9 @@ public class GoodRepository {
 	 * @param userId ユーザーID
 	 * @param goodId グッドID
 	 */
-	public void delete(Integer userId,Integer goodId) {
-		String sql = "DELETE FROM goods WHERE user_id = :userId AND good_id = :goodId";
-		SqlParameterSource param = new MapSqlParameterSource().addValue("userId",userId).addValue("goodId", goodId);
+	public void delete(Integer userId,Integer articleId) {
+		String sql = "DELETE FROM goods WHERE user_id = :userId AND article_id = :articleId";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("userId",userId).addValue("articleId", articleId);
 		template.update(sql, param);
 	}
 	

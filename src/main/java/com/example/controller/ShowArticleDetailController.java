@@ -1,12 +1,13 @@
 package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Article;
-import com.example.domain.Good;
+import com.example.domain.LoginUser;
 import com.example.service.ArticleDetailService;
 
 /**
@@ -30,9 +31,12 @@ public class ShowArticleDetailController {
 	 * @return 記事詳細
 	 */
 	@RequestMapping("")
-	public String showArticleDetail(Integer id,Model model) {
+	public String showArticleDetail(Integer id,Model model,@AuthenticationPrincipal LoginUser loginUser) {
 		Article article = service.showArticleDetail(id);
 		model.addAttribute("article", article);
+		
+		Integer userId = loginUser.getUser().getUserId();
+		model.addAttribute("userId", userId);
 		return "article_detail";
 	}
 }

@@ -136,8 +136,6 @@ public class ArticleController {
 	public String RegisterArticle(@Validated ArticleForm articleForm, BindingResult result, Model model,@AuthenticationPrincipal LoginUser loginUser)
 			throws IOException, ParseException {
 		
-		System.out.println("ユーザーID : " + loginUser.getUser().getUserId());
-		
 		if (result.hasErrors()) {
 			return insert();
 		}

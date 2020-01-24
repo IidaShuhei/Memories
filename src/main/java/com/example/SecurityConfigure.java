@@ -50,9 +50,8 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter{
 						,"/register/**"
 						,"/judge"
 						,"/good"
-						,"/ShowItemDetail/**"
 						,"/prefecture/**"
-						,"/showArticleDetail"
+						,"/showArticleDetail/**"
 						,"/sideMenu/question").permitAll()//全てのユーザでアクセス化
 			.anyRequest().authenticated();//それ以外のパスは認証必須
 		
@@ -72,7 +71,7 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter{
 			.invalidateHttpSession(true);//true:ログアウト後セッションを無効にする
 		
 		//ajaxを使えるようにする.
-		http.csrf().ignoringAntMatchers("/judge");
+		http.csrf().ignoringAntMatchers("/judge", "/good");
 	}
 	
 	@Override
