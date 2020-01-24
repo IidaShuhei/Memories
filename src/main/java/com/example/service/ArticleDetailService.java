@@ -19,7 +19,7 @@ public class ArticleDetailService {
 
 	@Autowired
 	private ArticleRepository repository;
-
+	
 	/**
 	 * 記事の詳細を表示する.
 	 * 

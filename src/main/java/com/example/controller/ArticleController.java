@@ -53,7 +53,7 @@ public class ArticleController {
 
 	@Autowired
 	private ArticleDetailService detailService;
-
+	
 	@ModelAttribute
 	private ArticleForm setUpForm() {
 		return new ArticleForm();
@@ -66,7 +66,8 @@ public class ArticleController {
 	 * @return 全件検索結果
 	 */
 	@RequestMapping("")
-	public String findAll(Model model, Integer page) {
+	public String findAll(Model model, Integer page,@AuthenticationPrincipal LoginUser loginUser) {
+		
 		List<Article> articleList = articleService.findAll();
 		// ページング機能追加
 		if (page == null) {
@@ -85,7 +86,7 @@ public class ArticleController {
 		StringBuilder articleListForAutocomplete = articleService
 				.getArticleListForAutocomplete(articleService.findAll());
 		model.addAttribute("articleListForAutocomplete", articleListForAutocomplete);
-
+		
 		return "article_list";
 	}
 

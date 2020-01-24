@@ -10,6 +10,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/login")
 public class LoginController {
 	
+	/**
+	 * ログインをする.
+	 * 
+	 * @param model モデル
+	 * @param error エラー
+	 * @return ログイン画面へ
+	 */
 	@RequestMapping("/toLogin")
 	public String toLogin(Model model,@RequestParam(required = false) String error) {
 		if(error != null) {
