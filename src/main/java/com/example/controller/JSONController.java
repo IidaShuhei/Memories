@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.domain.Good;
 import com.example.domain.User;
 import com.example.repository.GoodRepository;
-import com.example.service.LoginService;
 import com.example.service.RegisterUserService;
 
 /**
