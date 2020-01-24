@@ -38,4 +38,15 @@ public class RegisterUserService {
 		return repository.findByEmail(email);
 	}
 	
+	
+	/**パスワードからユーザー情報をとってくる.
+	 * @param password パスワード
+	 * @return
+	 */
+	public User firndByPassword(String password) {
+		return repository.findByPassword(password);
+	}
+	
+	
+	
 }

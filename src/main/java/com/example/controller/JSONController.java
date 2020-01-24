@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.domain.User;
+import com.example.repository.LoginRepository;
 import com.example.service.ArticleDetailService;
 import com.example.service.RegisterUserService;
 
@@ -22,6 +23,9 @@ public class JSONController {
 	
 	@Autowired
 	private ArticleDetailService detailService;
+	
+	@Autowired
+	private LoginRepository loginService;
 
 	/**
 	 * メールを返す.
@@ -33,6 +37,20 @@ public class JSONController {
 	public User emailReturn(String email) {
 		User user = service.findByEmail(email);
 		if(user == null) {
+			user = new User();
+		}
+		return user;
+	}
+	
+	/**
+	 * パスワードを返す
+	 * @param password　パスワード
+	 * @return　　パスワード
+	 */
+	@RequestMapping("/judgePass")
+	public User passwordReturn(String password) {
+		User user = loginService.findByPassword(password);
+		if(user==null) {
 			user = new User();
 		}
 		return user;

@@ -64,4 +64,19 @@ public class UserRepository {
 			return userList.get(0);
 		}
 	}
+	
+	/**パスワードからユーザー情報をとってくる.
+	 * @param password パスワード
+	 * @return　ユーザー情報
+	 */
+	public User findByPassword(String password) {
+		String sql = "select id,name,email,password,zipcode,address,telephone from users where password = :password";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("password", password);
+		User user = template.queryForObject(sql, param, USER_ROW_MAPPER);
+		if (user==null) {
+			return null;
+		}else {
+			return user;
+		}
+	}
 }

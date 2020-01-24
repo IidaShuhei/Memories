@@ -6,7 +6,7 @@ $(function(){
     jQuery("#form").validationEngine();
   });
 
-$('#email').blur(function(){
+$('#email').keyup(function(){
 	var email = $('#email').val();
 	if(email != ""){
 		if(email.match(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
