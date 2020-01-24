@@ -73,15 +73,9 @@ public class SideMenuService {
 	 */
 	public List<Review> findByStar(SortForm sortForm) {
 		String sort = sortForm.getSort();
-		
-		System.err.println(sort);
-		
 		List<Review> reviewList = null;
 		if ("high".equals(sort)) {
 			reviewList = repository.findByHighStar();
-			
-			System.out.println(reviewList);
-			
 		} else if("low".equals(sort)){
 			reviewList = repository.findByLowStar();
 		}

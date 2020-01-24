@@ -28,9 +28,6 @@ public class JSONController {
 	@Autowired
 	private GoodRepository goodRepository;
 	
-	@Autowired
-	private LoginService loginService;
-
 
 	/**
 	 * メールを返す.
@@ -48,31 +45,11 @@ public class JSONController {
 	}
 	
 	/**
-	 * パスワードを返す
-	 * @param password　パスワード
-	 * @return　　パスワード
-	 */
-	@RequestMapping("/judgePass")
-	public User passwordReturn(String password) {
-		User user = loginService.findByPassword(password);
-		if(user==null) {
-			user = new User();
-		}
-		return user;
-	}
-	
-	/**
-	 * グッドを返す.
+	 * いいねを返す.
 	 * 
 	 * @param good グッド
 	 * @return グッドを返す
 	 */
-//	@RequestMapping("/test")
-//	public String showDetail(Integer id, @AuthenticationPrincipal LoginUser loginUser, Model model) {
-//		model.addAttribute("user", loginUser.getUser());
-//		return "detail";
-//	}
-//	
 	@RequestMapping("/good")
 	public List<Good> update(Integer userId,Integer id,Model model) {
 		List<Good> goodList = goodRepository.findByUserIdAndArticleId(userId, id);
@@ -83,16 +60,20 @@ public class JSONController {
 		}
 		return goodList;
 	}
-//	@RequestMapping("/good2")
-//	public List<Good> update2(@AuthenticationPrincipal LoginUser loginUser, Integer articleId,Model model) {
-//		Integer userId = loginUser.getUser().getUserId();
-//		
-//		List<Good> goodList = goodRepository.findByUserIdAndArticleId(userId, articleId);
-//		if(goodList.size() == 0) {
-//			goodRepository.insert(userId, articleId);
-//		} else {
-//			goodRepository.delete(userId, articleId);
-//		}
-//		return goodList;
-//	}
+	
+	/**
+	 * いいね数を返す.
+	 * 
+	 * @param articleId 記事Id
+	 * @return いいね数
+	 */
+	@RequestMapping("/countGood")
+	public Integer good(Integer articleId, Model model) {
+		Integer good =  goodRepository.good(articleId);
+		if(good == null) {
+			good = 0;
+		}
+		model.addAttribute("good", good);
+		return good;
+	}
 }

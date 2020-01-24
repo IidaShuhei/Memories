@@ -71,7 +71,7 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter{
 			.invalidateHttpSession(true);//true:ログアウト後セッションを無効にする
 		
 		//ajaxを使えるようにする.
-		http.csrf().ignoringAntMatchers("/judge", "/good");
+		http.csrf().ignoringAntMatchers("/judge", "/good","/countGood");
 	}
 	
 	@Override

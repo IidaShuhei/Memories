@@ -29,8 +29,8 @@
 
 				<div class="LoginBottons">
 				
-				<div class="alert alert-danger" th:if="${errorMessage}">
-				<p th:text="${errorMessage}">メールアドレスまたはパスワードが間違っています</p>
+				<div th:if="${errorMessage}">
+				<p th:text="${errorMessage}">パスワードが間違っています</p>
 				</div>
 
 				<div th:errors="*{email}" style="color: red"></div>
