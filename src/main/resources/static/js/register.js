@@ -6,7 +6,7 @@ $(function(){
     jQuery("#form").validationEngine();
   });
 
-$('#email').blur(function(){
+$('#email').keyup(function(){
 	var email = $('#email').val();
 	
 	console.log(email)

@@ -10,6 +10,8 @@
 	type="image/gif" />
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
 <link th:href="@{/css/japanMap.css}" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body style="background-image: url('/img/futa.jpeg'); background-size: cover">
 
@@ -31,19 +33,22 @@
 				<p th:text="${errorMessage}">メールアドレスまたはパスワードが間違っています</p>
 				</div>
 
-				メールアドレス：<br>
-				<input type="email" name="email" style="width: 70%; border-radius: 6px"><br>
+				<div th:errors="*{email}" style="color: red"></div>
+				メールアドレス：<span id="err"></span><br>
+				<input type="email" name="email" th:field="*{email}"
+					style="width: 70%; border-radius: 6px" id="loginEmail"><br>
 				<br><br>
 
-				パスワード ：<br> 
-				<input type="password" name="password" style="width: 70%; border-radius: 6px"><br>
+				<!-- <div th:errors="*{password}" style="color: red"></div> -->
+				パスワード ：<span id="loginErr"></span><br> <input type="password" name="password"
+					th:field="*{password}" style="width: 70%; border-radius: 6px" id="loginPass"><br>
 				<br>
 				<br>
 				
 				</div>
 
 				<div class="loginButton">
-					<button class="cd_btn">
+					<button class="cd_btn" id="login" disabled="disabled">
 						<h5>ログイン</h5>
 					</button>
 				</div>
@@ -72,5 +77,6 @@
 
 		</div>
 	</div>
+	<script src="../js/loginValidation.js"></script>
 </body>
 </html>

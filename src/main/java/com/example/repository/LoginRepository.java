@@ -1,5 +1,7 @@
 package com.example.repository;
 
+import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
@@ -29,7 +31,7 @@ public class LoginRepository {
 	};
 	
 	/**
-	 * メールアドレスとパスワードを検索リポジトリ
+	 * メールアドレスとパスワードを検索するリポジトリ
 	 * @param email
 	 * @param password
 	 * @return　メールアドレスとパスワード
@@ -45,4 +47,42 @@ public class LoginRepository {
 			return null;
 		}
 	}
+	
+	
+	/**メールアドレスからユーザー情報を取ってくる
+	 * @param email　メールアドレス
+	 * @return　ユーザー情報
+	 */
+	public User findByEmail(String email) {
+			String sql = "select id,name,email,password,zipcode,address,telephone from users where email =:email";
+			SqlParameterSource param = new MapSqlParameterSource().addValue("email", email);
+			List<User> userList = template.query(sql, param, LOGIN_ROW_MAPPER);
+			if (userList.isEmpty()) {
+				return null;
+			} else {
+				return userList.get(0);
+			}
+		}
+	
+	
+	/**パスワードからユーザー情報をとってくる.
+	 * @param password パスワード
+	 * @return　ユーザー情報
+	 */
+	public User findByPassword(String password) {
+		String sql = "select id,name,email,password,zipcode,address,telephone from users where password = :password";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("password", password);
+		List<User> userList = template.query(sql, param, LOGIN_ROW_MAPPER);
+		if (userList.isEmpty()) {
+			return null;
+		}else {
+			return userList.get(0);
+		}
+	}
+	
+	
+	
+	
+	
+
 }

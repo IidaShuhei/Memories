@@ -43,4 +43,5 @@ public class RegisterUserService {
 	public User findByEmail(String email) {
 		return repository.findByEmail(email);
 	}
+
 }
