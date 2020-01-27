@@ -18,8 +18,7 @@
 	<div class="block">
 		<div class="loginDesign">
 
-			<form th:action="@{/doLogin}" method="post"
-				th:object="${loginForm}">
+			<form th:action="@{/doLogin}" method="post">
 
 				<!-- タイトル横の写真 -->
 				<a class="navbar-brand" th:href="@{/}">
@@ -29,19 +28,15 @@
 
 				<div class="LoginBottons">
 				
-				<div class="alert alert-danger" th:if="${errorMessage}">
-				<p th:text="${errorMessage}">メールアドレスまたはパスワードが間違っています</p>
-				</div>
 
-				<div th:errors="*{email}" style="color: red"></div>
 				メールアドレス：<span id="err"></span><br>
-				<input type="email" name="email" th:field="*{email}"
+				<input type="email" name="email" 
 					style="width: 70%; border-radius: 6px" id="loginEmail"><br>
 				<br><br>
 
 				<!-- <div th:errors="*{password}" style="color: red"></div> -->
-				パスワード ：<span id="loginErr"></span><br> <input type="password" name="password"
-					th:field="*{password}" style="width: 70%; border-radius: 6px" id="loginPass"><br>
+				パスワード ：<span th:if="${errorMessage}"> <span th:text="${errorMessage}" style = "color:red"></span></span><br> <input type="password" name="password"
+					 style="width: 70%; border-radius: 6px" id="loginPass"><br>
 				<br>
 				<br>
 				

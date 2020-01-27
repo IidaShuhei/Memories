@@ -1062,3 +1062,35 @@ div.tripCost{
 p{
 	height:50px;
 }
+
+
+.balloon3{
+  position: relative;
+  padding: 20px;
+  width: 215px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: 0.2em;
+  font-size: 14px;
+  background-color: #ff9800;
+}
+.balloon3::before{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  right: 2px;
+  bottom: 2px;
+  border-left: 20px solid #ff9800;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  transform: rotate(45deg);
+}
+.welcome{
+	position:relative;
+	top:-17px;
+}

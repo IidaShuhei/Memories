@@ -90,8 +90,9 @@ input[type=submit] {
 <body>
 
 <header class="header">
-
-<span sec:authorize="hasRole('ROLE_USER')"><span sec:authentication="principal.user.name"></span>さんこんにちは！</span>
+<div class="balloon3">
+<span sec:authorize="hasRole('ROLE_USER')" class="welcome" ><span sec:authentication="principal.user.name"></span>さんこんにちは！</span>
+</div>
 
 <!-- ロゴ -->
 <a th:href="@{/}"><img th:src="@{/img/logo.png}" class="logo" /></a>
