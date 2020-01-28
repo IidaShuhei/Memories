@@ -43,7 +43,8 @@
 
 <!-- いいねボタン -->
 <!-- <div id="app"> -->
-<button id="article" th:value="${article.id}"><img src="/img/good.png" class="good"></button>
+<button id="article" th:value="${article.id}"><img src="/img/good.png" class="good">
+<span th:text="${good}" id="textGood"></span><span>いいね!</span></button>
 <input type="hidden" th:value="${userId}" id="user"/>
 <!-- <span>{{message}}</span></div> -->
 <!-- v-on:click="click" v-if:click="count" -->

@@ -90,9 +90,12 @@ input[type=submit] {
 <body>
 
 <header class="header">
+<<<<<<< HEAD
 <div class="balloon3">
 <span sec:authorize="hasRole('ROLE_USER')" class="welcome" ><span sec:authentication="principal.user.name"></span>さんこんにちは！</span>
 </div>
+=======
+>>>>>>> bc2085848d4d66d79b00dcaafadeaced99aa2e83
 
 <!-- ロゴ -->
 <a th:href="@{/}"><img th:src="@{/img/logo.png}" class="logo" /></a>
@@ -114,9 +117,7 @@ input[type=submit] {
 <!-- 検索ボックス -->
 <li class="search">
 <input type="search" name="contents" value="" placeholder="キーワード"><input type="submit" name="btn_search" id="searchAll">
-</li>
-</ul>
-</form>
+</li></ul></form>
 
 <!-- ログインボタン -->
 <ul class="bts">
@@ -150,14 +151,25 @@ input[type=submit] {
 <span class="jp" style="text-align:center">記事投稿</span>
 </a>
 </li>
-</ul>
 
-<!-- ヘルプマーク -->
-<ul class="side">
-<li><a href="#" class="nav"><span style="font-family: 'Cochin',sans-serif; font-size: 25px;">≡ M e n u</span></a><ul>
+<!-- サイドメニュー -->
+<li class="buttons">
+<div class="cp_menu">
+<label for="cp_menu_bar1"><span style="font-family: 'Cochin',sans-serif; font-size: 25px;">≡ M e n u</span></label>
+<ul id="link1">
 <li><a th:href="@{/sideMenu/question}"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">QUESTION</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">質問</span></a></li>
 <li><a th:href="@{/sideMenu/review}"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">REVIEW</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">　評価</span></a></li>
-</ul></li></ul>
+</ul>
+</div>
+</li>
+</ul>
+
+
+<!-- <ul class="side"> -->
+<!-- <li><a href="#" class="nav"><span style="font-family: 'Cochin',sans-serif; font-size: 25px;">≡ M e n u</span></a><ul> -->
+<!-- <li><a th:href="@{/sideMenu/question}"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">QUESTION</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">質問</span></a></li> -->
+<!-- <li><a th:href="@{/sideMenu/review}"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">REVIEW</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">　評価</span></a></li> -->
+<!-- </ul></li></ul></li> -->
 
 </header>
 
@@ -170,13 +182,6 @@ input[type=submit] {
 <img th:src="@{/img/kyoto.jpeg}" style="width:100%;">
 <img th:src="@{/img/asakusa.jpeg}" style="width:100%;">
 </div>
-
-<!-- ユーザーの名前を表示 -->
-<!-- <div class="userName"> -->
-<!-- <font size="4" face="Times New Roman" color="blue"style="width:100px"> -->
-<!-- <span th:if="${session.userName}" th:text="${session.userName}">さんようこそ</span> -->
-<!-- </font> -->
-<!-- </div> -->
 
 <!-- 背景 -->
 <div class="row1"></div>
