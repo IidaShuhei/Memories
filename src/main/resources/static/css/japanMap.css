@@ -4,6 +4,17 @@ div.map {
 	left: 129px;
 	top: -771px;
 }
+.logo2{
+	font-family: 'Trattatello';
+	font-size: 50px;
+	text-decoration: none;
+	transition: 2.0s;
+	color:black;
+}
+.logo2:hover{
+	text-decoration: none;
+}
+
 
 /* 記事一覧の写真 */
 #thumbnail {
@@ -89,8 +100,8 @@ li.help {
 /* ログイン、ログアウト、新規登録、投稿、検索 */
 ul.bts {
 	position: absolute;
-	top: 54px;
-	right: -498px;
+	top: 35px;
+	right: 40px;
 }
 li.buttons {
 	float: left;
@@ -103,7 +114,7 @@ li.buttons {
 }
 ul.bts1 {
 	position: absolute;
-	top: 46px;
+	top: 650px;
 	right: 708px;
 }
 li.search {
@@ -156,10 +167,11 @@ div.styleAll {
 	top: 210px;
 }
 div.styleArticle {
-	background-image: url("/img/bj.png");
+/* 	background-image: url("/img/bj.png"); */
 	border-top-left-radius: 100px;
 	border-top-right-radius: 100px;
 	height: 1250px;
+	width:1300px;
 }
 
 /* ARTICLESと記事の文字 */
@@ -217,6 +229,7 @@ span.jp {
 	font-family: 'Luminari', sans-serif;
 	font-size: 1.2rem;
 	margin: 20px auto 0;
+	text-align: center;
 }
 
 /* 画鋲 */
@@ -228,12 +241,12 @@ img.crp {
 	width: 6%;
 }
 
-/* 背景色 */
+/* 背景 */
 div.row1 {
 	position: relative;
 	top: 69px;
 	width: 80%;
-	left: 15%;
+	left: 10%;
 	height: 800px;
 	border: 30px solid;
 	border-image-source: url("/img/wood.png");
@@ -243,16 +256,19 @@ div.row1 {
 }
 
 /* 背景画像 */
-body {
-	background-image: url("/img/cor.jpg");
-	width: 90%;
-}
+/* body { */
+/* 	background-image: url("/img/cor.jpg"); */
+/* 	width: 90%; */
+/* } */
 
 /* ヘッダー部分 */
 header.header {
 	width: 100%;
-	height: 120px;
+	height: 64px;
 	z-index: 10;
+	position: fixed;
+	background-color: white;
+	opacity:0.8;
 }
 
 /* ヘッダーでの新規登録ボタン */
@@ -749,11 +765,11 @@ div.login {
 }
 a.Login {
 	transition: 2.0s;
-	color: white;
+	color: black;
 }
 a.Login:hover {
 	text-decoration: none;
-	color: black;
+	opacity:1.1;
 }
 
 /* ログアウトボタン */
