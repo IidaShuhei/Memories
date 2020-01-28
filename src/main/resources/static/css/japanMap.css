@@ -97,6 +97,18 @@ li.help {
 	width: 20%;
 }
 
+/* フッダー */
+.footer{
+	opacity:0.8;
+}
+.footer li{
+	display: inline-block;
+	font-size:20px;
+}
+.footer ul{
+	text-align:center;
+}
+
 /* ログイン、ログアウト、新規登録、投稿、検索 */
 ul.bts {
 	position: absolute;
@@ -262,7 +274,7 @@ div.row1 {
 /* } */
 
 /* ヘッダー部分 */
-header.header {
+.header {
 	width: 100%;
 	height: 64px;
 	z-index: 10;

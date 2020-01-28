@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -58,6 +60,9 @@ public class ArticleController {
 	private ArticleForm setUpForm() {
 		return new ArticleForm();
 	}
+	
+	@Autowired
+	public HttpSession session;
 
 	/**
 	 * 記事を全件検索する.
@@ -67,6 +72,26 @@ public class ArticleController {
 	 */
 	@RequestMapping("")
 	public String findAll(Model model, Integer page,@AuthenticationPrincipal LoginUser loginUser) {
+		
+		Integer userId = null;
+		Integer preUserId = null;
+		
+		//登録してあるID
+		if (loginUser != null) {
+			userId = loginUser.getUser().getUserId();
+			
+		//セッションに入っているID
+		} else if (session.getAttribute("userId") != null) {
+			preUserId = (Integer) session.getAttribute("userId");
+			
+		//自動採番のID
+		} else {
+			String source = session.getId();
+			preUserId = source.hashCode();
+		}
+		
+		model.addAttribute("userId", userId);
+		model.addAttribute("preUserId", preUserId);
 		
 		List<Article> articleList = articleService.findAll();
 		// ページング機能追加
@@ -109,7 +134,7 @@ public class ArticleController {
 		} else if (searchForm.getSearch() == 3) {
 			articleList = articleService.showArticleListFindByContent(searchForm.getContents());
 		}
-		model.addAttribute("articleList", articleList);
+		model.addAttribute("articlePage", articleList);
 		return "article_list";
 
 	}
