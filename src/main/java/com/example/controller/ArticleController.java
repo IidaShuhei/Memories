@@ -33,6 +33,7 @@ import com.example.form.SearchForm;
 import com.example.service.ArticleDetailService;
 import com.example.service.ArticleService;
 import com.example.service.CommentService;
+import com.example.service.UserService;
 
 /**
  * 記事を表示するコントローラー.
@@ -55,6 +56,9 @@ public class ArticleController {
 
 	@Autowired
 	private ArticleDetailService detailService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@ModelAttribute
 	private ArticleForm setUpForm() {
@@ -92,6 +96,11 @@ public class ArticleController {
 		
 		model.addAttribute("userId", userId);
 		model.addAttribute("preUserId", preUserId);
+		
+		//ログインユーザーがあればアイコンを出す
+		if(loginUser != null) {
+			model.addAttribute("image", userService.findImageById(userId).getImage());
+		}
 		
 		List<Article> articleList = articleService.findAll();
 		// ページング機能追加
@@ -282,6 +291,8 @@ public class ArticleController {
 		}
 		base64image.append(base64);
 		article.setImagePath(base64image.toString());
+		
+		
 		article.setTripStartDate(Date.valueOf(articleForm.getTripStartDate().replace("/", "-")));
 		article.setTripEndDate(Date.valueOf(articleForm.getTripEndDate().replace("/", "-")));
 		article.setTransportation(articleForm.getTransportation());

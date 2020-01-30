@@ -32,6 +32,8 @@ create table users (
  , zipcode varchar(7) not null
  , address varchar(200) not null
  , telephone varchar(15) not null
+ , nick_name varchar(20)
+ , image text
 ) ;
 
 -- コメント

@@ -35,19 +35,19 @@ $(function(){
 	};
 	});
     
-  	//いいね高い順にページ遷移
-    $("#find").on("change",function(){
-		if ($("#find").val() == "highGood") {
-		window.location.href = '/sortByHighGood';
-	};
-	});
+//   	//いいね高い順にページ遷移
+//     $("#find").on("change",function(){
+// 		if ($("#find").val() == "highGood") {
+// 		window.location.href = '/sortByHighGood';
+// 	};
+// 	});
   	
-  　//いいね低い順にページ遷移
-    $("#find").on("change",function(){
-		if ($("#find").val() == "lowGood") {
-		window.location.href = '/sortByLowGood';
-	};
-	});
+//   　//いいね低い順にページ遷移
+//     $("#find").on("change",function(){
+// 		if ($("#find").val() == "lowGood") {
+// 		window.location.href = '/sortByLowGood';
+// 	};
+// 	});
     
     var data = [ [(${articleListForAutocomplete})] ];
     $("#searchAll").autocomplete({
@@ -132,6 +132,30 @@ input[type=submit] {
 <a th:href="@{/sideMenu/question}" class="Login"><span class="en">Question</span><br></a></li>
 <li class="buttons">
 <a th:href="@{/sideMenu/review}" class="Login"><span class="en">Review</span></a></li>
+
+<!-- ユーザー情報 -->
+<li class="buttons">
+<!-- 切り替えボタンの設定 -->
+<a class="Login" data-toggle="modal" data-target="#exampleModal" th:if="${userId}"><span class="en">User</span>
+<img th:src="${image}" class="userImage" th:if="${userId}"></a>
+
+<!-- モーダルの設定 -->
+<form th:action="@{/user/update}" method="post" enctype="multipart/form-data">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <h5 class="modal-title" id="exampleModalLabel">ユーザー情報</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        ニックネーム : <input type="text" name="nickName"><br>
+        画像 : <input type="file" name="image" multiple accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+        <button class="btn btn-primary">変更を保存</button>
+      </div><!-- /.modal-footer -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</form>
+</li>
 </ul>
 
 
@@ -158,7 +182,7 @@ input[type=submit] {
 <div class="row1"></div>
 
 <!-- 記事一覧表示 -->
-<div class="row">
+<div class="row2">
 		<div class="col-sm-6 col-md-3">
 			<div class="styleArticle" style="border-style: none; background-color: none;">
 				<table class="table table-striped">
@@ -179,6 +203,7 @@ input[type=submit] {
 		</div>
 </div>
 
+
 <!-- プルダウンボタン -->
 <form th:action="@{/findByInfo}" method="post">
 <ul class="bts1">
@@ -187,8 +212,8 @@ input[type=submit] {
     <option th:value="1">タイトル</option>
     <option th:value="2">投稿者名</option>
     <option th:value="3">内容</option>
-    <option value="highGood">いいね数高い順</option>
-    <option value="lowGood">いいね数低い順</option>
+<!--     <option value="highGood">いいね数高い順</option> -->
+<!--     <option value="lowGood">いいね数低い順</option> -->
     <option value="prefecture">都道府県</option>
 </select>
 </li>
