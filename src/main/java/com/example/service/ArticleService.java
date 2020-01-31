@@ -129,6 +129,7 @@ public class ArticleService {
 		Page<Article> articlePage = new PageImpl<Article>(list, PageRequest.of(page,size),articleList.size());
     	return articlePage;
 	}
+	
 	 /* オートコンプリート用にJavaScriptの配列の中身を文字列で作ります.
 	 * 
 	 * @param articleList 記事一覧

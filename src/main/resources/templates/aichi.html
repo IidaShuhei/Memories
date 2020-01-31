@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 <link th:href="@{/css/back.css}" rel="stylesheet">
 <link th:href="@{/css/japanMap.css}" rel="stylesheet">
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
 <link th:href="@{/css/aichi.css}" rel="stylesheet">
 <link rel="shortcut icon" href="http://www.iconj.com/ico/r/5/r540h9h0nr.ico" type="image/x-icon" />
 </head>
@@ -21,9 +22,9 @@
 			<div class="styleArticle" style="border-style: none;">
 				<table class="table table-striped">
 					<tbody>
-						<tr th:each="aichi : ${aichiList}" style="height: 320px;padding-top:200px;padding-left: 100px;">
+						<tr th:each="aichi : ${aichiList}" class="col-md-4" style="height: 320px;padding-top:200px;padding-left: 100px;">
 							<th><a th:href="@{'/showArticleDetail?id='+${aichi.id}}"> 
-							<img th:src="${aichi.imagePath}" class="img-responsive img-rounded" width="200" height="230"></a><br> 
+							<img th:src="${aichi.imagePath}" class="img-responsive img-rounded" id="thumbnail"></a><br> 
 							<a th:href="@{'/showArticleDetail?id='+${aichi.id}}"> 
 							<span th:text="${aichi.title}"></span></a><br> 
 							投稿者名：<span th:text="${aichi.name}"></span><br>

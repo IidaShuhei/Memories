@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 <link th:href="@{/css/back.css}" rel="stylesheet">
 <link th:href="@{/css/japanMap.css}" rel="stylesheet">
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
 <link th:href="@{/css/akita.css}" rel="stylesheet">
 <link rel="shortcut icon" href="http://www.iconj.com/ico/u/h/uhg624bqyf.ico" type="image/x-icon" />
 </head>
@@ -21,7 +22,7 @@
 			<div class="styleArticle" style="border-style: none;">
 				<table class="table table-striped">
 					<tbody>
-						<tr th:each="akita : ${akitaList}" style="height: 320px;padding-top:200px;padding-left: 100px;">
+						<tr th:each="akita : ${akitaList}" class="col-md-4" style="height: 320px;padding-top:200px;padding-left: 100px;">
 							<th><a th:href="@{'/showArticleDetail?id='+${akita.id}}"> 
 							<img th:src="${akita.imagePath}" class="img-responsive img-rounded" width="200" height="230"></a><br> 
 							<a th:href="@{'/showArticleDetail?id='+${akita.id}}"> 

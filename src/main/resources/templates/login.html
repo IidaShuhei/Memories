@@ -21,13 +21,16 @@
 			<form th:action="@{/doLogin}" method="post">
 
 				<!-- タイトル横の写真 -->
-				<a class="navbar-brand" th:href="@{/}">
-				<img th:src="@{/img/logo.png}" class="logoL"></a> <br><br><br>
+				<a th:href="@{/}" class="logo2"><span>tavikki</span></a> <br><br><br>
 				<h2 style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif; margin-top:50px; margin-left: 193px;">ログイン</h2>
 				<br>
 
 				<div class="LoginBottons">
 				
+
+				<div th:if="${errorMessage}">
+				<p th:text="${errorMessage}">パスワードが間違っています</p>
+				</div>
 
 				メールアドレス：<span id="err"></span><br>
 				<input type="email" name="email" 

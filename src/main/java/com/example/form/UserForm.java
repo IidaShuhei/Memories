@@ -3,6 +3,8 @@ package com.example.form;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+import org.springframework.web.multipart.MultipartFile;
+
 /**
  * ユーザーフォーム.
  * 
@@ -11,27 +13,30 @@ import javax.validation.constraints.NotBlank;
  */
 public class UserForm {
 
-	@NotBlank(message="名前を入力してください")
+	@NotBlank(message = "名前を入力してください")
 	private String name;
-	
-	@Email(message="Eメールの形式が不正です")
-	@NotBlank(message="メールアドレスを入力してください")
+
+	@Email(message = "Eメールの形式が不正です")
+	@NotBlank(message = "メールアドレスを入力してください")
 	private String email;
-	
-	@NotBlank(message="パスワードを入力してください")
+
+	@NotBlank(message = "パスワードを入力してください")
 	private String password;
-	
-	@NotBlank(message="確認用パスワードを入力してください")
+
+	@NotBlank(message = "確認用パスワードを入力してください")
 	private String confirmationPassword;
-	
-	@NotBlank(message="郵便番号を入力してください")
+
+	@NotBlank(message = "郵便番号を入力してください")
 	private String zipcode;
-	
-	@NotBlank(message="住所を入力してください")
+
+	@NotBlank(message = "住所を入力してください")
 	private String address;
-	
-	@NotBlank(message="電話番号を入力してください")
+
+	@NotBlank(message = "電話番号を入力してください")
 	private String telephone;
+
+	private String nickName;
+	private MultipartFile image;
 
 	/**
 	 * @return the name
@@ -131,11 +136,39 @@ public class UserForm {
 		this.telephone = telephone;
 	}
 
+	/**
+	 * @return the nickName
+	 */
+	public String getNickName() {
+		return nickName;
+	}
+
+	/**
+	 * @param nickName the nickName to set
+	 */
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	/**
+	 * @return the image
+	 */
+	public MultipartFile getImage() {
+		return image;
+	}
+
+	/**
+	 * @param image the image to set
+	 */
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
+
 	@Override
 	public String toString() {
 		return "UserForm [name=" + name + ", email=" + email + ", password=" + password + ", confirmationPassword="
 				+ confirmationPassword + ", zipcode=" + zipcode + ", address=" + address + ", telephone=" + telephone
-				+ "]";
+				+ ", nickName=" + nickName + ", image=" + image + "]";
 	}
 
 }

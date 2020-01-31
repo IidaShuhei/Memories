@@ -21,7 +21,7 @@
 			<div class="styleArticle" style="border-style: none;">
 				<table class="table table-striped">
 					<tbody>
-						<tr th:each="aomori : ${aomoriList}" style="height: 320px;padding-top:200px;padding-left: 100px;">
+						<tr th:each="aomori : ${aomoriList}" class="col-md-4" style="height: 320px;padding-top:200px;padding-left: 100px;">
 							<th><a th:href="@{'/showArticleDetail?id='+${aomori.id}}"> 
 							<img th:src="${aomori.imagePath}" class="img-responsive img-rounded" width="200" height="230"></a><br> 
 							<a th:href="@{'/showArticleDetail?id='+${aomori.id}}"> 

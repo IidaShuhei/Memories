@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{/css/back.css}" rel="stylesheet">
+<link th:href="@{/css/japanMap.css}" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <script>
@@ -18,6 +19,7 @@ $('#result').text(data[Math.round(Math.random() * 46)]);
 <div class="searchBYprefecture">
 <h2>都道府県から記事検索</h2>
 </div>
+<a th:href="@{/}" class="logo2"><span>tavikki</span></a>
 <div class="back"></div>
 <div class="map" style="width:10%">
 <img th:src="@{/img/japanMap.png}" class="japanMap">

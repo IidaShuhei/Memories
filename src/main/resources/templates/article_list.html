@@ -11,6 +11,7 @@
 <link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/earlyaccess/nikukyu.css" rel="stylesheet">
 <script type="text/javascript" src="/js/design.js"></script>
 <!-- end of iconj.com favicon code -->
 
@@ -34,19 +35,19 @@ $(function(){
 	};
 	});
     
-  	//いいね高い順にページ遷移
-    $("#find").on("change",function(){
-		if ($("#find").val() == "highGood") {
-		window.location.href = '/sortByHighGood';
-	};
-	});
+//   	//いいね高い順にページ遷移
+//     $("#find").on("change",function(){
+// 		if ($("#find").val() == "highGood") {
+// 		window.location.href = '/sortByHighGood';
+// 	};
+// 	});
   	
-  　//いいね低い順にページ遷移
-    $("#find").on("change",function(){
-		if ($("#find").val() == "lowGood") {
-		window.location.href = '/sortByLowGood';
-	};
-	});
+//   　//いいね低い順にページ遷移
+//     $("#find").on("change",function(){
+// 		if ($("#find").val() == "lowGood") {
+// 		window.location.href = '/sortByLowGood';
+// 	};
+// 	});
     
     var data = [ [(${articleListForAutocomplete})] ];
     $("#searchAll").autocomplete({
@@ -95,72 +96,69 @@ input[type=submit] {
 <span sec:authorize="hasRole('ROLE_USER')" class="welcome" ><span sec:authentication="principal.user.name"></span>さんこんにちは！</span>
 </div>
 
+<ul class="bts">
 <!-- ロゴ -->
-<a th:href="@{/}"><img th:src="@{/img/logo.png}" class="logo" /></a>
-
-<!-- プルダウンボタン -->
-<form th:action="@{/findByInfo}" method="post">
-<ul class="bts1">
-<li class="search">
-<select name="search" id="find">
-    <option th:value="1">タイトル</option>
-    <option th:value="2">投稿者名</option>
-    <option th:value="3">内容</option>
-    <option value="highGood">いいね数高い順</option>
-    <option value="lowGood">いいね数低い順</option>
-    <option value="prefecture">都道府県</option>
-</select>
-</li>
-
-<!-- 検索ボックス -->
-<li class="search">
-<input type="search" name="contents" value="" placeholder="キーワード"><input type="submit" name="btn_search" id="searchAll">
-</li></ul></form>
+<li class="buttons"><a th:href="@{/}" class="logo2"><span>tavikki</span></a></li>
 
 <!-- ログインボタン -->
-<ul class="bts">
-<li class="buttons" style="width:200px">
-<a th:href="@{/login}" class="Login">
-<span class="en">Login</span>
-<span class="jp" style="text-align:center">ログイン</span>
+<li class="buttons">
+<a th:href="@{/login}" class="Login" th:if="${preUserId}">
+<span class="en">Login</span><br>
 </a>
 </li>
 
 <!-- ログアウトボタン -->
-<li class="buttons" style="width:200px">
-<a th:href="@{/logout}" class="Login">
-<span class="en">Logout</span>
-<span class="jp" style="text-align:center">ログアウト</span>
+<li class="buttons">
+<a th:href="@{/logout}" class="Login" th:if="${userId}">
+<span class="en">Logout</span><br>
 </a>
 </li>
 
 <!-- 新規登録ボタン -->
-<li class="buttons" style="width:200px">
-<a th:href="@{/register}" class="Login">
-<span class="en">Register</span>
-<span class="jp" style="text-align:center">新規登録</span>
+<li class="buttons">
+<a th:href="@{/register}" class="Login" th:if="${preUserId}">
+<span class="en">Register</span><br>
 </a>
 </li>
 
 <!-- 投稿ボタン -->
-<li class="buttons" style="width:200px">
-<a th:href="@{/insert}" class="Login">
-<span class="en">Post</span>
-<span class="jp" style="text-align:center">記事投稿</span>
+<li class="buttons">
+<a th:href="@{/insert}" class="Login" th:if="${userId}">
+<span class="en">Post</span><br>
 </a>
 </li>
 
 <!-- サイドメニュー -->
 <li class="buttons">
-<div class="cp_menu">
-<label for="cp_menu_bar1"><span style="font-family: 'Cochin',sans-serif; font-size: 25px;">≡ M e n u</span></label>
-<ul id="link1">
-<li><a th:href="@{/sideMenu/question}"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">QUESTION</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">質問</span></a></li>
-<li><a th:href="@{/sideMenu/review}"><span style="font-family: 'Apple Symbols',sans-serif;color:white;font-size: 20px;">REVIEW</span>　<span style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;color:white;">　評価</span></a></li>
-</ul>
-</div>
+<a th:href="@{/sideMenu/question}" class="Login"><span class="en">Question</span><br></a></li>
+<li class="buttons">
+<a th:href="@{/sideMenu/review}" class="Login"><span class="en">Review</span></a></li>
+
+<!-- ユーザー情報 -->
+<li class="buttons">
+<!-- 切り替えボタンの設定 -->
+<a class="Login" data-toggle="modal" data-target="#exampleModal" th:if="${userId}"><span class="en">User</span>
+<img th:src="${image}" class="userImage" th:if="${userId}"></a>
+
+<!-- モーダルの設定 -->
+<form th:action="@{/user/update}" method="post" enctype="multipart/form-data">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <h5 class="modal-title" id="exampleModalLabel">ユーザー情報</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        ニックネーム : <input type="text" name="nickName"><br>
+        画像 : <input type="file" name="image" multiple accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+        <button class="btn btn-primary">変更を保存</button>
+      </div><!-- /.modal-footer -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</form>
 </li>
 </ul>
+
 
 
 <!-- <ul class="side"> -->
@@ -185,7 +183,7 @@ input[type=submit] {
 <div class="row1"></div>
 
 <!-- 記事一覧表示 -->
-<div class="row">
+<div class="row2">
 		<div class="col-sm-6 col-md-3">
 			<div class="styleArticle" style="border-style: none; background-color: none;">
 				<table class="table table-striped">
@@ -207,6 +205,26 @@ input[type=submit] {
 </div>
 
 
+<!-- プルダウンボタン -->
+<form th:action="@{/findByInfo}" method="post">
+<ul class="bts1">
+<li class="search">
+<select name="search" id="find">
+    <option th:value="1">タイトル</option>
+    <option th:value="2">投稿者名</option>
+    <option th:value="3">内容</option>
+<!--     <option value="highGood">いいね数高い順</option> -->
+<!--     <option value="lowGood">いいね数低い順</option> -->
+    <option value="prefecture">都道府県</option>
+</select>
+</li>
+
+<!-- 検索ボックス -->
+<li class="search">
+<input type="search" name="contents" value="" placeholder="キーワード"><input type="submit" name="btn_search" id="searchAll">
+</li></ul></form>
+
+
 <!-- 記事上のタイトル -->
 <div class="kakomi1">
 <span class="en" style="font-size:100px;">Articles</span>
@@ -223,4 +241,16 @@ input[type=submit] {
    th:class="${pageNumber==articlePage.number + 1} ? active"></a>
    </div>
 </body>
+
+<!-- フッダー -->
+<footer class="footer">
+<a th:href="@{/}" class="logo2"><span>tavikki</span></a>
+<ul>
+<li><a th:href="@{/}">会社情報</a> | </li>
+<li><a th:href="@{/}">お知らせ</a> | </li>
+<li><a th:href="@{/}">個人情報保護方針</a> | </li>
+<li><a th:href="@{/}">ご利用にあたって</a> | </li>
+<li><a th:href="@{/}">会員規約</a></li>
+</ul>
+</footer>
 </html>

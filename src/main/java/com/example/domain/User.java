@@ -15,6 +15,8 @@ public class User {
 	private String zipcode;
 	private String address;
 	private String telephone;
+	private String nickName;
+	private String image;
 
 	/**
 	 * @return the userId
@@ -114,10 +116,39 @@ public class User {
 		this.telephone = telephone;
 	}
 
+	/**
+	 * @return the nickName
+	 */
+	public String getNickName() {
+		return nickName;
+	}
+
+	/**
+	 * @param nickName the nickName to set
+	 */
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	/**
+	 * @return the image
+	 */
+	public String getImage() {
+		return image;
+	}
+
+	/**
+	 * @param image the image to set
+	 */
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", password=" + password
-				+ ", zipcode=" + zipcode + ", address=" + address + ", telephone=" + telephone + "]";
+				+ ", zipcode=" + zipcode + ", address=" + address + ", telephone=" + telephone + ", nickName="
+				+ nickName + ", image=" + image + "]";
 	}
 
 }
