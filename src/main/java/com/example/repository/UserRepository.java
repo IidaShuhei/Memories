@@ -39,7 +39,6 @@ public class UserRepository {
 		return user;
 	};
 	public static final RowMapper<User> USER1_ROW_MAPPER = (rs, i) -> {
-		
 		User user = new User();
 		user.setImage(rs.getString("image"));
 		return user;

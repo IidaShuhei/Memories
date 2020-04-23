@@ -162,7 +162,7 @@ public class ArticleController {
 	 * 記事を投稿する.
 	 * 
 	 * @param articleForm 記事フォーム
-	 * @param model       モデル
+	 * @param model モデル
 	 * @return 記事一覧
 	 * @throws IOException
 	 * @throws ParseException
@@ -180,16 +180,17 @@ public class ArticleController {
 		article.setName(articleForm.getName());
 		article.setPrefecture(articleForm.getPrefecture());
 		article.setContent(articleForm.getContent());
+		
+		//日付の登録
 		LocalDate localDate = LocalDate.now();
 		java.util.Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 		article.setPostDate(date);
 		article.setTripStartDate(Date.valueOf(articleForm.getTripStartDate().replace("/", "-")));
 		article.setTripEndDate(Date.valueOf(articleForm.getTripEndDate().replace("/", "-")));
 		
-
+		//画像の登録
 		byte[] encoded = Base64.getEncoder().encode(articleForm.getImagePath().getBytes());
 		Charset charset = StandardCharsets.UTF_8;
-
 		String base64 = new String(encoded, charset);
 		String fileExtension = articleForm.getImagePath().getOriginalFilename()
 				.substring(articleForm.getImagePath().getOriginalFilename().length() - 3);
@@ -291,8 +292,6 @@ public class ArticleController {
 		}
 		base64image.append(base64);
 		article.setImagePath(base64image.toString());
-		
-		
 		article.setTripStartDate(Date.valueOf(articleForm.getTripStartDate().replace("/", "-")));
 		article.setTripEndDate(Date.valueOf(articleForm.getTripEndDate().replace("/", "-")));
 		article.setTransportation(articleForm.getTransportation());
