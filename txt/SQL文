@@ -49,7 +49,6 @@ CONSTRAINT comments_pkey PRIMARY KEY (id),
 FOREIGN KEY (article_id) REFERENCES articles (id)
 );
 
-
 --ユーザー登録(pass:morimori)
 insert into users(name, email, password, zipcode, address, telephone) values('テストユーザ', 'test@test.co.jp', '6f','1111111', 'テスト住所', 'テスト電話番号');
 

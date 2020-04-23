@@ -8,7 +8,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: rakus.yahoo@gmail.com
-    password: xtzizhmgsxfdfoib
+    password: Pokemon55!!!
     properties:
       mail:
         smtp:

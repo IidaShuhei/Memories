@@ -24,7 +24,6 @@ public class LoginService{
 	 */
 	public User login(String email, String password) {
 		User user = repository.findByemailAndPassword(email, password);
-
 		return user;
 	}
 

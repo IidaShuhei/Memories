@@ -50,7 +50,7 @@ public class JSONController {
 	 * @return グッドを返す
 	 */
 	@RequestMapping("/good")
-	public List<Good> update(Integer userId,Integer id,Model model) {
+	public List<Good> update(Integer userId,Integer id) {
 		List<Good> goodList = goodRepository.findByUserIdAndArticleId(userId, id);
 		if(goodList.size() == 0) {
 			goodRepository.insert(userId, id);

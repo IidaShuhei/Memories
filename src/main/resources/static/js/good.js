@@ -5,10 +5,6 @@
 $("#article").on('click', function() {
 	var articleId = $('#article').val();
 	var userId = $('#user').val();
-	
-	console.log("ユーザー : " + userId)
-	console.log(articleId)
-	
 	$.ajax({
 		type : 'POST',
 		url : '/good',

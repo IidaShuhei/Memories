@@ -66,7 +66,7 @@ public class ArticleService {
 	}
 	
 	/**
-	 *記事情報を登録する.
+	 *記事を登録する.
 	 *
 	 * @param article
 	 */

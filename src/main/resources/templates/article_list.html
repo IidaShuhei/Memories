@@ -138,7 +138,7 @@ input[type=submit] {
 <li class="buttons">
 <!-- 切り替えボタンの設定 -->
 <a class="Login" data-toggle="modal" data-target="#exampleModal" th:if="${userId}"><span class="en">User</span>
-<img th:src="${image}" class="userImage" th:if="${userId}"></a>
+<img th:src="${image}" class="userImage" th:if="${image}"></a>
 
 <!-- モーダルの設定 -->
 <form th:action="@{/user/update}" method="post" enctype="multipart/form-data">
