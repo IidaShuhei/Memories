@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{/css/back.css}" rel="stylesheet">
+<link th:href="@{/css/japanMap.css}" rel="stylesheet">
+<link th:href="@{/css/kumamoto.css}" rel="stylesheet">
 <link rel="shortcut icon" href="http://www.iconj.com/ico/2/t/2tl13he399.ico" type="image/x-icon" />
 </head>
 <body>
@@ -11,14 +13,15 @@
 <div class="searchBYprefecture">
 <h2>熊本県の記事</h2>
 </div>
-<div class="back"></div>
+<div class="backKuma">
+<img th:src="@{/img/kumamoto.jpeg}" class="kuma"></div>
 
 <div class="row">
 		<div>
-			<div class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-10 col-xs-12" style="background-color: white;">
+			<div class="styleArticle" style="border-style: none;">
 				<table class="table table-striped">
 					<tbody>
-						<tr th:each="kumamoto : ${kumamotoList}" class="col-md-4" style="height: 320px;">
+						<tr th:each="kumamoto : ${kumamotoList}" style="height: 320px;padding-top:200px;padding-left: 100px;">
 							<th><a th:href="@{'/showArticleDetail?id='+${kumamoto.id}}"> 
 							<img th:src="${kumamoto.imagePath}" class="img-responsive img-rounded" width="200" height="230"></a><br> 
 							<a th:href="@{'/showArticleDetail?id='+${kumamoto.id}}"> 

@@ -1,5 +1,23 @@
 @charset "UTF-8";
 
+#prebutton{
+	position: relative;
+	top:-490px;
+	left:122px;
+}
+div#result{
+	position: relative;
+	top:-513px;
+	left:271px;
+}
+
+a.rtn{
+	position: relative;
+	top:-1430px;
+	left:1003px;
+	text-decoration: none;
+}
+
 div.tape1{
 	position: relative;
 	top:100px;

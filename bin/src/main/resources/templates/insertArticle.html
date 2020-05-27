@@ -5,188 +5,289 @@
 <title>Insert title here</title>
 <link th:href="@{/css/japanMap.css}" rel="stylesheet">
 <link th:href="@{/css/background.css}" rel="stylesheet">
-<link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
-<link rel="shortcut icon" href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6" type="image/gif" /> 
-
+<link rel="shortcut icon"
+	href="http://www.iconj.com/icon.php?pid=f3tqyum2g6" type="image/x-icon" />
+<link rel="shortcut icon"
+	href="http://www.iconj.com/gif_icon.php?pid=f3tqyum2g6"
+	type="image/gif" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/js/design.js"></script>
 
 <!-- カレンダー機能 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" >
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+<link rel="stylesheet"
+	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css">
 
 <script>
-  $(function() {
-    $("#datepicker").datepicker();
-  });
+	$(function() {
+		$("#datepicker").datepicker();
+	});
 </script>
 <script>
-  $(function() {
-    $("#datepicker2").datepicker();
-  });
+	$(function() {
+		$("#datepicker2").datepicker();
+	});
 </script>
 <script>
-  $(function(){
-	  $("#tripCost").hide();
-	  $("#button1").on("click",function(){
-		  $("#tripCost").show();
-	  })
-	  
-  })
+	$(function() {
+		$("#tripCost").hide();
+		$("#button1").on("click", function() {
+			$("#tripCost").show();
+		})
 
+	})
 </script>
+
+<!-- <script>
+	//▼①ファイル選択フォームの更新イベントに処理を追加
+	$(function() {
+
+		document.getElementById("filesend").addEventListener('change',
+				function(e) {
+					var files = e.target.files;
+					previewUserFiles(files);
+				});
+		// ▼②選択画像をプレビュー
+		function previewUserFiles(files) {
+			// 一旦リセットする
+			resetPreview();
+			// 選択中のファイル1つ1つを対象に処理する
+			for (var i = 0; i < files.length; i++) {
+				// i番目のファイル情報を得る
+				var file = files[i];
+				// 選択中のファイルが画像かどうかを判断
+				if (file.type.indexOf("image") < 0) {
+					/* 画像以外なら無視 */
+					continue;
+				}
+				// ファイル選択ボタンのラベルに選択個数を表示
+				document.getElementById("selectednum").innerHTML = (i + 1)
+						+ "個選択中";
+				// 画像プレビュー用のimg要素を動的に生成する
+				var img = document.createElement("img");
+				img.classList.add("previewImage");
+				img.file = file;
+				img.height = 100; // プレビュー画像の高さ
+				// 生成したimg要素を、プレビュー領域の要素に追加する
+				document.getElementById('previewbox').appendChild(img);
+				// 画像をFileReaderで非同期に読み込み、先のimg要素に紐付けする
+				var reader = new FileReader();
+				reader.onload = (function(tImg) {
+					return function(e) {
+						tImg.src = e.target.result;
+					};
+				})(img);
+				reader.readAsDataURL(file);
+			}
+		}
+		// ▼③プレビュー領域をリセット
+		function resetPreview() {
+			// プレビュー領域に含まれる要素のすべての子要素を削除する
+			var element = document.getElementById("previewbox");
+			while (element.firstChild) {
+				element.removeChild(element.firstChild);
+			}
+			// ファイル選択ボタンのラベルをデフォルト状態に戻す
+			document.getElementById("selectednum").innerHTML = "選択";
+		}
+	});
+</script>
+ -->
 
 </head>
 <body>
 
-<div class="travel"></div>
+<a th:href="@{/}" class="logo2"><span>tavikki</span></a>
 
-<div class="box17">
-<h2 style="color:#E6FFE9">旅の思い出を記録しよう！</h2>
-</div>
+	<div class="travel"></div>
 
-<div class="img"></div>
-<div class="box">
-<div class="box14">
-<div class="form-style-10">
-<form th:action="@{/registerArticle}" method="post" enctype="multipart/form-data" th:object="${articleForm}">
+	<div class="box17">
+		<h2 style="color: #E6FFE9">旅の思い出を記録しよう！</h2>
+	</div>
 
-<div class="panel-body">
+	<div class="img"></div>
+	<div class="box">
+		<div class="box14">
+			<div class="form-style-10">
+				<form th:action="@{/registerArticle}" method="post"
+					enctype="multipart/form-data" th:object="${articleForm}">
 
-
-<div th:errors="*{title}" style="color:red"></div>
-<input type="text" id="input_text" name="title" th:field="*{title}" placeholder="タイトルを入力してください"></input>
-<div class="count">
-<span class="count_num"></span>
-<span class="count_alert"></span>
-</div>
-</div>
+					<div class="panel-body">
 
 
-<div class="form-group">
-
-<div th:errors="*{name}" style="color:red"></div>
-<input type="text" id="input-name" name="name" th:field="*{name}"  placeholder="投稿者名を入力してください"><br>
-</div>
-
-
-<div th:errors="*{prefecture}" style="color:red"></div>
-<select name="prefecture" th:field="*{prefecture}" style="width:230px" >
-<option value="">都道府県を選択してください</option>
-<option value="北海道">北海道</option>
-<option value="青森">青森</option>
-<option value="岩手">岩手</option>
-<option value="宮城">宮城</option>
-<option value="秋田">秋田</option>
-<option value="山形">山形</option>
-<option value="福島">福島</option>
-<option value="茨城">茨城</option>
-<option value="栃木">栃木</option>
-<option value="群馬">群馬</option>
-<option value="埼玉">埼玉</option>
-<option value="千葉">千葉</option>
-<option value="東京">東京</option>
-<option value="神奈川">神奈川</option>
-<option value="新潟">新潟</option>
-<option value="富山">富山</option>
-<option value="石川">石川</option>
-<option value="福井">福井</option>
-<option value="山梨">山梨</option>
-<option value="長野">長野</option>
-<option value="岐阜">岐阜</option>
-<option value="静岡">静岡</option>
-<option value="愛知">愛知</option>
-<option value="三重">三重</option>
-<option value="滋賀">滋賀</option>
-<option value="京都">京都</option>
-<option value="大阪">大阪</option>
-<option value="兵庫">兵庫</option>
-<option value="奈良">奈良</option>
-<option value="和歌山">和歌山</option>
-<option value="鳥取">鳥取</option>
-<option value="島根">島根</option>
-<option value="岡山">岡山</option>
-<option value="広島">広島</option>
-<option value="山口">山口</option>
-<option value="徳島">徳島</option>
-<option value="香川">香川</option>
-<option value="愛媛">愛媛</option>
-<option value="高知">高知</option>
-<option value="福岡">福岡</option>
-<option value="佐賀">佐賀</option>
-<option value="長崎">長崎</option>
-<option value="熊本">熊本</option>
-<option value="大分">大分</option>
-<option value="宮崎">宮崎</option>
-<option value="鹿児島">鹿児島</option>
-<option value="沖縄">沖縄</option>
-</select>
-
-<h3 id="gazou">画像アップロード</h3>
-<div class="orange">
-<label >
-<span class="filelabel" title="ファイルを選択">
-   <img src="../img/camera-orange-rev.png" width="32" height="26" alt="＋画像">
-   選択
-</span>
-<input type="file"  id="filesend" name="imagePath" ><br>
-</label>
-</div>
-<br>
+						<div th:errors="*{title}" style="color: red"></div>
+						<input type="text" id="input_text" name="title"
+							th:field="*{title}" placeholder="タイトルを入力してください"></input>
+						<div class="count">
+							<span class="count_num"></span> <span class="count_alert"></span>
+						</div>
+					</div>
 
 
-<input type="text" class="start" id="datepicker" name="tripStartDate"  placeholder="旅行開始日を選択してください"><h2 id="mark">~</h2>
-<input type="text" class="end" id="datepicker2" name="tripEndDate"  placeholder="旅行終了日を選択してください">
-<br>
+					<div class="form-group">
+
+						<div th:errors="*{name}" style="color: red"></div>
+						<input type="text" id="input-name" name="name" th:field="*{name}"
+							placeholder="投稿者名を入力してください"><br>
+					</div>
 
 
-<div th:errors="*{content}" style="color:red"></div>
-<textarea name="content" rows="20" cols="30" th:field="*{content}" placeholder="投稿内容を入力してください"></textarea><br>
-<br>
-<input type="submit" value="この内容で投稿する" id="button">
+					<div th:errors="*{prefecture}" style="color: red"></div>
+					<select name="prefecture" th:field="*{prefecture}"
+						style="width: 230px">
+						<option value="">都道府県を選択してください</option>
+						<option value="北海道">北海道</option>
+						<option value="青森">青森</option>
+						<option value="岩手">岩手</option>
+						<option value="宮城">宮城</option>
+						<option value="秋田">秋田</option>
+						<option value="山形">山形</option>
+						<option value="福島">福島</option>
+						<option value="茨城">茨城</option>
+						<option value="栃木">栃木</option>
+						<option value="群馬">群馬</option>
+						<option value="埼玉">埼玉</option>
+						<option value="千葉">千葉</option>
+						<option value="東京">東京</option>
+						<option value="神奈川">神奈川</option>
+						<option value="新潟">新潟</option>
+						<option value="富山">富山</option>
+						<option value="石川">石川</option>
+						<option value="福井">福井</option>
+						<option value="山梨">山梨</option>
+						<option value="長野">長野</option>
+						<option value="岐阜">岐阜</option>
+						<option value="静岡">静岡</option>
+						<option value="愛知">愛知</option>
+						<option value="三重">三重</option>
+						<option value="滋賀">滋賀</option>
+						<option value="京都">京都</option>
+						<option value="大阪">大阪</option>
+						<option value="兵庫">兵庫</option>
+						<option value="奈良">奈良</option>
+						<option value="和歌山">和歌山</option>
+						<option value="鳥取">鳥取</option>
+						<option value="島根">島根</option>
+						<option value="岡山">岡山</option>
+						<option value="広島">広島</option>
+						<option value="山口">山口</option>
+						<option value="徳島">徳島</option>
+						<option value="香川">香川</option>
+						<option value="愛媛">愛媛</option>
+						<option value="高知">高知</option>
+						<option value="福岡">福岡</option>
+						<option value="佐賀">佐賀</option>
+						<option value="長崎">長崎</option>
+						<option value="熊本">熊本</option>
+						<option value="大分">大分</option>
+						<option value="宮崎">宮崎</option>
+						<option value="鹿児島">鹿児島</option>
+						<option value="沖縄">沖縄</option>
+					</select>
 
-<input type="button" value="旅費入力をする" id="button1">
-
-<div class="tripCost" id="tripCost">
-<div class="transport">
-交通手段<br>
-<input type="checkbox" name="transportation"  th:value="車">車
-<input type="checkbox" name="transportation" th:value="バス">バス
-<input type="checkbox" name="transportation"  th:value="電車">電車
-<input type="checkbox" name="transportation" th:value="飛行機">飛行機
-</div><br>
-
-<div class="fare">
-<input type="text" name="fare" placeholder="交通費を入力してください 　　  (円)" id="travelCost"><br>
-</div>
-
-<div class="hotelName">
-<input type="text" name="hotelName" placeholder="ホテル名を入力してください" id="travelCost"><br>
-</div>
-
-<div class="hotelFee">
-<input type="text" name="hotelFee" placeholder="ホテル代を入力してください　   (円)" id="travelCost"><br>
-</div>
-
-<div class="mealFee">
-<input type="text" name="mealFee" placeholder="食事代を入力してください　　   (円)" id="travelCost"><br>
-</div>
-
-<div class="otherAmount">
-<input type="text" name="otherAmount" placeholder="その他費用を入力してください　(円)" id="travelCost"><br>
-</div>
-
-<div class="totalFee">
-<input type="text" name="totalFee" placeholder="合計金額を入力してください　　(円)" id="travelCost"><br>
-</div>
-</div>
+					<h3 id="gazou">画像アップロード</h3>
+					<div class="orange">
+						<p>
+							<label> <span class="filelabel" title="ファイルを選択"> <img
+									src="../img/camera-orange-rev.png" width="32" height="26"
+									alt="＋画像"> <span id="selectednum">選択</span>
+							</span> <input type="file" name="imagePath" id="filesend" multiple
+								accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+							</label> <span id="previewbox"></span>
+							<!-- <input type="reset" value="Reset" 
+								onclick="resetPreview();"> -->
+							<!-- ※これはリセットボタン(省略可) -->
+						</p>
+					</div>
+					<br> <input type="text" class="start" id="datepicker"
+						name="tripStartDate" placeholder="旅行開始日を選択してください">
+					<h2 id="mark">~</h2>
+					<input type="text" class="end" id="datepicker2" name="tripEndDate"
+						placeholder="旅行終了日を選択してください"> <br>
 
 
-</form>
-</div>
-</div>
-</div>
+					<div th:errors="*{content}" style="color: red"></div>
+					<textarea name="content" rows="20" cols="30" th:field="*{content}"
+						placeholder="投稿内容を入力してください"></textarea>
+					<br> <br> <input type="submit" value="この内容で投稿する"
+						id="button"> <input type="button" value="旅費入力をする"
+						id="button1">
+
+					<div class="tripCost" id="tripCost">
+						<div class="transport">
+							交通手段<br> <input type="checkbox" name="transportation"
+								th:value="車">車 <input type="checkbox"
+								name="transportation" th:value="バス">バス <input
+								type="checkbox" name="transportation" th:value="電車">電車 <input
+								type="checkbox" name="transportation" th:value="飛行機">飛行機
+						</div>
+						<br>
+
+						<div class="fare">
+							<input type="number" name="fare"
+								placeholder="交通費を入力してください 　　  (円)" id="travelCost1"
+								class='txtCal'><br>
+						</div>
+
+						<div class="hotelName">
+							<input type="text" name="hotelName" placeholder="ホテル名を入力してください"
+								id="travelCost2" class='txtCal'><br>
+						</div>
+
+						<div class="hotelFee">
+							<input type="number" name="hotelFee"
+								placeholder="ホテル代を入力してください　   (円)" id="travelCost3"
+								class='txtCal'><br>
+						</div>
+
+						<div class="mealFee">
+							<input type="number" name="mealFee"
+								placeholder="食事代を入力してください　　   (円)" id="travelCost4"
+								class='txtCal'><br>
+						</div>
+
+						<div class="otherAmount">
+							<input type="number" name="otherAmount"
+								placeholder="その他費用を入力してください　(円)" id="travelCost5" class='txtCal'><br>
+						</div>
+
+						<div class="totalFee">
+							<input type="hidden" name="totalFee"> 合計金額 : <span
+								id="travelCost6" class="total_sum_value"></span>円<br>
+						</div>
+					</div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(function() {
+			calc_price();
+			$("input[type=number]").change(function() {
+				calc_price();
+			});
+			function calc_price() {
+				var t1 = parseInt($("#travelCost1").val()) || 0;
+				var t3 = parseInt($("#travelCost3").val()) || 0;
+				var t4 = parseInt($("#travelCost4").val()) || 0;
+				var t5 = parseInt($("#travelCost5").val()) || 0;
+				var total = t1 + t3 + t4 + t5;
+				$("#travelCost6").text(total.toLocaleString());
+				$('input[name=totalFee]').val(total);
+			}
+			;
+		});
+	</script>
+
 </body>
 </html>

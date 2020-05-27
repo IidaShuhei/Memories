@@ -10,41 +10,43 @@
 	type="image/gif" />
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
 <link th:href="@{/css/japanMap.css}" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body style="background-image: url('/img/futa.jpeg'); background-size: cover">
 
 	<div class="block">
 		<div class="loginDesign">
 
-			<form th:action="@{/login/Tologin}" method="post"
-				th:object="${loginForm}">
+			<form th:action="@{/doLogin}" method="post">
 
 				<!-- タイトル横の写真 -->
-				<a class="navbar-brand" th:href="@{/}"><img
-					th:src="@{/img/logo.png}" class="logoL"></a> <br><br><br>
+				<a th:href="@{/}" class="logo2"><span>tavikki</span></a> <br><br><br>
 				<h2 style="font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif; margin-top:50px; margin-left: 193px;">ログイン</h2>
 				<br>
 
 				<div class="LoginBottons">
 				
-				<div th:if="${fail}" th:text="${fail}" style="color: red"></div>
 
-				<div th:errors="*{email}" style="color: red"></div>
-				<div>メールアドレス：</div>
-				<input type="email" name="email" th:field="*{email}"
-					style="width: 70%; border-radius: 6px"><br>
+				<div th:if="${errorMessage}">
+				<p th:text="${errorMessage}">パスワードが間違っています</p>
+				</div>
+
+				メールアドレス：<span id="err"></span><br>
+				<input type="email" name="email" 
+					style="width: 70%; border-radius: 6px" id="loginEmail"><br>
 				<br><br>
 
-				<div th:errors="*{password}" style="color: red"></div>
-				パスワード ：<br> <input type="password" name="password"
-					th:field="*{password}" style="width: 70%; border-radius: 6px"><br>
+				<!-- <div th:errors="*{password}" style="color: red"></div> -->
+				パスワード ：<span th:if="${errorMessage}"> <span th:text="${errorMessage}" style = "color:red"></span></span><br> <input type="password" name="password"
+					 style="width: 70%; border-radius: 6px" id="loginPass"><br>
 				<br>
 				<br>
 				
 				</div>
 
 				<div class="loginButton">
-					<button class="cd_btn">
+					<button class="cd_btn" id="login" disabled="disabled">
 						<h5>ログイン</h5>
 					</button>
 				</div>
@@ -73,5 +75,6 @@
 
 		</div>
 	</div>
+	<script src="../js/loginValidation.js"></script>
 </body>
 </html>

@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{/css/back.css}" rel="stylesheet">
+<link th:href="@{/css/japanMap.css}" rel="stylesheet">
+<link th:href="@{/css/fukuoka.css}" rel="stylesheet">
 <link rel="shortcut icon" href="http://www.iconj.com/ico/f/1/f1dfg326hh.ico" type="image/x-icon" />
 </head>
 <body>
@@ -11,14 +13,15 @@
 <div class="searchBYprefecture">
 <h2>福岡県の記事</h2>
 </div>
-<div class="back"></div>
+<div class="backFukuoka">
+<img th:src="@{/img/fukuoka.jpg}" class="fukuoka"></div>
 
 <div class="row">
 		<div>
-			<div class="table-responsive col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-10 col-xs-12" style="background-color: white;">
+			<div class="styleArticle" style="border-style: none;">
 				<table class="table table-striped">
 					<tbody>
-						<tr th:each="fukuoka : ${fukuokaList}" class="col-md-4" style="height: 320px;">
+						<tr th:each="fukuoka : ${fukuokaList}" style="height: 320px;padding-top:200px;padding-left: 100px;">
 							<th><a th:href="@{'/showArticleDetail?id='+${fukuoka.id}}"> 
 							<img th:src="${fukuoka.imagePath}" class="img-responsive img-rounded" width="200" height="230"></a><br> 
 							<a th:href="@{'/showArticleDetail?id='+${fukuoka.id}}"> 
