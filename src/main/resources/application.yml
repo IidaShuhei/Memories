@@ -1,9 +1,28 @@
+
+#spring:
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/student
+#    username: postgres
+#    password: postgres
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: rakus.yahoo@gmail.com
+#    password: Pokemon55!!!
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+            
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/student
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://puvebezeurisct:70c9231310bbafea037452b8fd6eed5b5844c9de4285b94dd939c09073bab98b@ec2-52-87-135-240.compute-1.amazonaws.com:5432/d7hdr4gpde1s39
+    username: puvebezeurisct
+    password: 70c9231310bbafea037452b8fd6eed5b5844c9de4285b94dd939c09073bab98b
   mail:
     host: smtp.gmail.com
     port: 587
