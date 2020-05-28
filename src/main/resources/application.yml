@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://puvebezeurisct:70c9231310bbafea037452b8fd6eed5b5844c9de4285b94dd939c09073bab98b@ec2-52-87-135-240.compute-1.amazonaws.com:5432/d7hdr4gpde1s39
+    url: spring.datasource.url=jdbc:postgresql://ec2-52-87-135-240.compute-1.amazonaws.com:5432/d7hdr4gpde1s39?sslmode=require
     username: puvebezeurisct
     password: 70c9231310bbafea037452b8fd6eed5b5844c9de4285b94dd939c09073bab98b
   mail:
